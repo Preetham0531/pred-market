@@ -1,0 +1,48 @@
+[project]
+name = "pred-market-backend"
+version = "0.1.0"
+description = "FastAPI backend for Pred-Market V1 phases 1-6."
+requires-python = ">=3.11"
+dependencies = [
+  "alembic>=1.17.0",
+  "argon2-cffi>=25.1.0",
+  "email-validator>=2.3.0",
+  "fastapi>=0.125.0",
+  "psycopg[binary]>=3.3.0",
+  "PyJWT>=2.10.0",
+  "pydantic-settings>=2.12.0",
+  "redis>=7.1.0",
+  "sqlalchemy>=2.0.45",
+  "uvicorn[standard]>=0.38.0"
+]
+
+[dependency-groups]
+dev = [
+  "httpx>=0.28.0",
+  "pytest>=9.0.0",
+  "pytest-cov>=7.0.0"
+]
+
+[project.optional-dependencies]
+dev = [
+  "httpx>=0.28.0",
+  "pytest>=9.0.0",
+  "pytest-cov>=7.0.0"
+]
+
+[build-system]
+requires = ["setuptools>=80.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+exclude = ["alembic*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"

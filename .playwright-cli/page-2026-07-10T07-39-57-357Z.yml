@@ -1,0 +1,56 @@
+- generic [active] [ref=f4e1]:
+  - generic [ref=f4e3]:
+    - complementary [ref=f4e4]:
+      - link "PM Pred-Market Calm trading terminal" [ref=f4e5] [cursor=pointer]:
+        - /url: /markets
+        - generic [ref=f4e6]: PM
+        - generic [ref=f4e7]:
+          - generic [ref=f4e8]: Pred-Market
+          - generic [ref=f4e9]: Calm trading terminal
+      - generic [ref=f4e10]:
+        - link "Markets" [ref=f4e11] [cursor=pointer]:
+          - /url: /markets
+        - link "Watchlist" [ref=f4e16] [cursor=pointer]:
+          - /url: /watchlist
+        - link "Portfolio" [ref=f4e20] [cursor=pointer]:
+          - /url: /portfolio
+        - link "Orders" [ref=f4e26] [cursor=pointer]:
+          - /url: /orders
+        - link "Wallet" [ref=f4e31] [cursor=pointer]:
+          - /url: /wallet
+        - link "Suggest" [ref=f4e36] [cursor=pointer]:
+          - /url: /markets/suggest
+        - link "Admin" [ref=f4e41] [cursor=pointer]:
+          - /url: /admin
+      - generic [ref=f4e46]:
+        - generic [ref=f4e47]: System status
+        - generic [ref=f4e48]:
+          - generic [ref=f4e49]: Realtime feed
+          - generic [ref=f4e50]: Live
+        - paragraph [ref=f4e51]: API mode supports live backend data; mock mode remains available for local review.
+    - generic [ref=f4e52]:
+      - banner [ref=f4e53]:
+        - generic [ref=f4e54]:
+          - navigation "Breadcrumb" [ref=f4e56]:
+            - list [ref=f4e57]:
+              - listitem [ref=f4e58]:
+                - link "Markets" [ref=f4e59] [cursor=pointer]:
+                  - /url: /markets
+              - listitem [ref=f4e60]:
+                - link "Sports" [ref=f4e63] [cursor=pointer]:
+                  - /url: /categories/sports
+              - listitem [ref=f4e64]:
+                - generic [ref=f4e67]: Cricket
+              - listitem [ref=f4e68]:
+                - generic [ref=f4e71]: Will India beat Australia in the next T20 final?
+          - button "Search markets Ctrl K" [ref=f4e72] [cursor=pointer]:
+            - text: Search markets
+            - generic [ref=f4e76]: Ctrl K
+          - generic [ref=f4e77]:
+            - link "Sign in" [ref=f4e78] [cursor=pointer]:
+              - /url: /sign-in
+            - link "Create account" [ref=f4e79] [cursor=pointer]:
+              - /url: /sign-up
+      - main [ref=f4e80]:
+        - generic [ref=f4e81]: Loading market...
+  - alert [ref=f4e82]

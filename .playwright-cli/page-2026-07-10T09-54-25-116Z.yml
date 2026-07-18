@@ -1,0 +1,22 @@
+- generic [active] [ref=f17e1]:
+  - generic [ref=f17e2]:
+    - generic [ref=f17e4]:
+      - banner [ref=f17e5]:
+        - navigation "Breadcrumb" [ref=f17e8]:
+          - list [ref=f17e9]:
+            - listitem [ref=f17e10]:
+              - generic [ref=f17e11]: Markets
+      - main [ref=f17e13]
+    - navigation [ref=f17e49]:
+      - generic [ref=f17e50]:
+        - link "Markets" [ref=f17e51] [cursor=pointer]:
+          - /url: /markets
+        - link "Watchlist" [ref=f17e56] [cursor=pointer]:
+          - /url: /watchlist
+        - link "Portfolio" [ref=f17e60] [cursor=pointer]:
+          - /url: /portfolio
+        - link "Orders" [ref=f17e66] [cursor=pointer]:
+          - /url: /orders
+        - link "Wallet" [ref=f17e71] [cursor=pointer]:
+          - /url: /wallet
+  - alert [ref=f17e76]

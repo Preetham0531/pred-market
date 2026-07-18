@@ -1,0 +1,46 @@
+- generic [active] [ref=f9e1]:
+  - generic [ref=f9e3]:
+    - complementary [ref=f9e4]:
+      - link "PM Pred-Market Calm trading terminal" [ref=f9e5] [cursor=pointer]:
+        - /url: /markets
+        - generic [ref=f9e6]: PM
+        - generic [ref=f9e7]:
+          - generic [ref=f9e8]: Pred-Market
+          - generic [ref=f9e9]: Calm trading terminal
+      - generic [ref=f9e10]:
+        - link "Markets" [ref=f9e11] [cursor=pointer]:
+          - /url: /markets
+        - link "Watchlist" [ref=f9e16] [cursor=pointer]:
+          - /url: /watchlist
+        - link "Portfolio" [ref=f9e20] [cursor=pointer]:
+          - /url: /portfolio
+        - link "Orders" [ref=f9e26] [cursor=pointer]:
+          - /url: /orders
+        - link "Wallet" [ref=f9e31] [cursor=pointer]:
+          - /url: /wallet
+        - link "Suggest" [ref=f9e36] [cursor=pointer]:
+          - /url: /markets/suggest
+        - link "Admin" [ref=f9e41] [cursor=pointer]:
+          - /url: /admin
+      - generic [ref=f9e46]:
+        - generic [ref=f9e47]: System status
+        - generic [ref=f9e48]:
+          - generic [ref=f9e49]: Data mode
+          - generic [ref=f9e50]: API
+        - generic [ref=f9e51]: http://localhost:8010
+        - generic [ref=f9e52]:
+          - generic [ref=f9e53]: "Local QA note:"
+          - text: "use `NEXT_PUBLIC_USE_MOCK_DATA=true` for populated visual review, or start the seeded FastAPI backend for integration review."
+    - generic [ref=f9e58]:
+      - banner [ref=f9e59]:
+        - generic [ref=f9e60]:
+          - navigation "Breadcrumb" [ref=f9e62]:
+            - list [ref=f9e63]:
+              - listitem [ref=f9e64]:
+                - generic [ref=f9e65]: Markets
+          - button "Search markets Ctrl K" [ref=f9e66] [cursor=pointer]:
+            - text: Search markets
+            - generic [ref=f9e70]: Ctrl K
+      - main [ref=f9e72]
+  - button "Open Next.js Dev Tools" [ref=f9e115] [cursor=pointer]
+  - alert [ref=f9e119]

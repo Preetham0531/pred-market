@@ -1,0 +1,241 @@
+- generic [active] [ref=f5e1]:
+  - generic [ref=f5e2]:
+    - generic [ref=f5e42]:
+      - banner [ref=f5e43]:
+        - generic [ref=f5e44]:
+          - navigation "Breadcrumb" [ref=f5e46]:
+            - list [ref=f5e47]:
+              - listitem [ref=f5e48]:
+                - generic [ref=f5e49]: Markets
+          - button "Notifications" [ref=f5e50] [cursor=pointer]
+          - button "Open profile menu" [ref=f5e54]: DT
+      - main [ref=f5e55]:
+        - generic [ref=f5e56]:
+          - generic [ref=f5e57]:
+            - generic [ref=f5e58]:
+              - generic [ref=f5e59]: Search markets
+              - textbox "Search markets" [ref=f5e61]:
+                - /placeholder: Market, team, source
+            - generic [ref=f5e62]:
+              - button "All" [ref=f5e63] [cursor=pointer]
+              - button "Commodities" [ref=f5e64] [cursor=pointer]
+              - button "Culture" [ref=f5e65] [cursor=pointer]
+              - button "Economics" [ref=f5e66] [cursor=pointer]
+              - button "Financials" [ref=f5e67] [cursor=pointer]
+              - button "Mentions" [ref=f5e68] [cursor=pointer]
+              - button "Politics" [ref=f5e69] [cursor=pointer]
+              - button "Sports" [ref=f5e70] [cursor=pointer]
+              - button "Stocks" [ref=f5e71] [cursor=pointer]
+              - button "Tech" [ref=f5e72] [cursor=pointer]
+              - button "Weather" [ref=f5e73] [cursor=pointer]
+            - generic [ref=f5e74]: 5 matching markets
+          - generic [ref=f5e77]:
+            - generic [ref=f5e79]:
+              - generic [ref=f5e80]:
+                - heading "Exchange board" [level=1] [ref=f5e81]
+                - paragraph [ref=f5e82]: Scan contracts by liquidity, close time, probability movement, and spread.
+              - generic [ref=f5e83]:
+                - generic [ref=f5e84]: 5 markets
+                - generic [ref=f5e85]: Source visible
+            - generic [ref=f5e86]:
+              - generic [ref=f5e87]: Sorted by trending
+              - generic [ref=f5e89]: Comparing source, liquidity, spread, and close time
+            - generic [ref=f5e93]:
+              - 'link "Open Conditional Will a frontier AI lab release a new public model before October? Tech Sep 30, 2026 23:59 UTC Source: Official company announcement 64 YES price +4.2% YES 64 64% NO 36 36% 24h volume 31L Liquidity 42L Spread 2 pts" [ref=f5e94] [cursor=pointer]':
+                - /url: /markets/ai-model-release
+                - generic [ref=f5e95]:
+                  - generic [ref=f5e101]:
+                    - generic [ref=f5e102]:
+                      - generic [ref=f5e103]: Open
+                      - generic [ref=f5e104]: Conditional
+                    - heading "Will a frontier AI lab release a new public model before October?" [level=3] [ref=f5e105]
+                    - generic [ref=f5e106]:
+                      - generic [ref=f5e107]: Tech
+                      - generic [ref=f5e108]: Sep 30, 2026 23:59 UTC
+                      - generic [ref=f5e112]: "Source: Official company announcement"
+                  - generic [ref=f5e117]:
+                    - generic [ref=f5e118]: "64"
+                    - generic [ref=f5e119]: YES price
+                    - generic [ref=f5e120]: +4.2%
+                - generic [ref=f5e124]:
+                  - generic [ref=f5e125]:
+                    - generic [ref=f5e127]:
+                      - generic [ref=f5e128]: "YES"
+                      - generic [ref=f5e129]: "64"
+                    - generic [ref=f5e132]: 64%
+                  - generic [ref=f5e133]:
+                    - generic [ref=f5e135]:
+                      - generic [ref=f5e136]: "NO"
+                      - generic [ref=f5e137]: "36"
+                    - generic [ref=f5e140]: 36%
+                - generic [ref=f5e141]:
+                  - generic [ref=f5e142]:
+                    - generic [ref=f5e143]: 24h volume
+                    - generic [ref=f5e144]: 31L
+                  - generic [ref=f5e145]:
+                    - generic [ref=f5e146]: Liquidity
+                    - generic [ref=f5e150]: 42L
+                  - generic [ref=f5e151]:
+                    - generic [ref=f5e152]: Spread
+                    - generic [ref=f5e153]: 2 pts
+              - 'link "Open Binary Will India beat Australia in the next T20 final? Sports Jul 18, 2026 18:30 IST Source: Official tournament result 56 YES price +3.8% YES 56 56% NO 44 44% 24h volume 21.4L Liquidity 34L Spread 2 pts" [ref=f5e154] [cursor=pointer]':
+                - /url: /markets/ind-aus-final
+                - generic [ref=f5e155]:
+                  - generic [ref=f5e164]:
+                    - generic [ref=f5e165]:
+                      - generic [ref=f5e166]: Open
+                      - generic [ref=f5e167]: Binary
+                    - heading "Will India beat Australia in the next T20 final?" [level=3] [ref=f5e168]
+                    - generic [ref=f5e169]:
+                      - generic [ref=f5e170]: Sports
+                      - generic [ref=f5e171]: Jul 18, 2026 18:30 IST
+                      - generic [ref=f5e175]: "Source: Official tournament result"
+                  - generic [ref=f5e180]:
+                    - generic [ref=f5e181]: "56"
+                    - generic [ref=f5e182]: YES price
+                    - generic [ref=f5e183]: +3.8%
+                - generic [ref=f5e187]:
+                  - generic [ref=f5e188]:
+                    - generic [ref=f5e190]:
+                      - generic [ref=f5e191]: "YES"
+                      - generic [ref=f5e192]: "56"
+                    - generic [ref=f5e195]: 56%
+                  - generic [ref=f5e196]:
+                    - generic [ref=f5e198]:
+                      - generic [ref=f5e199]: "NO"
+                      - generic [ref=f5e200]: "44"
+                    - generic [ref=f5e203]: 44%
+                - generic [ref=f5e204]:
+                  - generic [ref=f5e205]:
+                    - generic [ref=f5e206]: 24h volume
+                    - generic [ref=f5e207]: 21.4L
+                  - generic [ref=f5e208]:
+                    - generic [ref=f5e209]: Liquidity
+                    - generic [ref=f5e213]: 34L
+                  - generic [ref=f5e214]:
+                    - generic [ref=f5e215]: Spread
+                    - generic [ref=f5e216]: 2 pts
+              - 'link "Open Threshold Will the next CPI release be above 4.0 percent? Economics Aug 12, 2026 09:00 UTC Source: Official statistics release 49 YES price -2.1% YES 49 49% NO 51 51% 24h volume 18.6L Liquidity 25L Spread 3 pts" [ref=f5e217] [cursor=pointer]':
+                - /url: /markets/cpi-above-4
+                - generic [ref=f5e218]:
+                  - generic [ref=f5e224]:
+                    - generic [ref=f5e225]:
+                      - generic [ref=f5e226]: Open
+                      - generic [ref=f5e227]: Threshold
+                    - heading "Will the next CPI release be above 4.0 percent?" [level=3] [ref=f5e228]
+                    - generic [ref=f5e229]:
+                      - generic [ref=f5e230]: Economics
+                      - generic [ref=f5e231]: Aug 12, 2026 09:00 UTC
+                      - generic [ref=f5e235]: "Source: Official statistics release"
+                  - generic [ref=f5e240]:
+                    - generic [ref=f5e241]: "49"
+                    - generic [ref=f5e242]: YES price
+                    - generic [ref=f5e243]: "-2.1%"
+                - generic [ref=f5e247]:
+                  - generic [ref=f5e248]:
+                    - generic [ref=f5e250]:
+                      - generic [ref=f5e251]: "YES"
+                      - generic [ref=f5e252]: "49"
+                    - generic [ref=f5e255]: 49%
+                  - generic [ref=f5e256]:
+                    - generic [ref=f5e258]:
+                      - generic [ref=f5e259]: "NO"
+                      - generic [ref=f5e260]: "51"
+                    - generic [ref=f5e263]: 51%
+                - generic [ref=f5e264]:
+                  - generic [ref=f5e265]:
+                    - generic [ref=f5e266]: 24h volume
+                    - generic [ref=f5e267]: 18.6L
+                  - generic [ref=f5e268]:
+                    - generic [ref=f5e269]: Liquidity
+                    - generic [ref=f5e273]: 25L
+                  - generic [ref=f5e274]:
+                    - generic [ref=f5e275]: Spread
+                    - generic [ref=f5e276]: 3 pts
+              - 'link "Open Threshold Will gold settle above 2500 by month end? Commodities Jul 31, 2026 21:00 UTC Source: Approved benchmark settlement price 61 YES price +1.4% YES 61 61% NO 39 39% 24h volume 17.2L Liquidity 18L Spread 2.5 pts" [ref=f5e277] [cursor=pointer]':
+                - /url: /markets/gold-above-2500
+                - generic [ref=f5e278]:
+                  - generic [ref=f5e284]:
+                    - generic [ref=f5e285]:
+                      - generic [ref=f5e286]: Open
+                      - generic [ref=f5e287]: Threshold
+                    - heading "Will gold settle above 2500 by month end?" [level=3] [ref=f5e288]
+                    - generic [ref=f5e289]:
+                      - generic [ref=f5e290]: Commodities
+                      - generic [ref=f5e291]: Jul 31, 2026 21:00 UTC
+                      - generic [ref=f5e295]: "Source: Approved benchmark settlement price"
+                  - generic [ref=f5e300]:
+                    - generic [ref=f5e301]: "61"
+                    - generic [ref=f5e302]: YES price
+                    - generic [ref=f5e303]: +1.4%
+                - generic [ref=f5e307]:
+                  - generic [ref=f5e308]:
+                    - generic [ref=f5e310]:
+                      - generic [ref=f5e311]: "YES"
+                      - generic [ref=f5e312]: "61"
+                    - generic [ref=f5e315]: 61%
+                  - generic [ref=f5e316]:
+                    - generic [ref=f5e318]:
+                      - generic [ref=f5e319]: "NO"
+                      - generic [ref=f5e320]: "39"
+                    - generic [ref=f5e323]: 39%
+                - generic [ref=f5e324]:
+                  - generic [ref=f5e325]:
+                    - generic [ref=f5e326]: 24h volume
+                    - generic [ref=f5e327]: 17.2L
+                  - generic [ref=f5e328]:
+                    - generic [ref=f5e329]: Liquidity
+                    - generic [ref=f5e333]: 18L
+                  - generic [ref=f5e334]:
+                    - generic [ref=f5e335]: Spread
+                    - generic [ref=f5e336]: 2.5 pts
+              - 'link "Open Binary Will Bengaluru receive more than 20 mm rain tomorrow? Weather Jul 10, 2026 00:00 IST Source: Approved weather station report 42 YES price -1.2% YES 42 42% NO 58 58% 24h volume 7.6L Liquidity 9.8L Spread 4 pts" [ref=f5e337] [cursor=pointer]':
+                - /url: /markets/bengaluru-rain-20mm
+                - generic [ref=f5e338]:
+                  - generic [ref=f5e346]:
+                    - generic [ref=f5e347]:
+                      - generic [ref=f5e348]: Open
+                      - generic [ref=f5e349]: Binary
+                    - heading "Will Bengaluru receive more than 20 mm rain tomorrow?" [level=3] [ref=f5e350]
+                    - generic [ref=f5e351]:
+                      - generic [ref=f5e352]: Weather
+                      - generic [ref=f5e353]: Jul 10, 2026 00:00 IST
+                      - generic [ref=f5e357]: "Source: Approved weather station report"
+                  - generic [ref=f5e362]:
+                    - generic [ref=f5e363]: "42"
+                    - generic [ref=f5e364]: YES price
+                    - generic [ref=f5e365]: "-1.2%"
+                - generic [ref=f5e369]:
+                  - generic [ref=f5e370]:
+                    - generic [ref=f5e372]:
+                      - generic [ref=f5e373]: "YES"
+                      - generic [ref=f5e374]: "42"
+                    - generic [ref=f5e377]: 42%
+                  - generic [ref=f5e378]:
+                    - generic [ref=f5e380]:
+                      - generic [ref=f5e381]: "NO"
+                      - generic [ref=f5e382]: "58"
+                    - generic [ref=f5e385]: 58%
+                - generic [ref=f5e386]:
+                  - generic [ref=f5e387]:
+                    - generic [ref=f5e388]: 24h volume
+                    - generic [ref=f5e389]: 7.6L
+                  - generic [ref=f5e390]:
+                    - generic [ref=f5e391]: Liquidity
+                    - generic [ref=f5e395]: 9.8L
+                  - generic [ref=f5e396]:
+                    - generic [ref=f5e397]: Spread
+                    - generic [ref=f5e398]: 4 pts
+    - navigation [ref=f5e399]:
+      - generic [ref=f5e400]:
+        - link "Markets" [ref=f5e401] [cursor=pointer]:
+          - /url: /markets
+        - link "Watchlist" [ref=f5e406] [cursor=pointer]:
+          - /url: /watchlist
+        - link "Portfolio" [ref=f5e410] [cursor=pointer]:
+          - /url: /portfolio
+        - link "Orders" [ref=f5e416] [cursor=pointer]:
+          - /url: /orders
+        - link "Wallet" [ref=f5e421] [cursor=pointer]:
+          - /url: /wallet
+  - alert [ref=f5e40]

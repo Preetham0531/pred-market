@@ -1,0 +1,23 @@
+- generic [active] [ref=f13e1]:
+  - generic [ref=f13e2]:
+    - generic [ref=f13e4]:
+      - banner [ref=f13e5]:
+        - navigation "Breadcrumb" [ref=f13e8]:
+          - list [ref=f13e9]:
+            - listitem [ref=f13e10]:
+              - generic [ref=f13e11]: Admin/markets/a6e04d67 2566 406c 9497 Ddb8f739cd4d
+      - main [ref=f13e13]:
+        - generic [ref=f13e14]: Loading review...
+    - navigation [ref=f13e15]:
+      - generic [ref=f13e16]:
+        - link "Markets" [ref=f13e17] [cursor=pointer]:
+          - /url: /markets
+        - link "Watchlist" [ref=f13e22] [cursor=pointer]:
+          - /url: /watchlist
+        - link "Portfolio" [ref=f13e26] [cursor=pointer]:
+          - /url: /portfolio
+        - link "Orders" [ref=f13e32] [cursor=pointer]:
+          - /url: /orders
+        - link "Wallet" [ref=f13e37] [cursor=pointer]:
+          - /url: /wallet
+  - alert [ref=f13e42]

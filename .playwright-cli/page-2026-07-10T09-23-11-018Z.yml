@@ -1,0 +1,83 @@
+- generic [active] [ref=f7e1]:
+  - generic [ref=f7e2]:
+    - generic [ref=f7e4]:
+      - banner [ref=f7e5]:
+        - navigation "Breadcrumb" [ref=f7e8]:
+          - list [ref=f7e9]:
+            - listitem [ref=f7e10]:
+              - generic [ref=f7e11]: Wallet
+      - main [ref=f7e13]:
+        - generic [ref=f7e14]:
+          - generic [ref=f7e15]:
+            - heading "Wallet" [level=1] [ref=f7e16]
+            - paragraph [ref=f7e17]: Available cash, locked funds, and ledger activity.
+          - generic [ref=f7e18]:
+            - generic [ref=f7e19]:
+              - generic [ref=f7e20]: Available
+              - generic [ref=f7e21]: ₹84,220
+            - generic [ref=f7e22]:
+              - generic [ref=f7e23]: Locked
+              - generic [ref=f7e24]: ₹9,730
+            - generic [ref=f7e25]:
+              - generic [ref=f7e26]: Total balance
+              - generic [ref=f7e27]: ₹93,950
+          - generic [ref=f7e29]:
+            - generic [ref=f7e30]:
+              - generic [ref=f7e31]:
+                - heading "Simulated deposit" [level=2] [ref=f7e32]
+                - generic [ref=f7e33]: V1 test funds
+              - paragraph [ref=f7e34]: V1 uses simulated funds only. Real deposits and withdrawals stay disabled until KYC, AML, payment provider, and legal approval are complete.
+            - generic [ref=f7e35]:
+              - textbox "Simulated deposit amount" [ref=f7e36]: "10000"
+              - button "Add funds" [ref=f7e37] [cursor=pointer]
+          - generic [ref=f7e40]:
+            - generic [ref=f7e41]: Ledger
+            - generic [ref=f7e42]:
+              - generic [ref=f7e43]:
+                - generic [ref=f7e44]: LED-3009
+                - generic [ref=f7e45]:
+                  - generic [ref=f7e46]: Deposit
+                  - generic [ref=f7e47]: Jul 9, 08:10
+                - generic [ref=f7e48]: ₹50,000
+                - generic [ref=f7e49]: Complete
+              - generic [ref=f7e50]:
+                - generic [ref=f7e51]: LED-3008
+                - generic [ref=f7e52]:
+                  - generic [ref=f7e53]: Order lock
+                  - generic [ref=f7e54]: Jul 9, 10:42
+                - generic [ref=f7e55]: "-₹2,750"
+                - generic [ref=f7e56]: Complete
+              - generic [ref=f7e57]:
+                - generic [ref=f7e58]: LED-3007
+                - generic [ref=f7e59]:
+                  - generic [ref=f7e60]: Trade collateral
+                  - generic [ref=f7e61]: Jul 9, 10:39
+                - generic [ref=f7e62]: "-₹1,410"
+                - generic [ref=f7e63]: Complete
+              - generic [ref=f7e64]:
+                - generic [ref=f7e65]: LED-3006
+                - generic [ref=f7e66]:
+                  - generic [ref=f7e67]: Order release
+                  - generic [ref=f7e68]: Jul 8, 17:05
+                - generic [ref=f7e69]: ₹1,220
+                - generic [ref=f7e70]: Complete
+              - generic [ref=f7e71]:
+                - generic [ref=f7e72]: LED-3005
+                - generic [ref=f7e73]:
+                  - generic [ref=f7e74]: Settlement credit
+                  - generic [ref=f7e75]: Jul 8, 15:22
+                - generic [ref=f7e76]: ₹8,000
+                - generic [ref=f7e77]: Pending
+    - navigation [ref=f7e78]:
+      - generic [ref=f7e79]:
+        - link "Markets" [ref=f7e80] [cursor=pointer]:
+          - /url: /markets
+        - link "Watchlist" [ref=f7e85] [cursor=pointer]:
+          - /url: /watchlist
+        - link "Portfolio" [ref=f7e89] [cursor=pointer]:
+          - /url: /portfolio
+        - link "Orders" [ref=f7e95] [cursor=pointer]:
+          - /url: /orders
+        - link "Wallet" [ref=f7e100] [cursor=pointer]:
+          - /url: /wallet
+  - alert [ref=f7e105]

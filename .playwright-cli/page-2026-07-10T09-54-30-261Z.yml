@@ -1,0 +1,59 @@
+- generic [active] [ref=f21e1]:
+  - generic [ref=f21e2]:
+    - generic [ref=f21e4]:
+      - banner [ref=f21e5]:
+        - navigation "Breadcrumb" [ref=f21e8]:
+          - list [ref=f21e9]:
+            - listitem [ref=f21e10]:
+              - generic [ref=f21e11]: Portfolio
+      - main [ref=f21e13]:
+        - generic [ref=f21e14]:
+          - generic [ref=f21e15]:
+            - heading "Portfolio" [level=1] [ref=f21e16]
+            - paragraph [ref=f21e17]: Positions, exposure, average entry, scenario payouts, and locked capital.
+          - generic [ref=f21e18]:
+            - generic [ref=f21e19]:
+              - generic [ref=f21e20]: Current value
+              - generic [ref=f21e21]: ₹0
+            - generic [ref=f21e22]:
+              - generic [ref=f21e23]: Invested
+              - generic [ref=f21e24]: ₹0
+            - generic [ref=f21e25]:
+              - generic [ref=f21e26]: Unrealized PnL
+              - generic [ref=f21e27]: ₹0
+            - generic [ref=f21e28]:
+              - generic [ref=f21e29]: Max payout
+              - generic [ref=f21e30]: ₹0
+            - generic [ref=f21e31]:
+              - generic [ref=f21e32]: Avg entry
+              - generic [ref=f21e33]: "0.0"
+            - generic [ref=f21e34]:
+              - generic [ref=f21e35]: Cash locked
+              - generic [ref=f21e36]: ₹0
+          - generic [ref=f21e37]:
+            - generic [ref=f21e38]:
+              - generic [ref=f21e39]:
+                - generic [ref=f21e40]: Open positions
+                - generic [ref=f21e41]: 0 positions / ₹0 locked
+              - generic [ref=f21e42]: Loading positions...
+            - generic [ref=f21e45]:
+              - heading "Exposure by category" [level=2] [ref=f21e46]
+              - generic [ref=f21e47]: Scenario risk
+          - generic [ref=f21e50]:
+            - generic [ref=f21e51]:
+              - heading "Scenario payout table" [level=2] [ref=f21e52]
+              - generic [ref=f21e53]: Gross payout before V1 fees
+            - generic [ref=f21e54]: No scenario exposure yet.
+    - navigation [ref=f21e56]:
+      - generic [ref=f21e57]:
+        - link "Markets" [ref=f21e58] [cursor=pointer]:
+          - /url: /markets
+        - link "Watchlist" [ref=f21e63] [cursor=pointer]:
+          - /url: /watchlist
+        - link "Portfolio" [ref=f21e67] [cursor=pointer]:
+          - /url: /portfolio
+        - link "Orders" [ref=f21e73] [cursor=pointer]:
+          - /url: /orders
+        - link "Wallet" [ref=f21e78] [cursor=pointer]:
+          - /url: /wallet
+  - alert [ref=f21e83]

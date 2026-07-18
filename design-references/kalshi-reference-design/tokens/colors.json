@@ -1,0 +1,37 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "core": {
+    "background": {
+      "value": "#000000",
+      "role": "background"
+    },
+    "accent": {
+      "value": "#28cc95",
+      "role": "accent"
+    },
+    "text-primary": {
+      "value": "#ffffff",
+      "role": "text-primary"
+    }
+  },
+  "status": {
+    "danger": {
+      "value": "#d91616",
+      "role": "danger"
+    },
+    "success": {
+      "value": "#0ac285",
+      "role": "success"
+    }
+  },
+  "extended": {
+    "color-265cff": {
+      "value": "#265cff",
+      "role": "info"
+    }
+  },
+  "meta": {
+    "theme": "dark",
+    "extracted": "2026-07-10"
+  }
+}

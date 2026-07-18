@@ -1,0 +1,21 @@
+.next/
+node_modules/
+out/
+dist/
+.turbo/
+.vercel/
+*.log
+.DS_Store
+.env
+.env.local
+coverage/
+tsconfig.tsbuildinfo
+
+# Python backend local artifacts
+backend/.venv/
+backend/.pytest_cache/
+backend/.coverage
+backend/htmlcov/
+backend/*.egg-info/
+__pycache__/
+*.py[cod]

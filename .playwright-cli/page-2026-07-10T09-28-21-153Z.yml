@@ -1,0 +1,31 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]: Exchange-style access control
+      - heading "Calm trading starts with a verified workspace." [level=1] [ref=e9]
+      - paragraph [ref=e10]: Sign in to manage positions, submit limit orders, review wallet ledger activity, and suggest markets for admin approval.
+      - generic [ref=e11]:
+        - generic [ref=e12]: HttpOnly session
+        - generic [ref=e13]: Role checks
+        - generic [ref=e14]: Simulated funds
+    - generic [ref=e15]:
+      - generic [ref=e16]:
+        - heading "Sign in" [level=2] [ref=e22]
+        - paragraph [ref=e23]: Use your Pred-Market account to continue.
+      - generic [ref=e24]:
+        - generic [ref=e25]:
+          - generic [ref=e26]: Email
+          - textbox "Email" [ref=e27]: trader@predmarket.dev
+        - generic [ref=e28]:
+          - generic [ref=e29]: Password
+          - textbox "Password" [ref=e30]: StrongPass123
+        - button "Sign in" [ref=e31] [cursor=pointer]
+      - generic [ref=e34]:
+        - button "Demo trader" [ref=e35] [cursor=pointer]
+        - button "Demo admin" [ref=e36] [cursor=pointer]
+      - generic [ref=e37]:
+        - link "Forgot password?" [ref=e38] [cursor=pointer]:
+          - /url: /forgot-password
+        - link "Create account" [ref=e39] [cursor=pointer]:
+          - /url: /sign-up
+  - alert [ref=e40]

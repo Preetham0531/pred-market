@@ -1,0 +1,87 @@
+- generic [active] [ref=f3e1]:
+  - generic [ref=f3e2]:
+    - generic [ref=f3e4]:
+      - banner [ref=f3e5]:
+        - navigation "Breadcrumb" [ref=f3e8]:
+          - list [ref=f3e9]:
+            - listitem [ref=f3e10]:
+              - generic [ref=f3e11]: Markets
+      - main [ref=f3e13]:
+        - generic [ref=f3e14]:
+          - generic [ref=f3e15]:
+            - generic [ref=f3e16]:
+              - generic [ref=f3e17]: 24h volume
+              - generic [ref=f3e18]: "0"
+              - generic [ref=f3e19]: All active categories
+            - generic [ref=f3e20]:
+              - generic [ref=f3e21]: Open markets
+              - generic [ref=f3e22]: "0"
+              - generic [ref=f3e23]: Limit orders live
+            - generic [ref=f3e24]:
+              - generic [ref=f3e25]: Avg spread
+              - generic [ref=f3e26]: 0.0 pts
+              - generic [ref=f3e27]: Across board
+            - generic [ref=f3e28]:
+              - generic [ref=f3e29]: Biggest mover
+              - generic [ref=f3e30]: 0.0%
+              - generic [ref=f3e31]: No market
+            - generic [ref=f3e32]:
+              - generic [ref=f3e33]: Deepest book
+              - generic [ref=f3e34]: "0"
+              - generic [ref=f3e35]: No market
+            - generic [ref=f3e36]:
+              - generic [ref=f3e37]: Tightest spread
+              - generic [ref=f3e38]: 0 pts
+              - generic [ref=f3e39]: No close
+          - generic [ref=f3e40]:
+            - complementary [ref=f3e41]:
+              - heading "Filters" [level=2] [ref=f3e45]
+              - generic [ref=f3e46]:
+                - generic [ref=f3e47]:
+                  - generic [ref=f3e48]: Search
+                  - textbox "Search" [ref=f3e50]:
+                    - /placeholder: Market, team, source
+                - generic [ref=f3e51]:
+                  - generic [ref=f3e52]: Category
+                  - combobox "Category" [ref=f3e53] [cursor=pointer]:
+                    - generic: All categories
+                - generic [ref=f3e57]:
+                  - generic [ref=f3e58]: Status
+                  - combobox "Status" [ref=f3e59] [cursor=pointer]:
+                    - generic: All statuses
+                - generic [ref=f3e63]:
+                  - generic [ref=f3e64]: Sort
+                  - combobox "Sort" [ref=f3e65] [cursor=pointer]:
+                    - generic: Trending
+                - generic [ref=f3e69]:
+                  - checkbox "Watchlisted only" [ref=f3e70]
+                  - text: Watchlisted only
+                - generic [ref=f3e71]:
+                  - checkbox "Has position" [ref=f3e72]
+                  - text: Has position
+            - generic [ref=f3e73]:
+              - button "All" [ref=f3e75] [cursor=pointer]
+              - generic [ref=f3e77]:
+                - generic [ref=f3e78]:
+                  - heading "Exchange board" [level=1] [ref=f3e79]
+                  - paragraph [ref=f3e80]: Scan contracts by liquidity, close time, probability movement, and spread.
+                - generic [ref=f3e81]:
+                  - generic [ref=f3e82]: Loading
+                  - generic [ref=f3e83]: Density 9
+              - generic [ref=f3e84]:
+                - generic [ref=f3e85]: Sorted by trending
+                - generic [ref=f3e87]: Filter state preserved locally
+              - generic [ref=f3e91]: Loading markets...
+    - navigation [ref=f3e92]:
+      - generic [ref=f3e93]:
+        - link "Markets" [ref=f3e94] [cursor=pointer]:
+          - /url: /markets
+        - link "Watchlist" [ref=f3e99] [cursor=pointer]:
+          - /url: /watchlist
+        - link "Portfolio" [ref=f3e103] [cursor=pointer]:
+          - /url: /portfolio
+        - link "Orders" [ref=f3e109] [cursor=pointer]:
+          - /url: /orders
+        - link "Wallet" [ref=f3e114] [cursor=pointer]:
+          - /url: /wallet
+  - alert [ref=f3e119]

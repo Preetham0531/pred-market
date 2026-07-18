@@ -1,0 +1,85 @@
+- generic [active] [ref=f9e1]:
+  - generic [ref=f9e2]:
+    - generic [ref=f9e4]:
+      - banner [ref=f9e5]:
+        - navigation "Breadcrumb" [ref=f9e8]:
+          - list [ref=f9e9]:
+            - listitem [ref=f9e10]:
+              - link "Markets" [ref=f9e11] [cursor=pointer]:
+                - /url: /markets
+            - listitem [ref=f9e12]:
+              - generic [ref=f9e15]: Resolution rules
+      - main [ref=f9e17]:
+        - generic [ref=f9e18]:
+          - complementary [ref=f9e19]:
+            - heading "Suggestion steps" [level=2] [ref=f9e20]
+            - generic [ref=f9e21]:
+              - button "Category" [ref=f9e22]
+              - button "Market type" [ref=f9e32]
+              - button "Question" [ref=f9e42]
+              - button "Source" [ref=f9e52]
+              - button "Automation checks" [ref=f9e62]
+              - button "Submit" [ref=f9e72]
+          - generic [ref=f9e82]:
+            - generic [ref=f9e84]:
+              - heading "Suggest a market" [level=1] [ref=f9e85]
+              - paragraph [ref=f9e86]: Users submit ideas. Automation checks them. Admins approve before listing.
+            - generic [ref=f9e95]:
+              - heading "Choose category" [level=2] [ref=f9e96]
+              - generic [ref=f9e97]:
+                - 'button "Sports Risk: MEDIUM" [ref=f9e98]':
+                  - generic [ref=f9e107]:
+                    - generic [ref=f9e108]: Sports
+                    - generic [ref=f9e109]: "Risk: MEDIUM"
+                - 'button "Politics Risk: RESTRICTED" [ref=f9e110]':
+                  - generic [ref=f9e115]:
+                    - generic [ref=f9e116]: Politics
+                    - generic [ref=f9e117]: "Risk: RESTRICTED"
+                - 'button "Economics Risk: MEDIUM" [ref=f9e118]':
+                  - generic [ref=f9e124]:
+                    - generic [ref=f9e125]: Economics
+                    - generic [ref=f9e126]: "Risk: MEDIUM"
+                - 'button "Stocks and mutual funds Risk: RESTRICTED" [ref=f9e127]':
+                  - generic [ref=f9e132]:
+                    - generic [ref=f9e133]: Stocks and mutual funds
+                    - generic [ref=f9e134]: "Risk: RESTRICTED"
+                - 'button "Financials Risk: HIGH" [ref=f9e135]':
+                  - generic [ref=f9e141]:
+                    - generic [ref=f9e142]: Financials
+                    - generic [ref=f9e143]: "Risk: HIGH"
+                - 'button "Weather / climate Risk: LOW" [ref=f9e144]':
+                  - generic [ref=f9e152]:
+                    - generic [ref=f9e153]: Weather / climate
+                    - generic [ref=f9e154]: "Risk: LOW"
+                - 'button "Culture Risk: MEDIUM" [ref=f9e155]':
+                  - generic [ref=f9e161]:
+                    - generic [ref=f9e162]: Culture
+                    - generic [ref=f9e163]: "Risk: MEDIUM"
+                - 'button "Tech and science Risk: MEDIUM" [ref=f9e164]':
+                  - generic [ref=f9e170]:
+                    - generic [ref=f9e171]: Tech and science
+                    - generic [ref=f9e172]: "Risk: MEDIUM"
+                - 'button "Mentions / public attention Risk: HIGH" [ref=f9e173]':
+                  - generic [ref=f9e179]:
+                    - generic [ref=f9e180]: Mentions / public attention
+                    - generic [ref=f9e181]: "Risk: HIGH"
+                - 'button "Commodities Risk: HIGH" [ref=f9e182]':
+                  - generic [ref=f9e188]:
+                    - generic [ref=f9e189]: Commodities
+                    - generic [ref=f9e190]: "Risk: HIGH"
+            - generic [ref=f9e191]:
+              - button "Back" [disabled]
+              - button "Continue" [ref=f9e192] [cursor=pointer]
+    - navigation [ref=f9e193]:
+      - generic [ref=f9e194]:
+        - link "Markets" [ref=f9e195] [cursor=pointer]:
+          - /url: /markets
+        - link "Watchlist" [ref=f9e200] [cursor=pointer]:
+          - /url: /watchlist
+        - link "Portfolio" [ref=f9e204] [cursor=pointer]:
+          - /url: /portfolio
+        - link "Orders" [ref=f9e210] [cursor=pointer]:
+          - /url: /orders
+        - link "Wallet" [ref=f9e215] [cursor=pointer]:
+          - /url: /wallet
+  - alert [ref=f9e220]

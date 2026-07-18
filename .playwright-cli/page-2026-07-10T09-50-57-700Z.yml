@@ -1,0 +1,48 @@
+- generic [active] [ref=f9e1]:
+  - generic [ref=f9e2]:
+    - generic [ref=f9e4]:
+      - banner [ref=f9e5]:
+        - navigation "Breadcrumb" [ref=f9e8]:
+          - list [ref=f9e9]:
+            - listitem [ref=f9e10]:
+              - generic [ref=f9e11]: Wallet
+      - main [ref=f9e13]:
+        - generic [ref=f9e14]:
+          - generic [ref=f9e15]:
+            - heading "Wallet" [level=1] [ref=f9e16]
+            - paragraph [ref=f9e17]: Available cash, locked funds, and ledger activity.
+          - generic [ref=f9e18]:
+            - generic [ref=f9e19]:
+              - generic [ref=f9e20]: Available
+              - generic [ref=f9e21]: ₹0
+            - generic [ref=f9e22]:
+              - generic [ref=f9e23]: Locked
+              - generic [ref=f9e24]: ₹0
+            - generic [ref=f9e25]:
+              - generic [ref=f9e26]: Total balance
+              - generic [ref=f9e27]: ₹0
+          - generic [ref=f9e29]:
+            - generic [ref=f9e30]:
+              - generic [ref=f9e31]:
+                - heading "Simulated deposit" [level=2] [ref=f9e32]
+                - generic [ref=f9e33]: V1 test funds
+              - paragraph [ref=f9e34]: V1 uses simulated funds only. Real deposits and withdrawals stay disabled until KYC, AML, payment provider, and legal approval are complete.
+            - generic [ref=f9e35]:
+              - textbox "Simulated deposit amount" [ref=f9e36]: "10000"
+              - button "Add funds" [ref=f9e37] [cursor=pointer]
+          - generic [ref=f9e40]:
+            - generic [ref=f9e41]: Ledger
+            - generic [ref=f9e42]: Loading ledger...
+    - navigation [ref=f9e44]:
+      - generic [ref=f9e45]:
+        - link "Markets" [ref=f9e46] [cursor=pointer]:
+          - /url: /markets
+        - link "Watchlist" [ref=f9e51] [cursor=pointer]:
+          - /url: /watchlist
+        - link "Portfolio" [ref=f9e55] [cursor=pointer]:
+          - /url: /portfolio
+        - link "Orders" [ref=f9e61] [cursor=pointer]:
+          - /url: /orders
+        - link "Wallet" [ref=f9e66] [cursor=pointer]:
+          - /url: /wallet
+  - alert [ref=f9e71]

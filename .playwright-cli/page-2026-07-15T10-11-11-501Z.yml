@@ -1,0 +1,80 @@
+- generic [active] [ref=f1e1]:
+  - generic [ref=f1e3]:
+    - complementary [ref=f1e4]:
+      - link "PM Pred-Market Calm trading terminal" [ref=f1e5] [cursor=pointer]:
+        - /url: /markets
+        - generic [ref=f1e6]: PM
+        - generic [ref=f1e7]:
+          - generic [ref=f1e8]: Pred-Market
+          - generic [ref=f1e9]: Calm trading terminal
+      - generic [ref=f1e10]:
+        - link "Markets" [ref=f1e11] [cursor=pointer]:
+          - /url: /markets
+        - link "Watchlist" [ref=f1e16] [cursor=pointer]:
+          - /url: /watchlist
+        - link "Profile" [ref=f1e20] [cursor=pointer]:
+          - /url: /profile
+        - link "Orders" [ref=f1e25] [cursor=pointer]:
+          - /url: /orders
+        - link "Wallet" [ref=f1e30] [cursor=pointer]:
+          - /url: /wallet
+        - link "Suggest" [ref=f1e35] [cursor=pointer]:
+          - /url: /markets/suggest
+        - link "Admin" [ref=f1e40] [cursor=pointer]:
+          - /url: /admin
+      - generic [ref=f1e45]:
+        - generic [ref=f1e46]: System status
+        - generic [ref=f1e47]:
+          - generic [ref=f1e48]: Data mode
+          - generic [ref=f1e49]: API
+        - generic [ref=f1e50]:
+          - generic [ref=f1e51]: "Local QA note:"
+          - text: "use `NEXT_PUBLIC_USE_MOCK_DATA=true` for populated visual review, or start the seeded FastAPI backend for integration review."
+    - generic [ref=f1e56]:
+      - banner [ref=f1e57]:
+        - generic [ref=f1e58]:
+          - navigation "Breadcrumb" [ref=f1e60]:
+            - list [ref=f1e61]:
+              - listitem [ref=f1e62]:
+                - generic [ref=f1e63]: Profile
+          - button "Search markets Ctrl K" [ref=f1e64] [cursor=pointer]:
+            - text: Search markets
+            - generic [ref=f1e68]: Ctrl K
+          - button "Notifications" [ref=f1e69] [cursor=pointer]
+          - generic [ref=f1e73]: ₹99,944
+          - button "Open profile menu" [ref=f1e74]: DT
+      - main [ref=f1e75]:
+        - generic [ref=f1e76]:
+          - generic [ref=f1e77]:
+            - generic [ref=f1e78]:
+              - heading "Profile" [level=1] [ref=f1e79]
+              - paragraph [ref=f1e80]: Account identity, positions, exposure, scenario payouts, and locked capital.
+            - generic [ref=f1e81]:
+              - generic [ref=f1e82]: Signed-in account
+              - generic [ref=f1e83]: Demo Trader
+              - generic [ref=f1e84]: trader@predmarket.dev
+              - generic [ref=f1e85]: USER
+          - generic [ref=f1e87]:
+            - generic [ref=f1e88]:
+              - generic [ref=f1e89]:
+                - generic [ref=f1e90]: Open positions
+                - generic [ref=f1e91]: 0 positions / ₹56 locked
+              - generic [ref=f1e92]:
+                - generic [ref=f1e93]: Market
+                - generic [ref=f1e94]: Qty
+                - generic [ref=f1e95]: Entry
+                - generic [ref=f1e96]: Current
+                - generic [ref=f1e97]: PnL
+              - generic [ref=f1e98]: No open positions yet.
+            - generic [ref=f1e100]:
+              - generic [ref=f1e101]:
+                - heading "Exposure by category" [level=2] [ref=f1e102]
+                - generic [ref=f1e103]: Scenario risk
+              - application [ref=f1e107]
+          - generic [ref=f1e111]:
+            - generic [ref=f1e112]:
+              - heading "Scenario payout table" [level=2] [ref=f1e113]
+              - generic [ref=f1e114]: Gross payout before V1 fees
+            - generic [ref=f1e115]: No scenario exposure yet.
+  - button "Open Next.js Dev Tools" [ref=f1e122] [cursor=pointer]
+  - alert [ref=f1e126]

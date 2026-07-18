@@ -1,0 +1,46 @@
+- generic [active] [ref=f2e1]:
+  - generic [ref=f2e3]:
+    - complementary [ref=f2e4]:
+      - link "PM Pred-Market Calm trading terminal" [ref=f2e5] [cursor=pointer]:
+        - /url: /markets
+        - generic [ref=f2e6]: PM
+        - generic [ref=f2e7]:
+          - generic [ref=f2e8]: Pred-Market
+          - generic [ref=f2e9]: Calm trading terminal
+      - generic [ref=f2e10]:
+        - link "Markets" [ref=f2e11] [cursor=pointer]:
+          - /url: /markets
+        - link "Watchlist" [ref=f2e16] [cursor=pointer]:
+          - /url: /watchlist
+        - link "Profile" [ref=f2e20] [cursor=pointer]:
+          - /url: /profile
+        - link "Orders" [ref=f2e25] [cursor=pointer]:
+          - /url: /orders
+        - link "Wallet" [ref=f2e30] [cursor=pointer]:
+          - /url: /wallet
+        - link "Suggest" [ref=f2e35] [cursor=pointer]:
+          - /url: /markets/suggest
+        - link "Admin" [ref=f2e40] [cursor=pointer]:
+          - /url: /admin
+      - generic [ref=f2e45]:
+        - generic [ref=f2e46]: System status
+        - generic [ref=f2e47]:
+          - generic [ref=f2e48]: Data mode
+          - generic [ref=f2e49]: API
+        - generic [ref=f2e50]:
+          - generic [ref=f2e51]: "Local QA note:"
+          - text: "use `NEXT_PUBLIC_USE_MOCK_DATA=true` for populated visual review, or start the seeded FastAPI backend for integration review."
+    - generic [ref=f2e56]:
+      - banner [ref=f2e57]:
+        - generic [ref=f2e58]:
+          - navigation "Breadcrumb" [ref=f2e60]:
+            - list [ref=f2e61]:
+              - listitem [ref=f2e62]:
+                - generic [ref=f2e63]: Portfolio
+          - button "Search markets Ctrl K" [ref=f2e64] [cursor=pointer]:
+            - text: Search markets
+            - generic [ref=f2e68]: Ctrl K
+      - main [ref=f2e70]:
+        - generic [ref=f2e71]: Checking access...
+  - button "Open Next.js Dev Tools" [ref=f2e77] [cursor=pointer]
+  - alert [ref=f2e81]

@@ -1,0 +1,131 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e41]:
+    - complementary [ref=e42]:
+      - link "PM Pred-Market Calm trading terminal" [ref=e43] [cursor=pointer]:
+        - /url: /markets
+        - generic [ref=e44]: PM
+        - generic [ref=e45]:
+          - generic [ref=e46]: Pred-Market
+          - generic [ref=e47]: Calm trading terminal
+      - generic [ref=e48]:
+        - link "Markets" [ref=e49] [cursor=pointer]:
+          - /url: /markets
+        - link "Watchlist" [ref=e54] [cursor=pointer]:
+          - /url: /watchlist
+        - link "Portfolio" [ref=e58] [cursor=pointer]:
+          - /url: /portfolio
+        - link "Orders" [ref=e64] [cursor=pointer]:
+          - /url: /orders
+        - link "Wallet" [ref=e69] [cursor=pointer]:
+          - /url: /wallet
+        - link "Suggest" [ref=e74] [cursor=pointer]:
+          - /url: /markets/suggest
+        - link "Admin" [ref=e79] [cursor=pointer]:
+          - /url: /admin
+      - generic [ref=e84]:
+        - generic [ref=e85]: System status
+        - generic [ref=e86]:
+          - generic [ref=e87]: Data mode
+          - generic [ref=e88]: Mock
+        - generic [ref=e89]: Local preview data
+        - generic [ref=e90]:
+          - generic [ref=e91]: "Local QA note:"
+          - text: "use `NEXT_PUBLIC_USE_MOCK_DATA=true` for populated visual review, or start the seeded FastAPI backend for integration review."
+    - generic [ref=e96]:
+      - banner [ref=e97]:
+        - generic [ref=e98]:
+          - navigation "Breadcrumb" [ref=e100]:
+            - list [ref=e101]:
+              - listitem [ref=e102]:
+                - generic [ref=e103]: Admin
+              - listitem [ref=e104]:
+                - generic [ref=e107]: Market review
+              - listitem [ref=e108]:
+                - generic [ref=e111]: Pending approval
+          - button "Search markets Ctrl K" [ref=e112] [cursor=pointer]:
+            - text: Search markets
+            - generic [ref=e116]: Ctrl K
+          - button "Notifications" [ref=e117] [cursor=pointer]
+          - generic [ref=e121]: ₹84,220
+          - button "Open profile menu" [ref=e122]: A
+      - main [ref=e123]:
+        - generic [ref=e124]:
+          - generic [ref=e125]:
+            - heading "Admin review" [level=1] [ref=e126]
+            - paragraph [ref=e127]: Market approval, resolution evidence, automation exceptions, and risk queue.
+          - generic [ref=e128]:
+            - generic [ref=e129]:
+              - generic [ref=e130]: Pending reviews
+              - generic [ref=e131]: "3"
+            - generic [ref=e132]:
+              - generic [ref=e133]: Automation pass
+              - generic [ref=e134]: 82%
+            - generic [ref=e135]:
+              - generic [ref=e136]: Disputes
+              - generic [ref=e137]: "1"
+            - generic [ref=e138]:
+              - generic [ref=e139]: Avg resolution
+              - generic [ref=e140]: 14 min
+          - generic [ref=e141]:
+            - generic [ref=e142]:
+              - generic [ref=e143]: Review queue
+              - generic [ref=e144]:
+                - generic [ref=e145]: ID
+                - generic [ref=e146]: Market
+                - generic [ref=e147]: Category
+                - generic [ref=e148]: Risk
+                - generic [ref=e149]: Evidence
+                - generic [ref=e150]: Automation
+                - generic [ref=e151]: Action
+              - generic [ref=e152]:
+                - generic [ref=e153]:
+                  - generic [ref=e154]: REV-221
+                  - generic [ref=e155]:
+                    - generic [ref=e156]: Will Bengaluru receive more than 20 mm rain tomorrow?
+                    - generic [ref=e157]: Submitted by user_1829 / maker-checker required
+                  - generic [ref=e158]: Weather / climate
+                  - generic [ref=e159]: LOW
+                  - generic [ref=e160]: Needs source
+                  - generic [ref=e161]: Passed
+                  - link "Review" [ref=e162] [cursor=pointer]:
+                    - /url: /admin/markets/REV-221
+                - generic [ref=e163]:
+                  - generic [ref=e164]: REV-220
+                  - generic [ref=e165]:
+                    - generic [ref=e166]: Will the next policy rate decision be a hold?
+                    - generic [ref=e167]: Submitted by user_1041 / maker-checker required
+                  - generic [ref=e168]: Economics
+                  - generic [ref=e169]: MEDIUM
+                  - generic [ref=e170]: Attached
+                  - generic [ref=e171]: Passed
+                  - link "Review" [ref=e172] [cursor=pointer]:
+                    - /url: /admin/markets/REV-220
+                - generic [ref=e173]:
+                  - generic [ref=e174]: REV-219
+                  - generic [ref=e175]:
+                    - generic [ref=e176]: Will a listed stock close above its 52-week high?
+                    - generic [ref=e177]: Submitted by user_2810 / maker-checker required
+                  - generic [ref=e178]: Stocks and mutual funds
+                  - generic [ref=e179]: RESTRICTED
+                  - generic [ref=e180]: Attached
+                  - generic [ref=e181]: Blocked
+                  - link "Review" [ref=e182] [cursor=pointer]:
+                    - /url: /admin/markets/REV-219
+            - complementary [ref=e183]:
+              - generic [ref=e184]:
+                - heading "Automation checks" [level=2] [ref=e185]
+                - generic [ref=e186]: V1 deterministic
+              - generic [ref=e187]:
+                - generic [ref=e188]:
+                  - generic [ref=e189]: Duplicate detection
+                  - generic [ref=e193]: Active
+                - generic [ref=e194]:
+                  - generic [ref=e195]: Source availability
+                  - generic [ref=e199]: Active
+                - generic [ref=e200]:
+                  - generic [ref=e201]: Restricted category
+                  - generic [ref=e204]: Active
+                - generic [ref=e205]:
+                  - generic [ref=e206]: Evidence capture
+                  - generic [ref=e212]: Active
+  - alert [ref=e40]

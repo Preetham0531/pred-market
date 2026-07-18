@@ -1,0 +1,48 @@
+- generic [active] [ref=f11e1]:
+  - generic [ref=f11e2]:
+    - generic [ref=f11e4]:
+      - banner [ref=f11e5]:
+        - navigation "Breadcrumb" [ref=f11e8]:
+          - list [ref=f11e9]:
+            - listitem [ref=f11e10]:
+              - generic [ref=f11e11]: Wallet
+      - main [ref=f11e13]:
+        - generic [ref=f11e14]:
+          - generic [ref=f11e15]:
+            - heading "Wallet" [level=1] [ref=f11e16]
+            - paragraph [ref=f11e17]: Available cash, locked funds, and ledger activity.
+          - generic [ref=f11e18]:
+            - generic [ref=f11e19]:
+              - generic [ref=f11e20]: Available
+              - generic [ref=f11e21]: ₹0
+            - generic [ref=f11e22]:
+              - generic [ref=f11e23]: Locked
+              - generic [ref=f11e24]: ₹0
+            - generic [ref=f11e25]:
+              - generic [ref=f11e26]: Total balance
+              - generic [ref=f11e27]: ₹0
+          - generic [ref=f11e29]:
+            - generic [ref=f11e30]:
+              - generic [ref=f11e31]:
+                - heading "Simulated deposit" [level=2] [ref=f11e32]
+                - generic [ref=f11e33]: V1 test funds
+              - paragraph [ref=f11e34]: V1 uses simulated funds only. Real deposits and withdrawals stay disabled until KYC, AML, payment provider, and legal approval are complete.
+            - generic [ref=f11e35]:
+              - textbox "Simulated deposit amount" [ref=f11e36]: "10000"
+              - button "Add funds" [ref=f11e37] [cursor=pointer]
+          - generic [ref=f11e40]:
+            - generic [ref=f11e41]: Ledger
+            - generic [ref=f11e42]: Loading ledger...
+    - navigation [ref=f11e44]:
+      - generic [ref=f11e45]:
+        - link "Markets" [ref=f11e46] [cursor=pointer]:
+          - /url: /markets
+        - link "Watchlist" [ref=f11e51] [cursor=pointer]:
+          - /url: /watchlist
+        - link "Portfolio" [ref=f11e55] [cursor=pointer]:
+          - /url: /portfolio
+        - link "Orders" [ref=f11e61] [cursor=pointer]:
+          - /url: /orders
+        - link "Wallet" [ref=f11e66] [cursor=pointer]:
+          - /url: /wallet
+  - alert [ref=f11e71]

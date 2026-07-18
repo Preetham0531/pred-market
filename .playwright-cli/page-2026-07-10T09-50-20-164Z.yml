@@ -1,0 +1,25 @@
+- generic [active] [ref=f2e1]:
+  - generic [ref=f2e2]:
+    - generic [ref=f2e4]:
+      - banner [ref=f2e5]:
+        - navigation "Breadcrumb" [ref=f2e8]:
+          - list [ref=f2e9]:
+            - listitem [ref=f2e10]:
+              - link "Markets" [ref=f2e11] [cursor=pointer]:
+                - /url: /markets
+            - listitem [ref=f2e12]:
+              - generic [ref=f2e15]: Sports
+      - main [ref=f2e17]
+    - navigation [ref=f2e70]:
+      - generic [ref=f2e71]:
+        - link "Markets" [ref=f2e72] [cursor=pointer]:
+          - /url: /markets
+        - link "Watchlist" [ref=f2e77] [cursor=pointer]:
+          - /url: /watchlist
+        - link "Portfolio" [ref=f2e81] [cursor=pointer]:
+          - /url: /portfolio
+        - link "Orders" [ref=f2e87] [cursor=pointer]:
+          - /url: /orders
+        - link "Wallet" [ref=f2e92] [cursor=pointer]:
+          - /url: /wallet
+  - alert [ref=f2e97]

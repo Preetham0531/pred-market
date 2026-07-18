@@ -1,0 +1,32 @@
+- generic [active] [ref=f9e1]:
+  - generic [ref=f9e3]:
+    - generic [ref=f9e4]:
+      - generic [ref=f9e5]: Exchange-style access control
+      - heading "Calm trading starts with a verified workspace." [level=1] [ref=f9e9]
+      - paragraph [ref=f9e10]: Sign in to manage positions, submit limit orders, review wallet ledger activity, and suggest markets for admin approval.
+      - generic [ref=f9e11]:
+        - generic [ref=f9e12]: HttpOnly session
+        - generic [ref=f9e13]: Role checks
+        - generic [ref=f9e14]: Simulated funds
+    - generic [ref=f9e15]:
+      - generic [ref=f9e16]:
+        - heading "Sign in" [level=2] [ref=f9e22]
+        - paragraph [ref=f9e23]: Use your Pred-Market account to continue.
+      - generic [ref=f9e24]:
+        - generic [ref=f9e25]:
+          - generic [ref=f9e26]: Email
+          - textbox "Email" [ref=f9e27]: trader@predmarket.dev
+        - generic [ref=f9e28]:
+          - generic [ref=f9e29]: Password
+          - textbox "Password" [ref=f9e30]: StrongPass123
+        - button "Sign in" [ref=f9e31] [cursor=pointer]
+      - generic [ref=f9e34]:
+        - button "Demo trader" [ref=f9e35] [cursor=pointer]
+        - button "Demo admin" [ref=f9e36] [cursor=pointer]
+      - generic [ref=f9e37]:
+        - link "Forgot password?" [ref=f9e38] [cursor=pointer]:
+          - /url: /forgot-password
+        - link "Create account" [ref=f9e39] [cursor=pointer]:
+          - /url: /sign-up
+  - button "Open Next.js Dev Tools" [ref=f9e45] [cursor=pointer]
+  - alert [ref=f9e49]

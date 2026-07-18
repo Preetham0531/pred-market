@@ -1,0 +1,108 @@
+- generic [active] [ref=f4e1]:
+  - generic [ref=f4e3]:
+    - complementary [ref=f4e4]:
+      - link "PM Pred-Market Calm trading terminal" [ref=f4e5] [cursor=pointer]:
+        - /url: /markets
+        - generic [ref=f4e6]: PM
+        - generic [ref=f4e7]:
+          - generic [ref=f4e8]: Pred-Market
+          - generic [ref=f4e9]: Calm trading terminal
+      - generic [ref=f4e10]:
+        - link "Markets" [ref=f4e11] [cursor=pointer]:
+          - /url: /markets
+        - link "Watchlist" [ref=f4e16] [cursor=pointer]:
+          - /url: /watchlist
+        - link "Portfolio" [ref=f4e20] [cursor=pointer]:
+          - /url: /portfolio
+        - link "Orders" [ref=f4e26] [cursor=pointer]:
+          - /url: /orders
+        - link "Wallet" [ref=f4e31] [cursor=pointer]:
+          - /url: /wallet
+        - link "Suggest" [ref=f4e36] [cursor=pointer]:
+          - /url: /markets/suggest
+        - link "Admin" [ref=f4e41] [cursor=pointer]:
+          - /url: /admin
+      - generic [ref=f4e46]:
+        - generic [ref=f4e47]: System status
+        - generic [ref=f4e48]:
+          - generic [ref=f4e49]: Data mode
+          - generic [ref=f4e50]: API
+        - generic [ref=f4e51]: http://localhost:8010
+        - generic [ref=f4e52]:
+          - generic [ref=f4e53]: "Local QA note:"
+          - text: "use `NEXT_PUBLIC_USE_MOCK_DATA=true` for populated visual review, or start the seeded FastAPI backend for integration review."
+    - generic [ref=f4e58]:
+      - banner [ref=f4e59]:
+        - generic [ref=f4e60]:
+          - navigation "Breadcrumb" [ref=f4e62]:
+            - list [ref=f4e63]:
+              - listitem [ref=f4e64]:
+                - link "Markets" [ref=f4e65] [cursor=pointer]:
+                  - /url: /markets
+              - listitem [ref=f4e66]:
+                - generic [ref=f4e69]: Sports
+          - button "Search markets Ctrl K" [ref=f4e70] [cursor=pointer]:
+            - text: Search markets
+            - generic [ref=f4e74]: Ctrl K
+          - button "Notifications" [ref=f4e75] [cursor=pointer]
+          - generic [ref=f4e79]: ₹0
+          - button "Open profile menu" [ref=f4e80]: DT
+      - main [ref=f4e81]:
+        - generic [ref=f4e82]:
+          - generic [ref=f4e85]:
+            - generic [ref=f4e86]:
+              - generic [ref=f4e87]: MEDIUM risk
+              - generic [ref=f4e88]: Cricket / Football / Tennis / Tournaments
+            - heading "Sports" [level=1] [ref=f4e89]
+            - paragraph [ref=f4e90]: Structured markets around matches, tournaments, milestones, and standings.
+          - generic [ref=f4e98]:
+            - complementary [ref=f4e99]:
+              - generic [ref=f4e100]:
+                - heading "Subcategories" [level=2] [ref=f4e101]
+                - generic [ref=f4e102]: "1"
+              - generic [ref=f4e103]:
+                - button "All markets 1" [ref=f4e104]:
+                  - generic [ref=f4e105]: All markets
+                  - generic [ref=f4e106]: "1"
+                - button "Cricket 1" [ref=f4e107]:
+                  - generic [ref=f4e108]: Cricket
+                  - generic [ref=f4e109]: "1"
+            - generic [ref=f4e111]:
+              - generic [ref=f4e112]:
+                - heading "Comparison table" [level=2] [ref=f4e113]
+                - generic [ref=f4e114]: Includes active, paused, and closing markets
+              - generic [ref=f4e115]:
+                - generic [ref=f4e116]:
+                  - generic [ref=f4e117]: Market
+                  - generic [ref=f4e118]: YES price
+                  - generic [ref=f4e119]: 24h
+                  - generic [ref=f4e120]: Volume / liq
+                  - generic [ref=f4e121]: Spread
+                  - generic [ref=f4e122]: Close
+                - 'link "Will India beat Australia in the next T20 final? Open Sports Binary Cricket Source: Official tournament result YES 56% NO 44% 56 +3.8% 21.4L 34L liq 2 pts Jul 18, 2026 18:30 IST" [ref=f4e124] [cursor=pointer]':
+                  - /url: /markets/ind-aus-final
+                  - generic [ref=f4e125]:
+                    - generic [ref=f4e126]:
+                      - generic [ref=f4e134]: Will India beat Australia in the next T20 final?
+                      - generic [ref=f4e135]: Open
+                    - generic [ref=f4e136]:
+                      - generic [ref=f4e137]: Sports
+                      - generic [ref=f4e138]: Binary
+                      - generic [ref=f4e139]: Cricket
+                      - generic [ref=f4e140]: "Source: Official tournament result"
+                    - generic [ref=f4e141]:
+                      - generic [ref=f4e143]:
+                        - generic [ref=f4e144]: "YES"
+                        - generic [ref=f4e145]: 56%
+                      - generic [ref=f4e148]:
+                        - generic [ref=f4e149]: "NO"
+                        - generic [ref=f4e150]: 44%
+                  - generic [ref=f4e152]: "56"
+                  - generic [ref=f4e153]: +3.8%
+                  - generic [ref=f4e157]:
+                    - generic [ref=f4e158]: 21.4L
+                    - generic [ref=f4e162]: 34L liq
+                  - generic [ref=f4e163]: 2 pts
+                  - generic [ref=f4e164]: Jul 18, 2026 18:30 IST
+  - button "Open Next.js Dev Tools" [ref=f4e174] [cursor=pointer]
+  - alert [ref=f4e178]

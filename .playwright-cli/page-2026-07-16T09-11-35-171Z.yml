@@ -1,0 +1,31 @@
+- generic [active] [ref=f1e1]:
+  - generic [ref=f1e2]:
+    - banner [ref=f1e3]:
+      - generic [ref=f1e4]:
+        - link "PM" [ref=f1e5] [cursor=pointer]:
+          - /url: /markets
+        - link "Sign in" [ref=f1e7] [cursor=pointer]:
+          - /url: /sign-in
+    - main [ref=f1e12]
+    - navigation [ref=f1e24]:
+      - generic [ref=f1e25]:
+        - link "Markets" [ref=f1e26] [cursor=pointer]:
+          - /url: /markets
+        - link "Live" [ref=f1e31] [cursor=pointer]:
+          - /url: /markets
+        - link "Watchlist" [ref=f1e35] [cursor=pointer]:
+          - /url: /watchlist
+        - link "Orders" [ref=f1e39] [cursor=pointer]:
+          - /url: /orders
+        - link "Wallet" [ref=f1e44] [cursor=pointer]:
+          - /url: /wallet
+  - generic [ref=f1e53] [cursor=pointer]:
+    - button "Open Next.js Dev Tools" [ref=f1e54]
+    - generic [ref=f1e58]:
+      - button "Open issues overlay" [ref=f1e59]:
+        - generic [ref=f1e60]:
+          - generic [ref=f1e61]: "0"
+          - generic [ref=f1e62]: "1"
+        - generic [ref=f1e63]: Issue
+      - button "Collapse issues badge" [ref=f1e64]
+  - alert [ref=f1e67]

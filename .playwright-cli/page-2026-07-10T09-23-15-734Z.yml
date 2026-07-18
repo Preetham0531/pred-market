@@ -1,0 +1,246 @@
+- generic [active] [ref=f11e1]:
+  - generic [ref=f11e2]:
+    - generic [ref=f11e4]:
+      - banner [ref=f11e5]:
+        - generic [ref=f11e6]:
+          - navigation "Breadcrumb" [ref=f11e8]:
+            - list [ref=f11e9]:
+              - listitem [ref=f11e10]:
+                - generic [ref=f11e11]: Watchlist
+          - button "Notifications" [ref=f11e12] [cursor=pointer]
+          - button "Open profile menu" [ref=f11e16]: A
+      - main [ref=f11e17]:
+        - generic [ref=f11e18]:
+          - generic [ref=f11e19]:
+            - heading "Watchlist" [level=1] [ref=f11e20]
+            - paragraph [ref=f11e21]: Markets saved for monitoring probability movement, close time, and liquidity.
+          - generic [ref=f11e22]:
+            - generic [ref=f11e23]:
+              - generic [ref=f11e24]: Saved markets
+              - generic [ref=f11e25]: "3"
+            - generic [ref=f11e26]:
+              - generic [ref=f11e27]: With position
+              - generic [ref=f11e28]: "1"
+            - generic [ref=f11e29]:
+              - generic [ref=f11e30]: Closing soon
+              - generic [ref=f11e31]: "0"
+          - generic [ref=f11e32]:
+            - 'link "Open Binary Position Will India beat Australia in the next T20 final? Sports Jul 18, 2026 18:30 IST Source: Official tournament result 56 YES price +3.8% YES 56 56% NO 44 44% 24h volume 21L Liquidity 34L Spread 2 pts Total volume 1.8Cr Traders 1.8K" [ref=f11e33] [cursor=pointer]':
+              - /url: /markets/ind-aus-final
+              - generic [ref=f11e34]:
+                - generic [ref=f11e43]:
+                  - generic [ref=f11e44]:
+                    - generic [ref=f11e45]: Open
+                    - generic [ref=f11e46]: Binary
+                    - generic [ref=f11e47]: Position
+                  - heading "Will India beat Australia in the next T20 final?" [level=3] [ref=f11e48]
+                  - generic [ref=f11e49]:
+                    - generic [ref=f11e50]: Sports
+                    - generic [ref=f11e51]: Jul 18, 2026 18:30 IST
+                    - generic [ref=f11e55]: "Source: Official tournament result"
+                - generic [ref=f11e60]:
+                  - generic [ref=f11e61]: "56"
+                  - generic [ref=f11e62]: YES price
+                  - generic [ref=f11e63]: +3.8%
+              - generic [ref=f11e67]:
+                - generic [ref=f11e68]:
+                  - generic [ref=f11e70]:
+                    - generic [ref=f11e71]: "YES"
+                    - generic [ref=f11e72]: "56"
+                  - generic [ref=f11e75]: 56%
+                - generic [ref=f11e76]:
+                  - generic [ref=f11e78]:
+                    - generic [ref=f11e79]: "NO"
+                    - generic [ref=f11e80]: "44"
+                  - generic [ref=f11e83]: 44%
+              - generic [ref=f11e84]:
+                - generic [ref=f11e85]:
+                  - generic [ref=f11e86]: 24h volume
+                  - generic [ref=f11e87]: 21L
+                - generic [ref=f11e88]:
+                  - generic [ref=f11e89]: Liquidity
+                  - generic [ref=f11e93]: 34L
+                - generic [ref=f11e94]:
+                  - generic [ref=f11e95]: Spread
+                  - generic [ref=f11e96]: 2 pts
+              - generic [ref=f11e97]:
+                - generic [ref=f11e98]:
+                  - generic [ref=f11e99]: Total volume
+                  - generic [ref=f11e100]: 1.8Cr
+                - generic [ref=f11e101]:
+                  - generic [ref=f11e102]: Traders
+                  - generic [ref=f11e108]: 1.8K
+            - 'link "Open Threshold Will India CPI be above 4.0% in the next release? Economics Aug 12, 2026 16:30 IST Source: MOSPI CPI release 49 YES price -2.7% YES 49 49% NO 51 51% 24h volume 16L Liquidity 28L Spread 3 pts Total volume 1.2Cr Traders 931" [ref=f11e109] [cursor=pointer]':
+              - /url: /markets/cpi-above-4
+              - generic [ref=f11e110]:
+                - generic [ref=f11e116]:
+                  - generic [ref=f11e117]:
+                    - generic [ref=f11e118]: Open
+                    - generic [ref=f11e119]: Threshold
+                  - heading "Will India CPI be above 4.0% in the next release?" [level=3] [ref=f11e120]
+                  - generic [ref=f11e121]:
+                    - generic [ref=f11e122]: Economics
+                    - generic [ref=f11e123]: Aug 12, 2026 16:30 IST
+                    - generic [ref=f11e127]: "Source: MOSPI CPI release"
+                - generic [ref=f11e132]:
+                  - generic [ref=f11e133]: "49"
+                  - generic [ref=f11e134]: YES price
+                  - generic [ref=f11e135]: "-2.7%"
+              - generic [ref=f11e139]:
+                - generic [ref=f11e140]:
+                  - generic [ref=f11e142]:
+                    - generic [ref=f11e143]: "YES"
+                    - generic [ref=f11e144]: "49"
+                  - generic [ref=f11e147]: 49%
+                - generic [ref=f11e148]:
+                  - generic [ref=f11e150]:
+                    - generic [ref=f11e151]: "NO"
+                    - generic [ref=f11e152]: "51"
+                  - generic [ref=f11e155]: 51%
+              - generic [ref=f11e156]:
+                - generic [ref=f11e157]:
+                  - generic [ref=f11e158]: 24h volume
+                  - generic [ref=f11e159]: 16L
+                - generic [ref=f11e160]:
+                  - generic [ref=f11e161]: Liquidity
+                  - generic [ref=f11e165]: 28L
+                - generic [ref=f11e166]:
+                  - generic [ref=f11e167]: Spread
+                  - generic [ref=f11e168]: 3 pts
+              - generic [ref=f11e169]:
+                - generic [ref=f11e170]:
+                  - generic [ref=f11e171]: Total volume
+                  - generic [ref=f11e172]: 1.2Cr
+                - generic [ref=f11e173]:
+                  - generic [ref=f11e174]: Traders
+                  - generic [ref=f11e180]: "931"
+            - 'link "Open Conditional Will a frontier AI lab release a new public model before Sep 30? Tech Sep 30, 2026 23:59 UTC Source: Official lab announcements 64 YES price +4.2% YES 64 64% NO 36 36% 24h volume 31L Liquidity 42L Spread 3 pts Total volume 2.2Cr Traders 2.2K" [ref=f11e181] [cursor=pointer]':
+              - /url: /markets/ai-model-release
+              - generic [ref=f11e182]:
+                - generic [ref=f11e188]:
+                  - generic [ref=f11e189]:
+                    - generic [ref=f11e190]: Open
+                    - generic [ref=f11e191]: Conditional
+                  - heading "Will a frontier AI lab release a new public model before Sep 30?" [level=3] [ref=f11e192]
+                  - generic [ref=f11e193]:
+                    - generic [ref=f11e194]: Tech
+                    - generic [ref=f11e195]: Sep 30, 2026 23:59 UTC
+                    - generic [ref=f11e199]: "Source: Official lab announcements"
+                - generic [ref=f11e204]:
+                  - generic [ref=f11e205]: "64"
+                  - generic [ref=f11e206]: YES price
+                  - generic [ref=f11e207]: +4.2%
+              - generic [ref=f11e211]:
+                - generic [ref=f11e212]:
+                  - generic [ref=f11e214]:
+                    - generic [ref=f11e215]: "YES"
+                    - generic [ref=f11e216]: "64"
+                  - generic [ref=f11e219]: 64%
+                - generic [ref=f11e220]:
+                  - generic [ref=f11e222]:
+                    - generic [ref=f11e223]: "NO"
+                    - generic [ref=f11e224]: "36"
+                  - generic [ref=f11e227]: 36%
+              - generic [ref=f11e228]:
+                - generic [ref=f11e229]:
+                  - generic [ref=f11e230]: 24h volume
+                  - generic [ref=f11e231]: 31L
+                - generic [ref=f11e232]:
+                  - generic [ref=f11e233]: Liquidity
+                  - generic [ref=f11e237]: 42L
+                - generic [ref=f11e238]:
+                  - generic [ref=f11e239]: Spread
+                  - generic [ref=f11e240]: 3 pts
+              - generic [ref=f11e241]:
+                - generic [ref=f11e242]:
+                  - generic [ref=f11e243]: Total volume
+                  - generic [ref=f11e244]: 2.2Cr
+                - generic [ref=f11e245]:
+                  - generic [ref=f11e246]: Traders
+                  - generic [ref=f11e252]: 2.2K
+          - generic [ref=f11e254]:
+            - 'link "Will India beat Australia in the next T20 final? Binary Cricket Source: Official tournament result YES 56% NO 44% Sports 56 +3.8% 21L 34L liq 2 pts Jul 18, 2026 18:30 IST Open" [ref=f11e255] [cursor=pointer]':
+              - /url: /markets/ind-aus-final
+              - generic [ref=f11e256]:
+                - generic [ref=f11e257]: Will India beat Australia in the next T20 final?
+                - generic [ref=f11e261]:
+                  - generic [ref=f11e262]: Binary
+                  - generic [ref=f11e263]: Cricket
+                  - generic [ref=f11e264]: "Source: Official tournament result"
+                - generic [ref=f11e265]:
+                  - generic [ref=f11e267]:
+                    - generic [ref=f11e268]: "YES"
+                    - generic [ref=f11e269]: 56%
+                  - generic [ref=f11e273]:
+                    - generic [ref=f11e274]: "NO"
+                    - generic [ref=f11e275]: 44%
+              - generic [ref=f11e278]: Sports
+              - generic [ref=f11e279]: "56"
+              - generic [ref=f11e280]: +3.8%
+              - generic [ref=f11e284]:
+                - generic [ref=f11e285]: 21L
+                - generic [ref=f11e289]: 34L liq
+              - generic [ref=f11e290]: 2 pts
+              - generic [ref=f11e291]: Jul 18, 2026 18:30 IST
+              - generic [ref=f11e296]: Open
+            - 'link "Will India CPI be above 4.0% in the next release? Threshold Inflation Source: MOSPI CPI release YES 49% NO 51% Economics 49 -2.7% 16L 28L liq 3 pts Aug 12, 2026 16:30 IST Open" [ref=f11e297] [cursor=pointer]':
+              - /url: /markets/cpi-above-4
+              - generic [ref=f11e298]:
+                - generic [ref=f11e299]: Will India CPI be above 4.0% in the next release?
+                - generic [ref=f11e303]:
+                  - generic [ref=f11e304]: Threshold
+                  - generic [ref=f11e305]: Inflation
+                  - generic [ref=f11e306]: "Source: MOSPI CPI release"
+                - generic [ref=f11e307]:
+                  - generic [ref=f11e309]:
+                    - generic [ref=f11e310]: "YES"
+                    - generic [ref=f11e311]: 49%
+                  - generic [ref=f11e315]:
+                    - generic [ref=f11e316]: "NO"
+                    - generic [ref=f11e317]: 51%
+              - generic [ref=f11e320]: Economics
+              - generic [ref=f11e321]: "49"
+              - generic [ref=f11e322]: "-2.7%"
+              - generic [ref=f11e326]:
+                - generic [ref=f11e327]: 16L
+                - generic [ref=f11e331]: 28L liq
+              - generic [ref=f11e332]: 3 pts
+              - generic [ref=f11e333]: Aug 12, 2026 16:30 IST
+              - generic [ref=f11e338]: Open
+            - 'link "Will a frontier AI lab release a new public model before Sep 30? Conditional AI Source: Official lab announcements YES 64% NO 36% Tech 64 +4.2% 31L 42L liq 3 pts Sep 30, 2026 23:59 UTC Open" [ref=f11e339] [cursor=pointer]':
+              - /url: /markets/ai-model-release
+              - generic [ref=f11e340]:
+                - generic [ref=f11e341]: Will a frontier AI lab release a new public model before Sep 30?
+                - generic [ref=f11e345]:
+                  - generic [ref=f11e346]: Conditional
+                  - generic [ref=f11e347]: AI
+                  - generic [ref=f11e348]: "Source: Official lab announcements"
+                - generic [ref=f11e349]:
+                  - generic [ref=f11e351]:
+                    - generic [ref=f11e352]: "YES"
+                    - generic [ref=f11e353]: 64%
+                  - generic [ref=f11e357]:
+                    - generic [ref=f11e358]: "NO"
+                    - generic [ref=f11e359]: 36%
+              - generic [ref=f11e362]: Tech
+              - generic [ref=f11e363]: "64"
+              - generic [ref=f11e364]: +4.2%
+              - generic [ref=f11e368]:
+                - generic [ref=f11e369]: 31L
+                - generic [ref=f11e373]: 42L liq
+              - generic [ref=f11e374]: 3 pts
+              - generic [ref=f11e375]: Sep 30, 2026 23:59 UTC
+              - generic [ref=f11e380]: Open
+    - navigation [ref=f11e381]:
+      - generic [ref=f11e382]:
+        - link "Markets" [ref=f11e383] [cursor=pointer]:
+          - /url: /markets
+        - link "Watchlist" [ref=f11e388] [cursor=pointer]:
+          - /url: /watchlist
+        - link "Portfolio" [ref=f11e392] [cursor=pointer]:
+          - /url: /portfolio
+        - link "Orders" [ref=f11e398] [cursor=pointer]:
+          - /url: /orders
+        - link "Wallet" [ref=f11e403] [cursor=pointer]:
+          - /url: /wallet
+  - alert [ref=f11e408]

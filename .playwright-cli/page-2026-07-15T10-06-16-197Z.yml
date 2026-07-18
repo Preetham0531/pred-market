@@ -1,0 +1,51 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - link "PM Pred-Market Exchange terminal" [ref=e6] [cursor=pointer]:
+        - /url: /markets
+        - generic [ref=e7]: PM
+        - generic [ref=e8]:
+          - generic [ref=e9]: Pred-Market
+          - generic [ref=e10]: Exchange terminal
+      - generic [ref=e11]: Fully collateralized prediction exchange
+      - heading "Enter the market with signal, speed, and control." [level=1] [ref=e15]
+      - paragraph [ref=e16]: Manage positions, submit limit orders, review ledger movement, and route market suggestions through admin review from one trading workspace.
+      - generic [ref=e17]:
+        - generic [ref=e18]: HttpOnly sessions
+        - generic [ref=e23]: Role-aware routing
+        - generic [ref=e27]: Ledger first design
+      - generic [ref=e32]:
+        - generic [ref=e33]: Built for controlled market operations
+        - paragraph [ref=e34]: Access opens the trading workspace, wallet ledger, admin review queue, and market suggestion tools. Live market data stays inside the authenticated product.
+    - generic [ref=e37]:
+      - generic [ref=e38]:
+        - generic [ref=e39]:
+          - heading "Welcome back" [level=2] [ref=e45]
+          - paragraph [ref=e46]: Use your Pred-Market account to continue.
+        - generic [ref=e47]: Secure
+      - generic [ref=e48]:
+        - generic [ref=e49]:
+          - generic [ref=e50]: Email
+          - textbox "Email" [ref=e51]: trader@predmarket.dev
+        - generic [ref=e52]:
+          - generic [ref=e53]: Password
+          - textbox "Password" [ref=e54]: StrongPass123
+        - button "Sign in" [ref=e55] [cursor=pointer]
+      - generic [ref=e58]: or launch a demo workspace
+      - generic [ref=e62]:
+        - button "Trader Orders & wallet" [ref=e63] [cursor=pointer]:
+          - generic [ref=e67]:
+            - generic [ref=e68]: Trader
+            - generic [ref=e69]: Orders & wallet
+        - button "Admin Review queue" [ref=e70] [cursor=pointer]:
+          - generic [ref=e73]:
+            - generic [ref=e74]: Admin
+            - generic [ref=e75]: Review queue
+      - generic [ref=e76]: Demo credentials are prefilled for local V1 testing.
+      - generic [ref=e81]:
+        - link "Forgot password?" [ref=e82] [cursor=pointer]:
+          - /url: /forgot-password
+        - link "Create account" [ref=e83] [cursor=pointer]:
+          - /url: /sign-up
+  - button "Open Next.js Dev Tools" [ref=e89] [cursor=pointer]
+  - alert [ref=e93]

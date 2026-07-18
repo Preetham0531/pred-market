@@ -1,0 +1,49 @@
+- generic [active] [ref=f7e1]:
+  - generic [ref=f7e3]:
+    - complementary [ref=f7e4]:
+      - link "PM Pred-Market Calm trading terminal" [ref=f7e5] [cursor=pointer]:
+        - /url: /markets
+        - generic [ref=f7e6]: PM
+        - generic [ref=f7e7]:
+          - generic [ref=f7e8]: Pred-Market
+          - generic [ref=f7e9]: Calm trading terminal
+      - generic [ref=f7e10]:
+        - link "Markets" [ref=f7e11] [cursor=pointer]:
+          - /url: /markets
+        - link "Watchlist" [ref=f7e16] [cursor=pointer]:
+          - /url: /watchlist
+        - link "Portfolio" [ref=f7e20] [cursor=pointer]:
+          - /url: /portfolio
+        - link "Orders" [ref=f7e26] [cursor=pointer]:
+          - /url: /orders
+        - link "Wallet" [ref=f7e31] [cursor=pointer]:
+          - /url: /wallet
+        - link "Suggest" [ref=f7e36] [cursor=pointer]:
+          - /url: /markets/suggest
+        - link "Admin" [ref=f7e41] [cursor=pointer]:
+          - /url: /admin
+      - generic [ref=f7e46]:
+        - generic [ref=f7e47]: System status
+        - generic [ref=f7e48]:
+          - generic [ref=f7e49]: Data mode
+          - generic [ref=f7e50]: API
+        - generic [ref=f7e51]: http://localhost:8010
+        - generic [ref=f7e52]:
+          - generic [ref=f7e53]: "Local QA note:"
+          - text: "use `NEXT_PUBLIC_USE_MOCK_DATA=true` for populated visual review, or start the seeded FastAPI backend for integration review."
+    - generic [ref=f7e58]:
+      - banner [ref=f7e59]:
+        - generic [ref=f7e60]:
+          - navigation "Breadcrumb" [ref=f7e62]:
+            - list [ref=f7e63]:
+              - listitem [ref=f7e64]:
+                - link "Markets" [ref=f7e65] [cursor=pointer]:
+                  - /url: /markets
+              - listitem [ref=f7e66]:
+                - generic [ref=f7e69]: Sports
+          - button "Search markets Ctrl K" [ref=f7e70] [cursor=pointer]:
+            - text: Search markets
+            - generic [ref=f7e74]: Ctrl K
+      - main [ref=f7e76]
+  - button "Open Next.js Dev Tools" [ref=f7e115] [cursor=pointer]
+  - alert [ref=f7e119]

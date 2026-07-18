@@ -1,0 +1,253 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e94]:
+    - complementary [ref=e95]:
+      - link "PM Pred-Market Calm trading terminal" [ref=e96] [cursor=pointer]:
+        - /url: /markets
+        - generic [ref=e97]: PM
+        - generic [ref=e98]:
+          - generic [ref=e99]: Pred-Market
+          - generic [ref=e100]: Calm trading terminal
+      - generic [ref=e101]:
+        - link "Markets" [ref=e102] [cursor=pointer]:
+          - /url: /markets
+        - link "Watchlist" [ref=e107] [cursor=pointer]:
+          - /url: /watchlist
+        - link "Portfolio" [ref=e111] [cursor=pointer]:
+          - /url: /portfolio
+        - link "Orders" [ref=e117] [cursor=pointer]:
+          - /url: /orders
+        - link "Wallet" [ref=e122] [cursor=pointer]:
+          - /url: /wallet
+        - link "Suggest" [ref=e127] [cursor=pointer]:
+          - /url: /markets/suggest
+        - link "Admin" [ref=e132] [cursor=pointer]:
+          - /url: /admin
+      - generic [ref=e137]:
+        - generic [ref=e138]: System status
+        - generic [ref=e139]:
+          - generic [ref=e140]: Data mode
+          - generic [ref=e141]: API
+        - generic [ref=e142]:
+          - generic [ref=e143]: "Local QA note:"
+          - text: "use `NEXT_PUBLIC_USE_MOCK_DATA=true` for populated visual review, or start the seeded FastAPI backend for integration review."
+    - generic [ref=e148]:
+      - banner [ref=e149]:
+        - generic [ref=e150]:
+          - navigation "Breadcrumb" [ref=e152]:
+            - list [ref=e153]:
+              - listitem [ref=e154]:
+                - generic [ref=e155]: Markets
+          - button "Search markets Ctrl K" [ref=e156] [cursor=pointer]:
+            - text: Search markets
+            - generic [ref=e160]: Ctrl K
+          - button "Notifications" [ref=e161] [cursor=pointer]
+          - generic [ref=e165]: ₹99,944
+          - button "Open profile menu" [ref=e166]: DT
+      - main [ref=e167]:
+        - generic [ref=e168]:
+          - generic [ref=e169]:
+            - generic [ref=e170]:
+              - heading "Markets" [level=1] [ref=e171]
+              - paragraph [ref=e172]: Scan contracts by source, liquidity, spread, movement, and close time.
+            - generic [ref=e173]:
+              - generic [ref=e174]: 5 markets
+              - generic [ref=e175]: Sources visible
+          - region "Market filters" [ref=e176]:
+            - generic [ref=e177]:
+              - generic [ref=e178]:
+                - generic [ref=e179]: Search
+                - textbox "Search" [ref=e181]:
+                  - /placeholder: Market, team, source
+              - generic [ref=e182]:
+                - generic [ref=e183]: Category
+                - combobox "Category" [ref=e184] [cursor=pointer]:
+                  - generic: All categories
+              - generic [ref=e188]:
+                - generic [ref=e189]: Status
+                - combobox "Status" [ref=e190] [cursor=pointer]:
+                  - generic: All statuses
+              - generic [ref=e194]:
+                - generic [ref=e195]: Sort
+                - combobox "Sort" [ref=e196] [cursor=pointer]:
+                  - generic: Trending
+              - generic [ref=e200]:
+                - generic [ref=e201]:
+                  - checkbox "Watchlist" [ref=e202]
+                  - text: Watchlist
+                - generic [ref=e205]:
+                  - checkbox "Position" [ref=e206]
+                  - text: Position
+          - region "Market categories" [ref=e211]:
+            - generic [ref=e212]:
+              - button "All 5" [ref=e213]:
+                - generic [ref=e215]: All
+                - generic [ref=e216]: "5"
+              - button "Commodities 78L" [ref=e217]:
+                - generic [ref=e222]: Commodities
+                - generic [ref=e223]: 78L
+              - button "Culture 26L" [ref=e224]:
+                - generic [ref=e229]: Culture
+                - generic [ref=e230]: 26L
+              - button "Economics 96L" [ref=e231]:
+                - generic [ref=e236]: Economics
+                - generic [ref=e237]: 96L
+              - button "Financials 81L" [ref=e238]:
+                - generic [ref=e243]: Financials
+                - generic [ref=e244]: 81L
+              - button "Mentions 19L" [ref=e245]:
+                - generic [ref=e250]: Mentions
+                - generic [ref=e251]: 19L
+              - button "Politics 32L" [ref=e252]:
+                - generic [ref=e256]: Politics
+                - generic [ref=e257]: 32L
+              - button "Sports 1.2Cr" [ref=e258]:
+                - generic [ref=e266]: Sports
+                - generic [ref=e267]: 1.2Cr
+              - button "Stocks 72L" [ref=e268]:
+                - generic [ref=e272]: Stocks
+                - generic [ref=e273]: 72L
+              - button "Tech 69L" [ref=e274]:
+                - generic [ref=e279]: Tech
+                - generic [ref=e280]: 69L
+              - button "Weather 41L" [ref=e281]:
+                - generic [ref=e288]: Weather
+                - generic [ref=e289]: 41L
+          - generic [ref=e290]:
+            - generic [ref=e291]: Trending
+            - generic [ref=e294]: Comparing source, liquidity, spread, and close time
+          - generic [ref=e300]:
+            - generic [ref=e301]:
+              - generic [ref=e302]: Market
+              - generic [ref=e303]: YES price
+              - generic [ref=e304]: 24h
+              - generic [ref=e305]: Volume / liq
+              - generic [ref=e306]: Spread
+              - generic [ref=e307]: Close
+            - generic [ref=e308]:
+              - 'link "Will a frontier AI lab release a new public model before October? Open Tech Conditional AI Source: Official company announcement YES 64% NO 36% 64 +4.2% 31L 42L liq 2 pts Sep 30, 2026 23:59 UTC" [ref=e309] [cursor=pointer]':
+                - /url: /markets/ai-model-release
+                - generic [ref=e310]:
+                  - generic [ref=e311]:
+                    - generic [ref=e316]: Will a frontier AI lab release a new public model before October?
+                    - generic [ref=e317]: Open
+                  - generic [ref=e318]:
+                    - generic [ref=e319]: Tech
+                    - generic [ref=e320]: Conditional
+                    - generic [ref=e321]: AI
+                    - generic [ref=e322]: "Source: Official company announcement"
+                  - generic [ref=e323]:
+                    - generic [ref=e325]:
+                      - generic [ref=e326]: "YES"
+                      - generic [ref=e327]: 64%
+                    - generic [ref=e331]:
+                      - generic [ref=e332]: "NO"
+                      - generic [ref=e333]: 36%
+                - generic [ref=e336]: "64"
+                - generic [ref=e337]: +4.2%
+                - generic [ref=e341]:
+                  - generic [ref=e342]: 31L
+                  - generic [ref=e346]: 42L liq
+                - generic [ref=e347]: 2 pts
+                - generic [ref=e348]: Sep 30, 2026 23:59 UTC
+              - 'link "Will India beat Australia in the next T20 final? Open Sports Binary Cricket Source: Official tournament result YES 56% NO 44% 56 +3.8% 21.4L 34L liq 2 pts Jul 18, 2026 18:30 IST" [ref=e353] [cursor=pointer]':
+                - /url: /markets/ind-aus-final
+                - generic [ref=e354]:
+                  - generic [ref=e355]:
+                    - generic [ref=e363]: Will India beat Australia in the next T20 final?
+                    - generic [ref=e364]: Open
+                  - generic [ref=e365]:
+                    - generic [ref=e366]: Sports
+                    - generic [ref=e367]: Binary
+                    - generic [ref=e368]: Cricket
+                    - generic [ref=e369]: "Source: Official tournament result"
+                  - generic [ref=e370]:
+                    - generic [ref=e372]:
+                      - generic [ref=e373]: "YES"
+                      - generic [ref=e374]: 56%
+                    - generic [ref=e378]:
+                      - generic [ref=e379]: "NO"
+                      - generic [ref=e380]: 44%
+                - generic [ref=e383]: "56"
+                - generic [ref=e384]: +3.8%
+                - generic [ref=e388]:
+                  - generic [ref=e389]: 21.4L
+                  - generic [ref=e393]: 34L liq
+                - generic [ref=e394]: 2 pts
+                - generic [ref=e395]: Jul 18, 2026 18:30 IST
+              - 'link "Will the next CPI release be above 4.0 percent? Open Economics Threshold Inflation Source: Official statistics release YES 49% NO 51% 49 -2.1% 18.6L 25L liq 3 pts Aug 12, 2026 09:00 UTC" [ref=e400] [cursor=pointer]':
+                - /url: /markets/cpi-above-4
+                - generic [ref=e401]:
+                  - generic [ref=e402]:
+                    - generic [ref=e407]: Will the next CPI release be above 4.0 percent?
+                    - generic [ref=e408]: Open
+                  - generic [ref=e409]:
+                    - generic [ref=e410]: Economics
+                    - generic [ref=e411]: Threshold
+                    - generic [ref=e412]: Inflation
+                    - generic [ref=e413]: "Source: Official statistics release"
+                  - generic [ref=e414]:
+                    - generic [ref=e416]:
+                      - generic [ref=e417]: "YES"
+                      - generic [ref=e418]: 49%
+                    - generic [ref=e422]:
+                      - generic [ref=e423]: "NO"
+                      - generic [ref=e424]: 51%
+                - generic [ref=e427]: "49"
+                - generic [ref=e428]: "-2.1%"
+                - generic [ref=e432]:
+                  - generic [ref=e433]: 18.6L
+                  - generic [ref=e437]: 25L liq
+                - generic [ref=e438]: 3 pts
+                - generic [ref=e439]: Aug 12, 2026 09:00 UTC
+              - 'link "Will gold settle above 2500 by month end? Open Commodities Threshold Gold Source: Approved benchmark settlement price YES 61% NO 39% 61 +1.4% 17.2L 18L liq 2.5 pts Jul 31, 2026 21:00 UTC" [ref=e444] [cursor=pointer]':
+                - /url: /markets/gold-above-2500
+                - generic [ref=e445]:
+                  - generic [ref=e446]:
+                    - generic [ref=e451]: Will gold settle above 2500 by month end?
+                    - generic [ref=e452]: Open
+                  - generic [ref=e453]:
+                    - generic [ref=e454]: Commodities
+                    - generic [ref=e455]: Threshold
+                    - generic [ref=e456]: Gold
+                    - generic [ref=e457]: "Source: Approved benchmark settlement price"
+                  - generic [ref=e458]:
+                    - generic [ref=e460]:
+                      - generic [ref=e461]: "YES"
+                      - generic [ref=e462]: 61%
+                    - generic [ref=e466]:
+                      - generic [ref=e467]: "NO"
+                      - generic [ref=e468]: 39%
+                - generic [ref=e471]: "61"
+                - generic [ref=e472]: +1.4%
+                - generic [ref=e476]:
+                  - generic [ref=e477]: 17.2L
+                  - generic [ref=e481]: 18L liq
+                - generic [ref=e482]: 2.5 pts
+                - generic [ref=e483]: Jul 31, 2026 21:00 UTC
+              - 'link "Will Bengaluru receive more than 20 mm rain tomorrow? Open Weather Binary Rainfall Source: Approved weather station report YES 42% NO 58% 42 -1.2% 7.6L 9.8L liq 4 pts Jul 10, 2026 00:00 IST" [ref=e488] [cursor=pointer]':
+                - /url: /markets/bengaluru-rain-20mm
+                - generic [ref=e489]:
+                  - generic [ref=e490]:
+                    - generic [ref=e497]: Will Bengaluru receive more than 20 mm rain tomorrow?
+                    - generic [ref=e498]: Open
+                  - generic [ref=e499]:
+                    - generic [ref=e500]: Weather
+                    - generic [ref=e501]: Binary
+                    - generic [ref=e502]: Rainfall
+                    - generic [ref=e503]: "Source: Approved weather station report"
+                  - generic [ref=e504]:
+                    - generic [ref=e506]:
+                      - generic [ref=e507]: "YES"
+                      - generic [ref=e508]: 42%
+                    - generic [ref=e512]:
+                      - generic [ref=e513]: "NO"
+                      - generic [ref=e514]: 58%
+                - generic [ref=e517]: "42"
+                - generic [ref=e518]: "-1.2%"
+                - generic [ref=e522]:
+                  - generic [ref=e523]: 7.6L
+                  - generic [ref=e527]: 9.8L liq
+                - generic [ref=e528]: 4 pts
+                - generic [ref=e529]: Jul 10, 2026 00:00 IST
+  - button "Open Next.js Dev Tools" [ref=e89] [cursor=pointer]
+  - alert [ref=e93]

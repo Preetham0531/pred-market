@@ -1,0 +1,132 @@
+- generic [active] [ref=f3e1]:
+  - generic [ref=f3e2]:
+    - generic [ref=f3e4]:
+      - banner [ref=f3e5]:
+        - generic [ref=f3e6]:
+          - navigation "Breadcrumb" [ref=f3e8]:
+            - list [ref=f3e9]:
+              - listitem [ref=f3e10]:
+                - link "Markets" [ref=f3e11] [cursor=pointer]:
+                  - /url: /markets
+              - listitem [ref=f3e12]:
+                - generic [ref=f3e15]: Sports
+          - button "Notifications" [ref=f3e16] [cursor=pointer]
+          - button "Open profile menu" [ref=f3e20]: A
+      - main [ref=f3e21]:
+        - generic [ref=f3e22]:
+          - generic [ref=f3e25]:
+            - generic [ref=f3e26]:
+              - generic [ref=f3e27]: MEDIUM risk
+              - generic [ref=f3e28]: Cricket / Football / Tennis / Tournaments
+            - heading "Sports" [level=1] [ref=f3e29]
+            - paragraph [ref=f3e30]: Structured markets around matches, tournaments, milestones, and standings.
+          - generic [ref=f3e39]:
+            - generic [ref=f3e40]:
+              - generic [ref=f3e41]: Active markets
+              - generic [ref=f3e42]: "48"
+            - generic [ref=f3e43]:
+              - generic [ref=f3e44]: 24h volume
+              - generic [ref=f3e45]: 1.2Cr
+            - generic [ref=f3e46]:
+              - generic [ref=f3e47]: Top mover
+              - generic [ref=f3e48]: +3.8%
+              - generic [ref=f3e49]: Cricket
+            - generic [ref=f3e50]:
+              - generic [ref=f3e51]: Closing soon
+              - generic [ref=f3e52]: Jul 18, 2026 18:30 IST
+              - generic [ref=f3e53]: Cricket
+            - generic [ref=f3e54]:
+              - generic [ref=f3e55]: Liquidity
+              - generic [ref=f3e56]: 34L
+            - generic [ref=f3e57]:
+              - generic [ref=f3e58]: Category share
+              - generic [ref=f3e59]: 19.4%
+          - generic [ref=f3e60]:
+            - button "All" [ref=f3e61] [cursor=pointer]
+            - button "Cricket (1)" [ref=f3e62] [cursor=pointer]
+          - generic [ref=f3e64]:
+            - generic [ref=f3e65]:
+              - generic [ref=f3e66]:
+                - generic [ref=f3e67]:
+                  - heading "Active contracts" [level=2] [ref=f3e68]
+                  - paragraph [ref=f3e69]: Compact cards show outcomes, source, close time, spread, and liquidity.
+                - generic [ref=f3e70]: 1 visible
+              - 'link "Open Binary Position Will India beat Australia in the next T20 final? Sports Jul 18, 2026 18:30 IST Source: Official tournament result 56 YES price +3.8% YES 56 56% NO 44 44% 24h volume 21L Liquidity 34L Spread 2 pts" [ref=f3e72] [cursor=pointer]':
+                - /url: /markets/ind-aus-final
+                - generic [ref=f3e73]:
+                  - generic [ref=f3e82]:
+                    - generic [ref=f3e83]:
+                      - generic [ref=f3e84]: Open
+                      - generic [ref=f3e85]: Binary
+                      - generic [ref=f3e86]: Position
+                    - heading "Will India beat Australia in the next T20 final?" [level=3] [ref=f3e87]
+                    - generic [ref=f3e88]:
+                      - generic [ref=f3e89]: Sports
+                      - generic [ref=f3e90]: Jul 18, 2026 18:30 IST
+                      - generic [ref=f3e94]: "Source: Official tournament result"
+                  - generic [ref=f3e99]:
+                    - generic [ref=f3e100]: "56"
+                    - generic [ref=f3e101]: YES price
+                    - generic [ref=f3e102]: +3.8%
+                - generic [ref=f3e106]:
+                  - generic [ref=f3e107]:
+                    - generic [ref=f3e109]:
+                      - generic [ref=f3e110]: "YES"
+                      - generic [ref=f3e111]: "56"
+                    - generic [ref=f3e114]: 56%
+                  - generic [ref=f3e115]:
+                    - generic [ref=f3e117]:
+                      - generic [ref=f3e118]: "NO"
+                      - generic [ref=f3e119]: "44"
+                    - generic [ref=f3e122]: 44%
+                - generic [ref=f3e123]:
+                  - generic [ref=f3e124]:
+                    - generic [ref=f3e125]: 24h volume
+                    - generic [ref=f3e126]: 21L
+                  - generic [ref=f3e127]:
+                    - generic [ref=f3e128]: Liquidity
+                    - generic [ref=f3e132]: 34L
+                  - generic [ref=f3e133]:
+                    - generic [ref=f3e134]: Spread
+                    - generic [ref=f3e135]: 2 pts
+            - generic [ref=f3e136]:
+              - generic [ref=f3e137]:
+                - heading "Comparison table" [level=2] [ref=f3e138]
+                - generic [ref=f3e139]: Includes active, paused, and closing markets
+              - 'link "Will India beat Australia in the next T20 final? Binary Cricket Source: Official tournament result YES 56% NO 44% Sports 56 +3.8% 21L 34L liq 2 pts Jul 18, 2026 18:30 IST Open" [ref=f3e142] [cursor=pointer]':
+                - /url: /markets/ind-aus-final
+                - generic [ref=f3e143]:
+                  - generic [ref=f3e144]: Will India beat Australia in the next T20 final?
+                  - generic [ref=f3e148]:
+                    - generic [ref=f3e149]: Binary
+                    - generic [ref=f3e150]: Cricket
+                    - generic [ref=f3e151]: "Source: Official tournament result"
+                  - generic [ref=f3e152]:
+                    - generic [ref=f3e154]:
+                      - generic [ref=f3e155]: "YES"
+                      - generic [ref=f3e156]: 56%
+                    - generic [ref=f3e160]:
+                      - generic [ref=f3e161]: "NO"
+                      - generic [ref=f3e162]: 44%
+                - generic [ref=f3e165]: Sports
+                - generic [ref=f3e166]: "56"
+                - generic [ref=f3e167]: +3.8%
+                - generic [ref=f3e171]:
+                  - generic [ref=f3e172]: 21L
+                  - generic [ref=f3e176]: 34L liq
+                - generic [ref=f3e177]: 2 pts
+                - generic [ref=f3e178]: Jul 18, 2026 18:30 IST
+                - generic [ref=f3e183]: Open
+    - navigation [ref=f3e184]:
+      - generic [ref=f3e185]:
+        - link "Markets" [ref=f3e186] [cursor=pointer]:
+          - /url: /markets
+        - link "Watchlist" [ref=f3e191] [cursor=pointer]:
+          - /url: /watchlist
+        - link "Portfolio" [ref=f3e195] [cursor=pointer]:
+          - /url: /portfolio
+        - link "Orders" [ref=f3e201] [cursor=pointer]:
+          - /url: /orders
+        - link "Wallet" [ref=f3e206] [cursor=pointer]:
+          - /url: /wallet
+  - alert [ref=f3e211]

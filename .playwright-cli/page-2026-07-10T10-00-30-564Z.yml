@@ -1,0 +1,22 @@
+- generic [active] [ref=f27e1]:
+  - generic [ref=f27e2]:
+    - generic [ref=f27e4]:
+      - banner [ref=f27e5]:
+        - navigation "Breadcrumb" [ref=f27e8]:
+          - list [ref=f27e9]:
+            - listitem [ref=f27e10]:
+              - generic [ref=f27e11]: Markets
+      - main [ref=f27e13]
+    - navigation [ref=f27e49]:
+      - generic [ref=f27e50]:
+        - link "Markets" [ref=f27e51] [cursor=pointer]:
+          - /url: /markets
+        - link "Watchlist" [ref=f27e56] [cursor=pointer]:
+          - /url: /watchlist
+        - link "Portfolio" [ref=f27e60] [cursor=pointer]:
+          - /url: /portfolio
+        - link "Orders" [ref=f27e66] [cursor=pointer]:
+          - /url: /orders
+        - link "Wallet" [ref=f27e71] [cursor=pointer]:
+          - /url: /wallet
+  - button "Open Next.js Dev Tools" [ref=f27e81] [cursor=pointer]

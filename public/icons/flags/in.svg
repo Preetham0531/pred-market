@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="India flag">
+  <path fill="#f93" d="M0 0h640v160H0z"/>
+  <path fill="#fff" d="M0 160h640v160H0z"/>
+  <path fill="#128807" d="M0 320h640v160H0z"/>
+  <circle cx="320" cy="240" r="52" fill="none" stroke="#000080" stroke-width="8"/>
+  <g stroke="#000080" stroke-width="4">
+    <path d="M320 188v104M268 240h104M283 203l74 74M357 203l-74 74"/>
+    <path d="M294 193l52 94M346 193l-52 94M273 214l94 52M367 214l-94 52"/>
+  </g>
+</svg>

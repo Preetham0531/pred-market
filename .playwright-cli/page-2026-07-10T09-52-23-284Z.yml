@@ -1,0 +1,131 @@
+- generic [active] [ref=f12e1]:
+  - generic [ref=f12e41]:
+    - complementary [ref=f12e42]:
+      - link "PM Pred-Market Calm trading terminal" [ref=f12e43] [cursor=pointer]:
+        - /url: /markets
+        - generic [ref=f12e44]: PM
+        - generic [ref=f12e45]:
+          - generic [ref=f12e46]: Pred-Market
+          - generic [ref=f12e47]: Calm trading terminal
+      - generic [ref=f12e48]:
+        - link "Markets" [ref=f12e49] [cursor=pointer]:
+          - /url: /markets
+        - link "Watchlist" [ref=f12e54] [cursor=pointer]:
+          - /url: /watchlist
+        - link "Portfolio" [ref=f12e58] [cursor=pointer]:
+          - /url: /portfolio
+        - link "Orders" [ref=f12e64] [cursor=pointer]:
+          - /url: /orders
+        - link "Wallet" [ref=f12e69] [cursor=pointer]:
+          - /url: /wallet
+        - link "Suggest" [ref=f12e74] [cursor=pointer]:
+          - /url: /markets/suggest
+        - link "Admin" [ref=f12e79] [cursor=pointer]:
+          - /url: /admin
+      - generic [ref=f12e84]:
+        - generic [ref=f12e85]: System status
+        - generic [ref=f12e86]:
+          - generic [ref=f12e87]: Data mode
+          - generic [ref=f12e88]: API
+        - generic [ref=f12e89]: http://localhost:8010
+        - generic [ref=f12e90]:
+          - generic [ref=f12e91]: "Local QA note:"
+          - text: "use `NEXT_PUBLIC_USE_MOCK_DATA=true` for populated visual review, or start the seeded FastAPI backend for integration review."
+    - generic [ref=f12e96]:
+      - banner [ref=f12e97]:
+        - generic [ref=f12e98]:
+          - navigation "Breadcrumb" [ref=f12e100]:
+            - list [ref=f12e101]:
+              - listitem [ref=f12e102]:
+                - generic [ref=f12e103]: Admin
+              - listitem [ref=f12e104]:
+                - generic [ref=f12e107]: Market review
+              - listitem [ref=f12e108]:
+                - generic [ref=f12e111]: Pending approval
+          - button "Search markets Ctrl K" [ref=f12e112] [cursor=pointer]:
+            - text: Search markets
+            - generic [ref=f12e116]: Ctrl K
+          - button "Notifications" [ref=f12e117] [cursor=pointer]
+          - generic [ref=f12e121]: ₹0
+          - button "Open profile menu" [ref=f12e122]: DA
+      - main [ref=f12e123]:
+        - generic [ref=f12e124]:
+          - generic [ref=f12e125]:
+            - heading "Admin review" [level=1] [ref=f12e126]
+            - paragraph [ref=f12e127]: Market approval, resolution evidence, automation exceptions, and risk queue.
+          - generic [ref=f12e128]:
+            - generic [ref=f12e129]:
+              - generic [ref=f12e130]: Pending reviews
+              - generic [ref=f12e131]: "3"
+            - generic [ref=f12e132]:
+              - generic [ref=f12e133]: Automation pass
+              - generic [ref=f12e134]: 82%
+            - generic [ref=f12e135]:
+              - generic [ref=f12e136]: Disputes
+              - generic [ref=f12e137]: "1"
+            - generic [ref=f12e138]:
+              - generic [ref=f12e139]: Avg resolution
+              - generic [ref=f12e140]: 14 min
+          - generic [ref=f12e141]:
+            - generic [ref=f12e142]:
+              - generic [ref=f12e143]: Review queue
+              - generic [ref=f12e144]:
+                - generic [ref=f12e145]: ID
+                - generic [ref=f12e146]: Market
+                - generic [ref=f12e147]: Category
+                - generic [ref=f12e148]: Risk
+                - generic [ref=f12e149]: Evidence
+                - generic [ref=f12e150]: Automation
+                - generic [ref=f12e151]: Action
+              - generic [ref=f12e152]:
+                - generic [ref=f12e153]:
+                  - generic [ref=f12e154]: a6e04d67-2566-406c-9497-ddb8f739cd4d
+                  - generic [ref=f12e155]:
+                    - generic [ref=f12e156]: Will a listed stock close above its 52-week high?
+                    - generic [ref=f12e157]: Submitted by user_2810 / maker-checker required
+                  - generic [ref=f12e158]: Stocks and mutual funds
+                  - generic [ref=f12e159]: RESTRICTED
+                  - generic [ref=f12e160]: Attached
+                  - generic [ref=f12e161]: Blocked
+                  - link "Review" [ref=f12e162] [cursor=pointer]:
+                    - /url: /admin/markets/a6e04d67-2566-406c-9497-ddb8f739cd4d
+                - generic [ref=f12e163]:
+                  - generic [ref=f12e164]: b53068c7-1897-4391-b835-11bb3feeb59b
+                  - generic [ref=f12e165]:
+                    - generic [ref=f12e166]: Will the next policy rate decision be a hold?
+                    - generic [ref=f12e167]: Submitted by user_1041 / maker-checker required
+                  - generic [ref=f12e168]: Economics
+                  - generic [ref=f12e169]: MEDIUM
+                  - generic [ref=f12e170]: Attached
+                  - generic [ref=f12e171]: Passed
+                  - link "Review" [ref=f12e172] [cursor=pointer]:
+                    - /url: /admin/markets/b53068c7-1897-4391-b835-11bb3feeb59b
+                - generic [ref=f12e173]:
+                  - generic [ref=f12e174]: ae0f2c3f-fdc0-4450-bb8c-0740de5a2ca7
+                  - generic [ref=f12e175]:
+                    - generic [ref=f12e176]: Will Bengaluru receive more than 20 mm rain tomorrow?
+                    - generic [ref=f12e177]: Submitted by user_1829 / maker-checker required
+                  - generic [ref=f12e178]: Weather / climate
+                  - generic [ref=f12e179]: LOW
+                  - generic [ref=f12e180]: Needs source
+                  - generic [ref=f12e181]: Passed
+                  - link "Review" [ref=f12e182] [cursor=pointer]:
+                    - /url: /admin/markets/ae0f2c3f-fdc0-4450-bb8c-0740de5a2ca7
+            - complementary [ref=f12e183]:
+              - generic [ref=f12e184]:
+                - heading "Automation checks" [level=2] [ref=f12e185]
+                - generic [ref=f12e186]: V1 deterministic
+              - generic [ref=f12e187]:
+                - generic [ref=f12e188]:
+                  - generic [ref=f12e189]: Duplicate detection
+                  - generic [ref=f12e193]: Active
+                - generic [ref=f12e194]:
+                  - generic [ref=f12e195]: Source availability
+                  - generic [ref=f12e199]: Active
+                - generic [ref=f12e200]:
+                  - generic [ref=f12e201]: Restricted category
+                  - generic [ref=f12e204]: Active
+                - generic [ref=f12e205]:
+                  - generic [ref=f12e206]: Evidence capture
+                  - generic [ref=f12e212]: Active
+  - alert [ref=f12e40]

@@ -1,0 +1,200 @@
+- generic [active] [ref=f3e1]:
+  - generic [ref=f3e2]:
+    - generic [ref=f3e4]:
+      - banner [ref=f3e5]:
+        - generic [ref=f3e6]:
+          - navigation "Breadcrumb" [ref=f3e8]:
+            - list [ref=f3e9]:
+              - listitem [ref=f3e10]:
+                - link "Markets" [ref=f3e11] [cursor=pointer]:
+                  - /url: /markets
+              - listitem [ref=f3e12]:
+                - generic [ref=f3e15]: Will India beat Australia in the next T20 final?
+          - button "Notifications" [ref=f3e16] [cursor=pointer]
+          - button "Open profile menu" [ref=f3e20]: A
+      - main [ref=f3e21]:
+        - generic [ref=f3e22]:
+          - generic [ref=f3e23]:
+            - generic [ref=f3e25]:
+              - generic [ref=f3e26]:
+                - generic [ref=f3e27]:
+                  - generic [ref=f3e28]: Open
+                  - generic [ref=f3e29]: Binary
+                  - generic [ref=f3e30]: Sports
+                  - generic [ref=f3e31]: Trading open
+                - heading "Will India beat Australia in the next T20 final?" [level=1] [ref=f3e32]
+                - generic [ref=f3e33]:
+                  - generic [ref=f3e34]: Closes Jul 18, 2026 18:30 IST
+                  - generic [ref=f3e38]: "Source: Official tournament result"
+                  - link "Rules and evidence" [ref=f3e42] [cursor=pointer]:
+                    - /url: "#rules-evidence"
+              - generic [ref=f3e47]:
+                - generic [ref=f3e48]: "56"
+                - generic [ref=f3e49]: YES price
+                - generic [ref=f3e50]: +3.8% 24h
+            - generic [ref=f3e54]:
+              - generic [ref=f3e55]:
+                - generic [ref=f3e56]: 24h volume
+                - generic [ref=f3e57]: 21L
+                - generic [ref=f3e58]: ₹21,00,000
+              - generic [ref=f3e59]:
+                - generic [ref=f3e60]: Total volume
+                - generic [ref=f3e61]: 1.8Cr
+              - generic [ref=f3e62]:
+                - generic [ref=f3e63]: Liquidity
+                - generic [ref=f3e64]: 34L
+              - generic [ref=f3e65]:
+                - generic [ref=f3e66]: Spread
+                - generic [ref=f3e67]: 2 pts
+            - generic [ref=f3e69]:
+              - generic [ref=f3e70]:
+                - generic [ref=f3e71]:
+                  - heading "Probability history" [level=2] [ref=f3e72]
+                  - paragraph [ref=f3e73]: YES price with volume context and source-event markers.
+                - generic [ref=f3e74]:
+                  - generic [ref=f3e75]: +3 pts
+                  - generic [ref=f3e76]:
+                    - button "1D" [ref=f3e77] [cursor=pointer]
+                    - button "1W" [ref=f3e78] [cursor=pointer]
+                    - button "1M" [ref=f3e79] [cursor=pointer]
+                    - button "ALL" [ref=f3e80] [cursor=pointer]
+              - img "YES probability chart" [ref=f3e82]:
+                - generic [ref=f3e83]: "64"
+                - generic [ref=f3e85]: "57"
+                - generic [ref=f3e87]: "50"
+                - generic [ref=f3e89]: "43"
+                - generic [ref=f3e91]: "36"
+                - generic [ref=f3e95]: "3"
+                - generic [ref=f3e98]: "4"
+                - generic [ref=f3e101]: "5"
+                - generic [ref=f3e104]: "6"
+                - generic [ref=f3e107]: "7"
+                - generic [ref=f3e110]: "8"
+                - generic [ref=f3e113]: "9"
+                - generic [ref=f3e117]: "56"
+              - generic [ref=f3e118]:
+                - 'generic "2026-07-03: 2300" [ref=f3e119]'
+                - 'generic "2026-07-04: 1800" [ref=f3e120]'
+                - 'generic "2026-07-05: 3100" [ref=f3e121]'
+                - 'generic "2026-07-06: 4600" [ref=f3e122]'
+                - 'generic "2026-07-07: 3900" [ref=f3e123]'
+                - 'generic "2026-07-08: 5200" [ref=f3e124]'
+                - 'generic "2026-07-09: 6100" [ref=f3e125]'
+              - generic [ref=f3e126]:
+                - generic [ref=f3e127]: "Source: Official tournament result"
+                - generic [ref=f3e128]: Closes Jul 18, 2026 18:30 IST
+                - generic [ref=f3e129]: Open
+                - generic [ref=f3e130]: No market orders
+            - region "Market depth" [ref=f3e132]:
+              - generic [ref=f3e133]:
+                - generic [ref=f3e134]:
+                  - heading "Market depth" [level=2] [ref=f3e135]
+                  - paragraph [ref=f3e136]: Binary YES/NO book with complementary pricing.
+                - generic [ref=f3e137]:
+                  - generic [ref=f3e138]:
+                    - generic [ref=f3e139]: Best YES
+                    - generic [ref=f3e140]: "55"
+                  - generic [ref=f3e141]:
+                    - generic [ref=f3e142]: Spread
+                    - generic [ref=f3e143]: 2 pts
+                  - generic [ref=f3e144]:
+                    - generic [ref=f3e145]: YES ask
+                    - generic [ref=f3e146]: "57"
+              - generic [ref=f3e147]:
+                - generic [ref=f3e148]:
+                  - generic [ref=f3e149]:
+                    - generic [ref=f3e150]: YES bids
+                    - generic [ref=f3e151]: Qty
+                    - generic [ref=f3e152]: Total
+                  - generic [ref=f3e153]:
+                    - generic "YES bids price 55, quantity 420" [ref=f3e154]:
+                      - generic [ref=f3e156]: "55"
+                      - generic [ref=f3e157]: "420"
+                      - generic [ref=f3e158]: "23100"
+                    - generic "YES bids price 54, quantity 610" [ref=f3e159]:
+                      - generic [ref=f3e161]: "54"
+                      - generic [ref=f3e162]: "610"
+                      - generic [ref=f3e163]: "32940"
+                    - generic "YES bids price 53, quantity 380" [ref=f3e164]:
+                      - generic [ref=f3e166]: "53"
+                      - generic [ref=f3e167]: "380"
+                      - generic [ref=f3e168]: "20140"
+                    - generic "YES bids price 52, quantity 840" [ref=f3e169]:
+                      - generic [ref=f3e171]: "52"
+                      - generic [ref=f3e172]: "840"
+                      - generic [ref=f3e173]: "43680"
+                - generic [ref=f3e174]:
+                  - generic [ref=f3e175]:
+                    - generic [ref=f3e176]: NO bids
+                    - generic [ref=f3e177]: Qty
+                    - generic [ref=f3e178]: Total
+                  - generic [ref=f3e179]:
+                    - generic "NO bids price 43, quantity 360" [ref=f3e180]:
+                      - generic [ref=f3e182]: "43"
+                      - generic [ref=f3e183]: "360"
+                      - generic [ref=f3e184]: "15480"
+                    - generic "NO bids price 42, quantity 520" [ref=f3e185]:
+                      - generic [ref=f3e187]: "42"
+                      - generic [ref=f3e188]: "520"
+                      - generic [ref=f3e189]: "21840"
+                    - generic "NO bids price 41, quantity 680" [ref=f3e190]:
+                      - generic [ref=f3e192]: "41"
+                      - generic [ref=f3e193]: "680"
+                      - generic [ref=f3e194]: "27880"
+                    - generic "NO bids price 40, quantity 770" [ref=f3e195]:
+                      - generic [ref=f3e197]: "40"
+                      - generic [ref=f3e198]: "770"
+                      - generic [ref=f3e199]: "30800"
+            - generic [ref=f3e200]:
+              - generic [ref=f3e201]:
+                - generic [ref=f3e202]:
+                  - heading "Recent trades" [level=2] [ref=f3e203]
+                  - generic [ref=f3e204]: Live tape
+                - generic [ref=f3e205]:
+                  - generic [ref=f3e206]: Time
+                  - generic [ref=f3e207]: Outcome
+                  - generic [ref=f3e208]: Price
+                  - generic [ref=f3e209]: Qty
+                - generic [ref=f3e210]:
+                  - generic [ref=f3e211]:
+                    - generic [ref=f3e212]: 10:42
+                    - generic [ref=f3e213]: "YES"
+                    - generic [ref=f3e214]: "56"
+                    - generic [ref=f3e215]: "24"
+                  - generic [ref=f3e216]:
+                    - generic [ref=f3e217]: 10:39
+                    - generic [ref=f3e218]: "NO"
+                    - generic [ref=f3e219]: "44"
+                    - generic [ref=f3e220]: "18"
+                  - generic [ref=f3e221]:
+                    - generic [ref=f3e222]: 10:33
+                    - generic [ref=f3e223]: "YES"
+                    - generic [ref=f3e224]: "55"
+                    - generic [ref=f3e225]: "40"
+              - generic [ref=f3e226]:
+                - generic [ref=f3e227]:
+                  - heading "Rules and evidence" [level=2] [ref=f3e228]
+                  - generic [ref=f3e229]: Resolution source
+                - paragraph [ref=f3e230]: YES resolves if India is declared match winner by the official tournament source.
+                - generic [ref=f3e231]:
+                  - generic [ref=f3e232]: Match postponement follows tournament void policy.
+                  - generic [ref=f3e233]: Official result source is required.
+          - generic [ref=f3e235]:
+            - generic [ref=f3e236]:
+              - generic [ref=f3e237]: Trade YES
+              - generic [ref=f3e238]: 10 contracts at 56
+              - generic [ref=f3e239]: Cost ₹560 - Available ₹84,220
+            - button "Open ticket" [ref=f3e240] [cursor=pointer]
+    - navigation [ref=f3e241]:
+      - generic [ref=f3e242]:
+        - link "Markets" [ref=f3e243] [cursor=pointer]:
+          - /url: /markets
+        - link "Watchlist" [ref=f3e248] [cursor=pointer]:
+          - /url: /watchlist
+        - link "Portfolio" [ref=f3e252] [cursor=pointer]:
+          - /url: /portfolio
+        - link "Orders" [ref=f3e258] [cursor=pointer]:
+          - /url: /orders
+        - link "Wallet" [ref=f3e263] [cursor=pointer]:
+          - /url: /wallet
+  - alert [ref=f3e268]

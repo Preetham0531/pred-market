@@ -1,0 +1,25 @@
+- generic [active] [ref=f19e1]:
+  - generic [ref=f19e2]:
+    - generic [ref=f19e4]:
+      - banner [ref=f19e5]:
+        - navigation "Breadcrumb" [ref=f19e8]:
+          - list [ref=f19e9]:
+            - listitem [ref=f19e10]:
+              - link "Markets" [ref=f19e11] [cursor=pointer]:
+                - /url: /markets
+            - listitem [ref=f19e12]:
+              - generic [ref=f19e15]: Ind Aus Final
+      - main [ref=f19e17]
+    - navigation [ref=f19e34]:
+      - generic [ref=f19e35]:
+        - link "Markets" [ref=f19e36] [cursor=pointer]:
+          - /url: /markets
+        - link "Watchlist" [ref=f19e41] [cursor=pointer]:
+          - /url: /watchlist
+        - link "Portfolio" [ref=f19e45] [cursor=pointer]:
+          - /url: /portfolio
+        - link "Orders" [ref=f19e51] [cursor=pointer]:
+          - /url: /orders
+        - link "Wallet" [ref=f19e56] [cursor=pointer]:
+          - /url: /wallet
+  - alert [ref=f19e61]

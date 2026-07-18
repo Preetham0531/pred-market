@@ -1,0 +1,62 @@
+- generic [active] [ref=f14e1]:
+  - generic [ref=f14e2]:
+    - generic [ref=f14e4]:
+      - banner [ref=f14e5]:
+        - navigation "Breadcrumb" [ref=f14e8]:
+          - list [ref=f14e9]:
+            - listitem [ref=f14e10]:
+              - generic [ref=f14e11]: Admin
+            - listitem [ref=f14e12]:
+              - generic [ref=f14e15]: Pending approval
+      - main [ref=f14e17]:
+        - generic [ref=f14e18]:
+          - generic [ref=f14e19]:
+            - heading "Admin review" [level=1] [ref=f14e20]
+            - paragraph [ref=f14e21]: Market approval, resolution evidence, automation exceptions, and risk queue.
+          - generic [ref=f14e22]:
+            - generic [ref=f14e23]:
+              - generic [ref=f14e24]: Pending reviews
+              - generic [ref=f14e25]: ...
+            - generic [ref=f14e26]:
+              - generic [ref=f14e27]: Automation pass
+              - generic [ref=f14e28]: 82%
+            - generic [ref=f14e29]:
+              - generic [ref=f14e30]: Disputes
+              - generic [ref=f14e31]: "1"
+            - generic [ref=f14e32]:
+              - generic [ref=f14e33]: Avg resolution
+              - generic [ref=f14e34]: 14 min
+          - generic [ref=f14e35]:
+            - generic [ref=f14e36]:
+              - generic [ref=f14e37]: Review queue
+              - generic [ref=f14e38]: Loading review queue...
+            - complementary [ref=f14e40]:
+              - generic [ref=f14e41]:
+                - heading "Automation checks" [level=2] [ref=f14e42]
+                - generic [ref=f14e43]: V1 deterministic
+              - generic [ref=f14e44]:
+                - generic [ref=f14e45]:
+                  - generic [ref=f14e46]: Duplicate detection
+                  - generic [ref=f14e50]: Active
+                - generic [ref=f14e51]:
+                  - generic [ref=f14e52]: Source availability
+                  - generic [ref=f14e56]: Active
+                - generic [ref=f14e57]:
+                  - generic [ref=f14e58]: Restricted category
+                  - generic [ref=f14e61]: Active
+                - generic [ref=f14e62]:
+                  - generic [ref=f14e63]: Evidence capture
+                  - generic [ref=f14e69]: Active
+    - navigation [ref=f14e70]:
+      - generic [ref=f14e71]:
+        - link "Markets" [ref=f14e72] [cursor=pointer]:
+          - /url: /markets
+        - link "Watchlist" [ref=f14e77] [cursor=pointer]:
+          - /url: /watchlist
+        - link "Portfolio" [ref=f14e81] [cursor=pointer]:
+          - /url: /portfolio
+        - link "Orders" [ref=f14e87] [cursor=pointer]:
+          - /url: /orders
+        - link "Wallet" [ref=f14e92] [cursor=pointer]:
+          - /url: /wallet
+  - alert [ref=f14e97]

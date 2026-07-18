@@ -1,0 +1,247 @@
+- generic [active] [ref=f11e1]:
+  - generic [ref=f11e2]:
+    - generic [ref=f11e4]:
+      - banner [ref=f11e5]:
+        - navigation "Breadcrumb" [ref=f11e8]:
+          - list [ref=f11e9]:
+            - listitem [ref=f11e10]:
+              - generic [ref=f11e11]: Markets
+      - main [ref=f11e13]:
+        - generic [ref=f11e14]:
+          - generic [ref=f11e15]:
+            - generic [ref=f11e16]:
+              - generic [ref=f11e17]: 24h volume
+              - generic [ref=f11e18]: 1.1Cr
+              - generic [ref=f11e19]: All active categories
+            - generic [ref=f11e20]:
+              - generic [ref=f11e21]: Open markets
+              - generic [ref=f11e22]: "5"
+              - generic [ref=f11e23]: Limit orders live
+            - generic [ref=f11e24]:
+              - generic [ref=f11e25]: Avg spread
+              - generic [ref=f11e26]: 3.2 pts
+              - generic [ref=f11e27]: Across board
+            - generic [ref=f11e28]:
+              - generic [ref=f11e29]: Biggest mover
+              - generic [ref=f11e30]: +5.4%
+              - generic [ref=f11e31]: Rainfall
+            - generic [ref=f11e32]:
+              - generic [ref=f11e33]: Deepest book
+              - generic [ref=f11e34]: 42L
+              - generic [ref=f11e35]: AI
+            - generic [ref=f11e36]:
+              - generic [ref=f11e37]: Tightest spread
+              - generic [ref=f11e38]: 2 pts
+              - generic [ref=f11e39]: "Next: Inflation"
+          - generic [ref=f11e40]:
+            - complementary [ref=f11e41]:
+              - heading "Filters" [level=2] [ref=f11e45]
+              - generic [ref=f11e46]:
+                - generic [ref=f11e47]:
+                  - generic [ref=f11e48]: Search
+                  - textbox "Search" [ref=f11e50]:
+                    - /placeholder: Market, team, source
+                - generic [ref=f11e51]:
+                  - generic [ref=f11e52]: Category
+                  - combobox "Category" [ref=f11e53] [cursor=pointer]:
+                    - generic: All categories
+                - generic [ref=f11e57]:
+                  - generic [ref=f11e58]: Status
+                  - combobox "Status" [ref=f11e59] [cursor=pointer]:
+                    - generic: All statuses
+                - generic [ref=f11e63]:
+                  - generic [ref=f11e64]: Sort
+                  - combobox "Sort" [ref=f11e65] [cursor=pointer]:
+                    - generic: Trending
+                - generic [ref=f11e69]:
+                  - checkbox "Watchlisted only" [ref=f11e70]
+                  - text: Watchlisted only
+                - generic [ref=f11e71]:
+                  - checkbox "Has position" [ref=f11e72]
+                  - text: Has position
+            - generic [ref=f11e73]:
+              - generic [ref=f11e74]:
+                - button "All" [ref=f11e75] [cursor=pointer]
+                - button "Sports" [ref=f11e76] [cursor=pointer]
+                - button "Politics" [ref=f11e77] [cursor=pointer]
+                - button "Economics" [ref=f11e78] [cursor=pointer]
+                - button "Stocks" [ref=f11e79] [cursor=pointer]
+                - button "Financials" [ref=f11e80] [cursor=pointer]
+                - button "Weather" [ref=f11e81] [cursor=pointer]
+                - button "Culture" [ref=f11e82] [cursor=pointer]
+                - button "Tech" [ref=f11e83] [cursor=pointer]
+                - button "Mentions" [ref=f11e84] [cursor=pointer]
+                - button "Commodities" [ref=f11e85] [cursor=pointer]
+              - generic [ref=f11e86]:
+                - generic [ref=f11e87]:
+                  - generic [ref=f11e88]:
+                    - heading "Exchange board" [level=1] [ref=f11e89]
+                    - paragraph [ref=f11e90]: Scan contracts by liquidity, close time, probability movement, and spread.
+                  - generic [ref=f11e91]:
+                    - generic [ref=f11e92]: 6 markets
+                    - generic [ref=f11e93]: Density 9
+                - generic [ref=f11e94]:
+                  - button "Sports 1.2Cr" [ref=f11e95]:
+                    - generic [ref=f11e104]:
+                      - generic [ref=f11e105]: Sports
+                      - generic [ref=f11e106]: 1.2Cr
+                  - button "Politics 32L" [ref=f11e107]:
+                    - generic [ref=f11e112]:
+                      - generic [ref=f11e113]: Politics
+                      - generic [ref=f11e114]: 32L
+                  - button "Economics 96L" [ref=f11e115]:
+                    - generic [ref=f11e121]:
+                      - generic [ref=f11e122]: Economics
+                      - generic [ref=f11e123]: 96L
+                  - button "Stocks 72L" [ref=f11e124]:
+                    - generic [ref=f11e129]:
+                      - generic [ref=f11e130]: Stocks
+                      - generic [ref=f11e131]: 72L
+                  - button "Financials 81L" [ref=f11e132]:
+                    - generic [ref=f11e138]:
+                      - generic [ref=f11e139]: Financials
+                      - generic [ref=f11e140]: 81L
+                  - button "Weather 41L" [ref=f11e141]:
+                    - generic [ref=f11e149]:
+                      - generic [ref=f11e150]: Weather
+                      - generic [ref=f11e151]: 41L
+                  - button "Culture 26L" [ref=f11e152]:
+                    - generic [ref=f11e158]:
+                      - generic [ref=f11e159]: Culture
+                      - generic [ref=f11e160]: 26L
+                  - button "Tech 69L" [ref=f11e161]:
+                    - generic [ref=f11e167]:
+                      - generic [ref=f11e168]: Tech
+                      - generic [ref=f11e169]: 69L
+                  - button "Mentions 19L" [ref=f11e170]:
+                    - generic [ref=f11e176]:
+                      - generic [ref=f11e177]: Mentions
+                      - generic [ref=f11e178]: 19L
+                  - button "Commodities 78L" [ref=f11e179]:
+                    - generic [ref=f11e185]:
+                      - generic [ref=f11e186]: Commodities
+                      - generic [ref=f11e187]: 78L
+              - generic [ref=f11e188]:
+                - generic [ref=f11e189]: Sorted by trending
+                - generic [ref=f11e191]: Filter state preserved locally
+              - generic [ref=f11e195]:
+                - generic [ref=f11e196]:
+                  - generic [ref=f11e197]: Board mover
+                  - 'link "Open Range Mumbai rainfall on Jul 20: which range will be recorded? Weather Jul 20, 2026 06:00 IST 34 YES price +5.4%" [ref=f11e201] [cursor=pointer]':
+                    - /url: /markets/mumbai-rainfall-range
+                    - generic [ref=f11e202]:
+                      - generic [ref=f11e210]:
+                        - generic [ref=f11e211]:
+                          - generic [ref=f11e212]: Open
+                          - generic [ref=f11e213]: Range
+                        - 'heading "Mumbai rainfall on Jul 20: which range will be recorded?" [level=3] [ref=f11e214]'
+                        - generic [ref=f11e215]:
+                          - generic [ref=f11e216]: Weather
+                          - generic [ref=f11e217]: Jul 20, 2026 06:00 IST
+                      - generic [ref=f11e221]:
+                        - generic [ref=f11e222]: "34"
+                        - generic [ref=f11e223]: YES price
+                        - generic [ref=f11e224]: +5.4%
+                - generic [ref=f11e228]:
+                  - generic [ref=f11e229]: Board mover
+                  - link "Open Conditional Will a frontier AI lab release a new public model before Sep 30? Tech Sep 30, 2026 23:59 UTC 64 YES price +4.2%" [ref=f11e233] [cursor=pointer]:
+                    - /url: /markets/ai-model-release
+                    - generic [ref=f11e234]:
+                      - generic [ref=f11e240]:
+                        - generic [ref=f11e241]:
+                          - generic [ref=f11e242]: Open
+                          - generic [ref=f11e243]: Conditional
+                        - heading "Will a frontier AI lab release a new public model before Sep 30?" [level=3] [ref=f11e244]
+                        - generic [ref=f11e245]:
+                          - generic [ref=f11e246]: Tech
+                          - generic [ref=f11e247]: Sep 30, 2026 23:59 UTC
+                      - generic [ref=f11e251]:
+                        - generic [ref=f11e252]: "64"
+                        - generic [ref=f11e253]: YES price
+                        - generic [ref=f11e254]: +4.2%
+              - generic [ref=f11e259]:
+                - link "Will a frontier AI lab release a new public model before Sep 30? Conditional / AI Tech 64 +4.2% 31L 3 pts Sep 30, 2026 23:59 UTC Open" [ref=f11e260] [cursor=pointer]:
+                  - /url: /markets/ai-model-release
+                  - generic [ref=f11e261]:
+                    - generic [ref=f11e262]: Will a frontier AI lab release a new public model before Sep 30?
+                    - generic [ref=f11e266]: Conditional / AI
+                  - generic [ref=f11e267]: Tech
+                  - generic [ref=f11e268]: "64"
+                  - generic [ref=f11e269]: +4.2%
+                  - generic [ref=f11e273]: 31L
+                  - generic [ref=f11e277]: 3 pts
+                  - generic [ref=f11e278]: Sep 30, 2026 23:59 UTC
+                  - generic [ref=f11e283]: Open
+                - link "Will India beat Australia in the next T20 final? Binary / Cricket Sports 56 +3.8% 21L 2 pts Jul 18, 2026 18:30 IST Open" [ref=f11e284] [cursor=pointer]:
+                  - /url: /markets/ind-aus-final
+                  - generic [ref=f11e285]:
+                    - generic [ref=f11e286]: Will India beat Australia in the next T20 final?
+                    - generic [ref=f11e290]: Binary / Cricket
+                  - generic [ref=f11e291]: Sports
+                  - generic [ref=f11e292]: "56"
+                  - generic [ref=f11e293]: +3.8%
+                  - generic [ref=f11e297]: 21L
+                  - generic [ref=f11e301]: 2 pts
+                  - generic [ref=f11e302]: Jul 18, 2026 18:30 IST
+                  - generic [ref=f11e307]: Open
+                - link "Will gold close above USD 2,500 on the settlement date? Threshold / Gold Commodities 61 +1.6% 24L 2 pts Jul 10, 2026 23:00 IST Closing soon" [ref=f11e308] [cursor=pointer]:
+                  - /url: /markets/gold-above-2500
+                  - generic [ref=f11e309]:
+                    - generic [ref=f11e310]: Will gold close above USD 2,500 on the settlement date?
+                    - generic [ref=f11e312]: Threshold / Gold
+                  - generic [ref=f11e313]: Commodities
+                  - generic [ref=f11e314]: "61"
+                  - generic [ref=f11e315]: +1.6%
+                  - generic [ref=f11e319]: 24L
+                  - generic [ref=f11e323]: 2 pts
+                  - generic [ref=f11e324]: Jul 10, 2026 23:00 IST
+                  - generic [ref=f11e329]: Closing soon
+                - link "Will India CPI be above 4.0% in the next release? Threshold / Inflation Economics 49 -2.7% 16L 3 pts Aug 12, 2026 16:30 IST Open" [ref=f11e330] [cursor=pointer]:
+                  - /url: /markets/cpi-above-4
+                  - generic [ref=f11e331]:
+                    - generic [ref=f11e332]: Will India CPI be above 4.0% in the next release?
+                    - generic [ref=f11e336]: Threshold / Inflation
+                  - generic [ref=f11e337]: Economics
+                  - generic [ref=f11e338]: "49"
+                  - generic [ref=f11e339]: "-2.7%"
+                  - generic [ref=f11e343]: 16L
+                  - generic [ref=f11e347]: 3 pts
+                  - generic [ref=f11e348]: Aug 12, 2026 16:30 IST
+                  - generic [ref=f11e353]: Open
+                - 'link "Mumbai rainfall on Jul 20: which range will be recorded? Range / Rainfall Weather 34 +5.4% 8.2L 4 pts Jul 20, 2026 06:00 IST Open" [ref=f11e354] [cursor=pointer]':
+                  - /url: /markets/mumbai-rainfall-range
+                  - generic [ref=f11e355]:
+                    - generic [ref=f11e356]: "Mumbai rainfall on Jul 20: which range will be recorded?"
+                    - generic [ref=f11e358]: Range / Rainfall
+                  - generic [ref=f11e359]: Weather
+                  - generic [ref=f11e360]: "34"
+                  - generic [ref=f11e361]: +5.4%
+                  - generic [ref=f11e365]: 8.2L
+                  - generic [ref=f11e369]: 4 pts
+                  - generic [ref=f11e370]: Jul 20, 2026 06:00 IST
+                  - generic [ref=f11e375]: Open
+                - link "Which film will win the national best picture award? Multiple-choice / Awards Culture 38 -1.2% 6.9L 5 pts Aug 28, 2026 20:00 IST Open" [ref=f11e376] [cursor=pointer]:
+                  - /url: /markets/film-award-winner
+                  - generic [ref=f11e377]:
+                    - generic [ref=f11e378]: Which film will win the national best picture award?
+                    - generic [ref=f11e380]: Multiple-choice / Awards
+                  - generic [ref=f11e381]: Culture
+                  - generic [ref=f11e382]: "38"
+                  - generic [ref=f11e383]: "-1.2%"
+                  - generic [ref=f11e387]: 6.9L
+                  - generic [ref=f11e391]: 5 pts
+                  - generic [ref=f11e392]: Aug 28, 2026 20:00 IST
+                  - generic [ref=f11e397]: Open
+    - navigation [ref=f11e398]:
+      - generic [ref=f11e399]:
+        - link "Markets" [ref=f11e400] [cursor=pointer]:
+          - /url: /markets
+        - link "Watchlist" [ref=f11e405] [cursor=pointer]:
+          - /url: /watchlist
+        - link "Portfolio" [ref=f11e409] [cursor=pointer]:
+          - /url: /portfolio
+        - link "Orders" [ref=f11e415] [cursor=pointer]:
+          - /url: /orders
+        - link "Wallet" [ref=f11e420] [cursor=pointer]:
+          - /url: /wallet
+  - alert [ref=f11e425]

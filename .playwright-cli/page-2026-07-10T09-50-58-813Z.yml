@@ -1,0 +1,25 @@
+- generic [active] [ref=f10e1]:
+  - generic [ref=f10e2]:
+    - generic [ref=f10e4]:
+      - banner [ref=f10e5]:
+        - navigation "Breadcrumb" [ref=f10e8]:
+          - list [ref=f10e9]:
+            - listitem [ref=f10e10]:
+              - link "Markets" [ref=f10e11] [cursor=pointer]:
+                - /url: /markets
+            - listitem [ref=f10e12]:
+              - generic [ref=f10e15]: Resolution rules
+      - main [ref=f10e17]
+    - navigation [ref=f10e47]:
+      - generic [ref=f10e48]:
+        - link "Markets" [ref=f10e49] [cursor=pointer]:
+          - /url: /markets
+        - link "Watchlist" [ref=f10e54] [cursor=pointer]:
+          - /url: /watchlist
+        - link "Portfolio" [ref=f10e58] [cursor=pointer]:
+          - /url: /portfolio
+        - link "Orders" [ref=f10e64] [cursor=pointer]:
+          - /url: /orders
+        - link "Wallet" [ref=f10e69] [cursor=pointer]:
+          - /url: /wallet
+  - alert [ref=f10e74]

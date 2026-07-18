@@ -1,0 +1,172 @@
+- generic [active] [ref=f2e1]:
+  - generic [ref=f2e2]:
+    - banner [ref=f2e3]:
+      - generic [ref=f2e4]:
+        - link "PM Pred-Market Exchange terminal" [ref=f2e5] [cursor=pointer]:
+          - /url: /markets
+          - generic [ref=f2e6]: PM
+          - generic [ref=f2e7]:
+            - generic [ref=f2e8]: Pred-Market
+            - generic [ref=f2e9]: Exchange terminal
+        - navigation "Primary navigation" [ref=f2e10]:
+          - link "Markets" [ref=f2e11] [cursor=pointer]:
+            - /url: /markets
+          - link "Live" [ref=f2e15] [cursor=pointer]:
+            - /url: /markets
+          - link "Watchlist" [ref=f2e18] [cursor=pointer]:
+            - /url: /watchlist
+          - link "Orders" [ref=f2e21] [cursor=pointer]:
+            - /url: /orders
+          - link "Wallet" [ref=f2e25] [cursor=pointer]:
+            - /url: /wallet
+          - link "Suggest" [ref=f2e29] [cursor=pointer]:
+            - /url: /markets/suggest
+        - button "Search markets Ctrl K" [ref=f2e33] [cursor=pointer]:
+          - text: Search markets
+          - generic [ref=f2e37]: Ctrl K
+        - generic [ref=f2e38]:
+          - link "Sign in" [ref=f2e39] [cursor=pointer]:
+            - /url: /sign-in
+          - link "Create account" [ref=f2e40] [cursor=pointer]:
+            - /url: /sign-up
+    - main [ref=f2e41]:
+      - generic [ref=f2e42]:
+        - navigation "Market categories" [ref=f2e43]:
+          - generic [ref=f2e44]:
+            - link "Trending 5" [ref=f2e45] [cursor=pointer]:
+              - /url: /markets
+              - generic [ref=f2e46]:
+                - text: Trending
+                - generic [ref=f2e50]: "5"
+            - link "Commodities Commodities 78L" [ref=f2e51] [cursor=pointer]:
+              - /url: /categories/commodities
+              - generic [ref=f2e52]:
+                - generic "Commodities" [ref=f2e53]
+                - text: Commodities
+                - generic [ref=f2e54]: 78L
+            - link "Culture Culture 26L" [ref=f2e55] [cursor=pointer]:
+              - /url: /categories/culture
+              - generic [ref=f2e56]:
+                - generic "Culture" [ref=f2e57]
+                - text: Culture
+                - generic [ref=f2e58]: 26L
+            - link "Economics Economics 96L" [ref=f2e59] [cursor=pointer]:
+              - /url: /categories/economics
+              - generic [ref=f2e60]:
+                - generic "Economics" [ref=f2e61]
+                - text: Economics
+                - generic [ref=f2e62]: 96L
+            - link "Financials Financials 81L" [ref=f2e63] [cursor=pointer]:
+              - /url: /categories/financials
+              - generic [ref=f2e64]:
+                - generic "Financials" [ref=f2e65]
+                - text: Financials
+                - generic [ref=f2e66]: 81L
+            - link "Mentions Mentions 19L" [ref=f2e67] [cursor=pointer]:
+              - /url: /categories/mentions
+              - generic [ref=f2e68]:
+                - generic "Mentions" [ref=f2e69]
+                - text: Mentions
+                - generic [ref=f2e70]: 19L
+            - link "Politics Politics 32L" [ref=f2e71] [cursor=pointer]:
+              - /url: /categories/politics
+              - generic [ref=f2e72]:
+                - generic "Politics" [ref=f2e73]
+                - text: Politics
+                - generic [ref=f2e74]: 32L
+            - link "Sports Sports 1.2Cr" [ref=f2e75] [cursor=pointer]:
+              - /url: /categories/sports
+              - generic [ref=f2e76]:
+                - generic "Sports" [ref=f2e77]
+                - text: Sports
+                - generic [ref=f2e78]: 1.2Cr
+            - link "Stocks Stocks 72L" [ref=f2e79] [cursor=pointer]:
+              - /url: /categories/stocks-mutual-funds
+              - generic [ref=f2e80]:
+                - generic "Stocks" [ref=f2e81]
+                - text: Stocks
+                - generic [ref=f2e82]: 72L
+            - link "Tech Tech 69L" [ref=f2e83] [cursor=pointer]:
+              - /url: /categories/tech-science
+              - generic [ref=f2e84]:
+                - generic "Tech" [ref=f2e85]
+                - text: Tech
+                - generic [ref=f2e86]: 69L
+            - link "Weather Weather 41L" [ref=f2e87] [cursor=pointer]:
+              - /url: /categories/weather-climate
+              - generic [ref=f2e88]:
+                - generic "Weather" [ref=f2e89]
+                - text: Weather
+                - generic [ref=f2e90]: 41L
+        - generic [ref=f2e93]:
+          - generic [ref=f2e94]:
+            - generic [ref=f2e95]: MEDIUM risk
+            - generic [ref=f2e96]: Cricket / Football / Tennis / Tournaments
+          - heading "Sports" [level=1] [ref=f2e97]
+          - paragraph [ref=f2e98]: Structured markets around matches, tournaments, milestones, and standings.
+        - generic [ref=f2e106]:
+          - complementary [ref=f2e107]:
+            - generic [ref=f2e108]:
+              - heading "Subcategories" [level=2] [ref=f2e109]
+              - generic [ref=f2e110]: "1"
+            - generic [ref=f2e111]:
+              - button "All markets 1" [ref=f2e112]:
+                - generic [ref=f2e113]: All markets
+                - generic [ref=f2e114]: "1"
+              - button "Cricket 1" [ref=f2e115]:
+                - generic [ref=f2e116]: Cricket
+                - generic [ref=f2e117]: "1"
+          - generic [ref=f2e119]:
+            - generic [ref=f2e120]:
+              - heading "Comparison table" [level=2] [ref=f2e121]
+              - generic [ref=f2e122]: Includes active, paused, and closing markets
+            - generic [ref=f2e123]:
+              - generic [ref=f2e124]:
+                - generic [ref=f2e125]: Market
+                - generic [ref=f2e126]: YES price
+                - generic [ref=f2e127]: 24h
+                - generic [ref=f2e128]: Volume / liq
+                - generic [ref=f2e129]: Spread
+                - generic [ref=f2e130]: Close
+              - 'link "Sports Will India beat Australia in the next T20 final? Open Sports Binary Cricket Source: Official tournament result India India 56% Australia Australia 44% YES 56% +3.8% 21.4L 34L liq 2 pts Jul 18, 2026 18:30 IST" [ref=f2e132] [cursor=pointer]':
+                - /url: /markets/ind-aus-final
+                - generic [ref=f2e133]:
+                  - generic [ref=f2e134]:
+                    - generic "Sports" [ref=f2e135]
+                    - generic [ref=f2e136]: Will India beat Australia in the next T20 final?
+                    - generic [ref=f2e137]: Open
+                  - generic [ref=f2e138]:
+                    - generic [ref=f2e139]: Sports
+                    - generic [ref=f2e140]: Binary
+                    - generic [ref=f2e141]: Cricket
+                    - generic [ref=f2e142]: "Source: Official tournament result"
+                  - generic [ref=f2e143]:
+                    - generic [ref=f2e145]:
+                      - generic [ref=f2e146]:
+                        - generic "India" [ref=f2e147]
+                        - generic [ref=f2e148]: India
+                      - generic [ref=f2e149]: 56%
+                    - generic [ref=f2e152]:
+                      - generic [ref=f2e153]:
+                        - generic "Australia" [ref=f2e154]
+                        - generic [ref=f2e155]: Australia
+                      - generic [ref=f2e156]: 44%
+                - generic [ref=f2e159]:
+                  - generic [ref=f2e160]: "YES"
+                  - generic [ref=f2e161]: 56%
+                - generic [ref=f2e162]: +3.8%
+                - generic [ref=f2e166]:
+                  - generic [ref=f2e167]: 21.4L
+                  - generic [ref=f2e171]: 34L liq
+                - generic [ref=f2e172]: 2 pts
+                - generic [ref=f2e173]: Jul 18, 2026 18:30 IST
+  - generic [ref=f2e182] [cursor=pointer]:
+    - button "Open Next.js Dev Tools" [ref=f2e183]
+    - generic [ref=f2e187]:
+      - button "Open issues overlay" [ref=f2e188]:
+        - generic [ref=f2e189]:
+          - generic [ref=f2e190]: "0"
+          - generic [ref=f2e191]: "1"
+        - generic [ref=f2e192]: Issue
+      - button "Collapse issues badge" [ref=f2e193]
+  - alert [ref=f2e196]

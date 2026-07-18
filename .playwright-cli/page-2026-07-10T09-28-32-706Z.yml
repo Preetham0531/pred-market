@@ -1,0 +1,93 @@
+- generic [active] [ref=f5e1]:
+  - generic [ref=f5e2]:
+    - generic [ref=f5e4]:
+      - banner [ref=f5e5]:
+        - navigation "Breadcrumb" [ref=f5e8]:
+          - list [ref=f5e9]:
+            - listitem [ref=f5e10]:
+              - generic [ref=f5e11]: Orders
+      - main [ref=f5e13]:
+        - generic [ref=f5e14]:
+          - generic [ref=f5e15]:
+            - heading "Orders" [level=1] [ref=f5e16]
+            - paragraph [ref=f5e17]: Open, filled, and cancelled limit orders across markets.
+          - generic [ref=f5e18]:
+            - generic [ref=f5e19]:
+              - generic [ref=f5e20]: Open orders
+              - generic [ref=f5e21]: "2"
+            - generic [ref=f5e22]:
+              - generic [ref=f5e23]: Filled orders
+              - generic [ref=f5e24]: "1"
+            - generic [ref=f5e25]:
+              - generic [ref=f5e26]: Cancelled
+              - generic [ref=f5e27]: "1"
+          - generic [ref=f5e28]:
+            - generic [ref=f5e29]:
+              - generic [ref=f5e30]: Order blotter
+              - generic [ref=f5e31]:
+                - button "All" [ref=f5e32]
+                - button "Open" [ref=f5e33]
+                - button "Filled" [ref=f5e34]
+                - button "Cancelled" [ref=f5e35]
+            - generic [ref=f5e36]:
+              - generic [ref=f5e37]:
+                - generic [ref=f5e38]: ORD-1042
+                - link "Will India beat Australia in the next T20 final? Jul 9, 10:42" [ref=f5e39] [cursor=pointer]:
+                  - /url: /markets/ind-aus-final
+                  - generic [ref=f5e40]: Will India beat Australia in the next T20 final?
+                  - generic [ref=f5e41]: Jul 9, 10:42
+                - generic [ref=f5e42]: Buy
+                - generic [ref=f5e43]: "YES"
+                - generic [ref=f5e44]: "55"
+                - generic [ref=f5e45]: 24/50
+                - generic [ref=f5e46]: Open
+                - button "Cancel" [ref=f5e47] [cursor=pointer]
+              - generic [ref=f5e52]:
+                - generic [ref=f5e53]: ORD-1038
+                - link "Will India CPI be above 4.0% in the next release? Jul 9, 09:18" [ref=f5e54] [cursor=pointer]:
+                  - /url: /markets/cpi-above-4
+                  - generic [ref=f5e55]: Will India CPI be above 4.0% in the next release?
+                  - generic [ref=f5e56]: Jul 9, 09:18
+                - generic [ref=f5e57]: Buy
+                - generic [ref=f5e58]: "NO"
+                - generic [ref=f5e59]: "50"
+                - generic [ref=f5e60]: 30/30
+                - generic [ref=f5e61]: Filled
+                - generic [ref=f5e62]: No action
+              - generic [ref=f5e63]:
+                - generic [ref=f5e64]: ORD-1024
+                - link "Will gold close above USD 2,500 on the settlement date? Jul 8, 16:12" [ref=f5e65] [cursor=pointer]:
+                  - /url: /markets/gold-above-2500
+                  - generic [ref=f5e66]: Will gold close above USD 2,500 on the settlement date?
+                  - generic [ref=f5e67]: Jul 8, 16:12
+                - generic [ref=f5e68]: Sell
+                - generic [ref=f5e69]: "YES"
+                - generic [ref=f5e70]: "62"
+                - generic [ref=f5e71]: 0/20
+                - generic [ref=f5e72]: Open
+                - button "Cancel" [ref=f5e73] [cursor=pointer]
+              - generic [ref=f5e78]:
+                - generic [ref=f5e79]: ORD-1019
+                - link "Will a frontier AI lab release a new public model before Sep 30? Jul 8, 12:03" [ref=f5e80] [cursor=pointer]:
+                  - /url: /markets/ai-model-release
+                  - generic [ref=f5e81]: Will a frontier AI lab release a new public model before Sep 30?
+                  - generic [ref=f5e82]: Jul 8, 12:03
+                - generic [ref=f5e83]: Buy
+                - generic [ref=f5e84]: "YES"
+                - generic [ref=f5e85]: "61"
+                - generic [ref=f5e86]: 0/12
+                - generic [ref=f5e87]: Cancelled
+                - generic [ref=f5e88]: No action
+    - navigation [ref=f5e89]:
+      - generic [ref=f5e90]:
+        - link "Markets" [ref=f5e91] [cursor=pointer]:
+          - /url: /markets
+        - link "Watchlist" [ref=f5e96] [cursor=pointer]:
+          - /url: /watchlist
+        - link "Portfolio" [ref=f5e100] [cursor=pointer]:
+          - /url: /portfolio
+        - link "Orders" [ref=f5e106] [cursor=pointer]:
+          - /url: /orders
+        - link "Wallet" [ref=f5e111] [cursor=pointer]:
+          - /url: /wallet
+  - alert [ref=f5e116]

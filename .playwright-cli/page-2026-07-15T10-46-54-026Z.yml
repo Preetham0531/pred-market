@@ -1,0 +1,168 @@
+- generic [active] [ref=f1e1]:
+  - generic [ref=f1e2]:
+    - generic [ref=f1e4]:
+      - banner [ref=f1e5]:
+        - generic [ref=f1e6]:
+          - navigation "Breadcrumb" [ref=f1e8]:
+            - list [ref=f1e9]:
+              - listitem [ref=f1e10]:
+                - link "Markets" [ref=f1e11] [cursor=pointer]:
+                  - /url: /markets
+              - listitem [ref=f1e12]:
+                - generic [ref=f1e15]: Will India beat Australia in the next T20 final?
+          - link "Sign in" [ref=f1e16] [cursor=pointer]:
+            - /url: /sign-in
+      - main [ref=f1e21]:
+        - generic [ref=f1e22]:
+          - generic [ref=f1e23]:
+            - generic [ref=f1e25]:
+              - generic [ref=f1e26]:
+                - generic [ref=f1e27]:
+                  - generic [ref=f1e28]: Open
+                  - generic [ref=f1e29]: Binary
+                  - generic [ref=f1e30]: Sports
+                  - generic [ref=f1e31]: Trading open
+                  - generic [ref=f1e32]: Live
+                - heading "Will India beat Australia in the next T20 final?" [level=1] [ref=f1e33]
+                - generic [ref=f1e34]:
+                  - generic [ref=f1e35]: Closes Jul 18, 2026 18:30 IST
+                  - generic [ref=f1e39]: "Source: Official tournament result"
+                  - link "Rules and evidence" [ref=f1e43] [cursor=pointer]:
+                    - /url: "#rules-evidence"
+              - generic [ref=f1e48]:
+                - generic [ref=f1e49]: "56"
+                - generic [ref=f1e50]: YES price
+                - generic [ref=f1e51]: +3.8% 24h
+            - generic [ref=f1e56]:
+              - generic [ref=f1e57]:
+                - generic [ref=f1e58]:
+                  - heading "Probability history" [level=2] [ref=f1e59]
+                  - paragraph [ref=f1e60]: YES price with volume context and source-event markers.
+                - generic [ref=f1e61]:
+                  - generic [ref=f1e62]: +3 pts
+                  - generic [ref=f1e63]:
+                    - button "1D" [ref=f1e64] [cursor=pointer]
+                    - button "1W" [ref=f1e65] [cursor=pointer]
+                    - button "1M" [ref=f1e66] [cursor=pointer]
+                    - button "ALL" [ref=f1e67] [cursor=pointer]
+              - img "YES probability chart" [ref=f1e69]:
+                - generic [ref=f1e70]: "64"
+                - generic [ref=f1e72]: "57"
+                - generic [ref=f1e74]: "50"
+                - generic [ref=f1e76]: "43"
+                - generic [ref=f1e78]: "36"
+                - generic [ref=f1e82]: "3"
+                - generic [ref=f1e85]: "4"
+                - generic [ref=f1e88]: "5"
+                - generic [ref=f1e91]: "6"
+                - generic [ref=f1e94]: "7"
+                - generic [ref=f1e97]: "8"
+                - generic [ref=f1e100]: "9"
+                - generic [ref=f1e104]: "56"
+              - generic [ref=f1e105]:
+                - 'generic "2026-07-03: 2300" [ref=f1e106]'
+                - 'generic "2026-07-04: 1800" [ref=f1e107]'
+                - 'generic "2026-07-05: 3100" [ref=f1e108]'
+                - 'generic "2026-07-06: 4600" [ref=f1e109]'
+                - 'generic "2026-07-07: 3900" [ref=f1e110]'
+                - 'generic "2026-07-08: 5200" [ref=f1e111]'
+                - 'generic "2026-07-09: 6100" [ref=f1e112]'
+              - generic [ref=f1e113]:
+                - generic [ref=f1e114]: "Source: Official tournament result"
+                - generic [ref=f1e115]: Closes Jul 18, 2026 18:30 IST
+                - generic [ref=f1e116]: Open
+                - generic [ref=f1e117]: No market orders
+            - region "Market depth" [ref=f1e119]:
+              - generic [ref=f1e120]:
+                - generic [ref=f1e121]:
+                  - heading "Market depth" [level=2] [ref=f1e122]
+                  - paragraph [ref=f1e123]: Binary YES/NO book with complementary pricing.
+                - generic [ref=f1e124]:
+                  - generic [ref=f1e125]:
+                    - generic [ref=f1e126]: Best YES
+                    - generic [ref=f1e127]: "56"
+                  - generic [ref=f1e128]:
+                    - generic [ref=f1e129]: Spread
+                    - generic [ref=f1e130]: 44 pts
+                  - generic [ref=f1e131]:
+                    - generic [ref=f1e132]: YES ask
+                    - generic [ref=f1e133]: "100"
+              - generic [ref=f1e134]:
+                - generic [ref=f1e135]:
+                  - generic [ref=f1e136]:
+                    - generic [ref=f1e137]: YES bids
+                    - generic [ref=f1e138]: Qty
+                    - generic [ref=f1e139]: Total
+                  - generic "YES bids price 56, quantity 1" [ref=f1e141]:
+                    - generic [ref=f1e143]: "56"
+                    - generic [ref=f1e144]: "1"
+                    - generic [ref=f1e145]: "56"
+                - generic [ref=f1e146]:
+                  - generic [ref=f1e147]:
+                    - generic [ref=f1e148]: NO bids
+                    - generic [ref=f1e149]: Qty
+                    - generic [ref=f1e150]: Total
+                  - generic [ref=f1e151]:
+                    - generic "NO bids empty level" [ref=f1e152]:
+                      - generic [ref=f1e153]: "-"
+                      - generic [ref=f1e154]: "-"
+                      - generic [ref=f1e155]: "-"
+                    - generic "NO bids empty level" [ref=f1e156]:
+                      - generic [ref=f1e157]: "-"
+                      - generic [ref=f1e158]: "-"
+                      - generic [ref=f1e159]: "-"
+                    - generic "NO bids empty level" [ref=f1e160]:
+                      - generic [ref=f1e161]: "-"
+                      - generic [ref=f1e162]: "-"
+                      - generic [ref=f1e163]: "-"
+                    - generic "NO bids empty level" [ref=f1e164]:
+                      - generic [ref=f1e165]: "-"
+                      - generic [ref=f1e166]: "-"
+                      - generic [ref=f1e167]: "-"
+                    - generic "NO bids empty level" [ref=f1e168]:
+                      - generic [ref=f1e169]: "-"
+                      - generic [ref=f1e170]: "-"
+                      - generic [ref=f1e171]: "-"
+            - generic [ref=f1e172]:
+              - generic [ref=f1e173]:
+                - generic [ref=f1e174]:
+                  - heading "Recent trades" [level=2] [ref=f1e175]
+                  - generic [ref=f1e176]: Live tape
+                - generic [ref=f1e177]:
+                  - generic [ref=f1e178]: Time
+                  - generic [ref=f1e179]: Outcome
+                  - generic [ref=f1e180]: Price
+                  - generic [ref=f1e181]: Qty
+                - generic [ref=f1e183]:
+                  - generic [ref=f1e184]: 10:38
+                  - generic [ref=f1e185]: "YES"
+                  - generic [ref=f1e186]: "56"
+                  - generic [ref=f1e187]: "24"
+              - generic [ref=f1e188]:
+                - generic [ref=f1e189]:
+                  - heading "Rules and evidence" [level=2] [ref=f1e190]
+                  - generic [ref=f1e191]: Resolution source
+                - paragraph [ref=f1e192]: YES resolves if India is declared match winner by the official tournament source.
+                - generic [ref=f1e193]:
+                  - generic [ref=f1e194]: Result must come from the official tournament source.
+                  - generic [ref=f1e195]: Super over result counts if official source counts it.
+          - generic [ref=f1e197]:
+            - generic [ref=f1e198]:
+              - generic [ref=f1e199]: Sign in to trade
+              - generic [ref=f1e200]: 10 contracts at 44
+              - generic [ref=f1e201]: Cost ₹440 - Available ₹0
+            - button "Open ticket" [ref=f1e202] [cursor=pointer]
+    - navigation [ref=f1e203]:
+      - generic [ref=f1e204]:
+        - link "Markets" [ref=f1e205] [cursor=pointer]:
+          - /url: /markets
+        - link "Watchlist" [ref=f1e210] [cursor=pointer]:
+          - /url: /watchlist
+        - link "Orders" [ref=f1e214] [cursor=pointer]:
+          - /url: /orders
+        - link "Wallet" [ref=f1e219] [cursor=pointer]:
+          - /url: /wallet
+        - link "Suggest" [ref=f1e224] [cursor=pointer]:
+          - /url: /markets/suggest
+  - button "Open Next.js Dev Tools" [ref=f1e234] [cursor=pointer]
+  - alert [ref=f1e238]

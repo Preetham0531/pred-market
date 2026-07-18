@@ -1,0 +1,26 @@
+- generic [active] [ref=f4e1]:
+  - generic [ref=f4e2]:
+    - generic [ref=f4e4]:
+      - banner [ref=f4e5]:
+        - navigation "Breadcrumb" [ref=f4e8]:
+          - list [ref=f4e9]:
+            - listitem [ref=f4e10]:
+              - link "Markets" [ref=f4e11] [cursor=pointer]:
+                - /url: /markets
+            - listitem [ref=f4e12]:
+              - generic [ref=f4e15]: Will India beat Australia in the next T20 final?
+      - main [ref=f4e17]
+    - navigation [ref=f4e34]:
+      - generic [ref=f4e35]:
+        - link "Markets" [ref=f4e36] [cursor=pointer]:
+          - /url: /markets
+        - link "Watchlist" [ref=f4e41] [cursor=pointer]:
+          - /url: /watchlist
+        - link "Portfolio" [ref=f4e45] [cursor=pointer]:
+          - /url: /portfolio
+        - link "Orders" [ref=f4e51] [cursor=pointer]:
+          - /url: /orders
+        - link "Wallet" [ref=f4e56] [cursor=pointer]:
+          - /url: /wallet
+  - button "Open Next.js Dev Tools" [ref=f4e66] [cursor=pointer]
+  - alert [ref=f4e70]

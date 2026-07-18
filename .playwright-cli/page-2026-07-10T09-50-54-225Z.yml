@@ -1,0 +1,37 @@
+- generic [active] [ref=f6e1]:
+  - generic [ref=f6e2]:
+    - generic [ref=f6e4]:
+      - banner [ref=f6e5]:
+        - navigation "Breadcrumb" [ref=f6e8]:
+          - list [ref=f6e9]:
+            - listitem [ref=f6e10]:
+              - generic [ref=f6e11]: Watchlist
+      - main [ref=f6e13]:
+        - generic [ref=f6e14]:
+          - generic [ref=f6e15]:
+            - heading "Watchlist" [level=1] [ref=f6e16]
+            - paragraph [ref=f6e17]: Markets saved for monitoring probability movement, close time, and liquidity.
+          - generic [ref=f6e18]:
+            - generic [ref=f6e19]:
+              - generic [ref=f6e20]: Saved markets
+              - generic [ref=f6e21]: "0"
+            - generic [ref=f6e22]:
+              - generic [ref=f6e23]: With position
+              - generic [ref=f6e24]: "0"
+            - generic [ref=f6e25]:
+              - generic [ref=f6e26]: Closing soon
+              - generic [ref=f6e27]: "0"
+          - generic [ref=f6e28]: Loading saved markets...
+    - navigation [ref=f6e29]:
+      - generic [ref=f6e30]:
+        - link "Markets" [ref=f6e31] [cursor=pointer]:
+          - /url: /markets
+        - link "Watchlist" [ref=f6e36] [cursor=pointer]:
+          - /url: /watchlist
+        - link "Portfolio" [ref=f6e40] [cursor=pointer]:
+          - /url: /portfolio
+        - link "Orders" [ref=f6e46] [cursor=pointer]:
+          - /url: /orders
+        - link "Wallet" [ref=f6e51] [cursor=pointer]:
+          - /url: /wallet
+  - alert [ref=f6e56]
