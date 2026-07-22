@@ -1,5 +1,6 @@
 from functools import lru_cache
 
+from pydantic import field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -36,6 +37,15 @@ class Settings(BaseSettings):
   resend_from: str = "Pred-Market <onboarding@resend.dev>"
   admin_bootstrap_email: str = ""
   admin_bootstrap_password: str = ""
+
+  @field_validator("database_url", mode="before")
+  @classmethod
+  def use_psycopg_driver(cls, value: str) -> str:
+    if value.startswith("postgres://"):
+      return value.replace("postgres://", "postgresql+psycopg://", 1)
+    if value.startswith("postgresql://"):
+      return value.replace("postgresql://", "postgresql+psycopg://", 1)
+    return value
 
   @property
   def cors_origin_list(self) -> list[str]:
