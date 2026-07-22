@@ -57,6 +57,8 @@ Port: 8080
 
 Railway requires a custom config path to be selected in each service's Settings. The path is absolute from the repository root and does not follow a monorepo root-directory setting.
 
+The backend image also runs `alembic upgrade head` before Uvicorn and defines a Docker readiness healthcheck. This image-level fallback keeps deployments safe when Railway has not yet applied the custom config-file selector.
+
 ## Backend Variables
 
 ```text
@@ -168,14 +170,14 @@ Never paste `railway variable list --kv` or JSON variable output into a ticket o
 Migration status:
 
 ```bash
-railway run --service pred-market-backend --environment production --no-local -- alembic current
-railway run --service pred-market-backend --environment production --no-local -- alembic heads
+railway ssh --service pred-market-backend --environment production --identity-file ~/.ssh/id_ed25519_railway_pred_market alembic current
+railway ssh --service pred-market-backend --environment production --identity-file ~/.ssh/id_ed25519_railway_pred_market alembic heads
 ```
 
 Apply migrations manually only when diagnosing a failed pre-deploy:
 
 ```bash
-railway run --service pred-market-backend --environment production --no-local -- alembic upgrade head
+railway ssh --service pred-market-backend --environment production --identity-file ~/.ssh/id_ed25519_railway_pred_market alembic upgrade head
 ```
 
 The staging seed is idempotent. It creates ten categories, the approved-source registry, and six simulated markets. It does not create shared-password traders or import the local twenty-user simulation.
