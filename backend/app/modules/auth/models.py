@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from sqlalchemy import DateTime, ForeignKey, String, Text, func
+from sqlalchemy import DateTime, ForeignKey, Integer, String, Text, UniqueConstraint, func
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db.base import Base, UUIDPrimaryKeyMixin
@@ -20,8 +20,39 @@ class AuthSession(UUIDPrimaryKeyMixin, Base):
   expires_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
   revoked_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
   revoked_reason: Mapped[str | None] = mapped_column(Text, nullable=True)
+  mfa_verified_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+  mfa_method: Mapped[str | None] = mapped_column(String(40), nullable=True)
 
   user: Mapped[User] = relationship("User")
+
+
+class UserMfaFactor(UUIDPrimaryKeyMixin, Base):
+  __tablename__ = "user_mfa_factors"
+
+  user_id: Mapped[str] = mapped_column(String(36), ForeignKey("users.id"), nullable=False, index=True)
+  factor_type: Mapped[str] = mapped_column(String(40), nullable=False, default="TOTP")
+  label: Mapped[str] = mapped_column(String(120), nullable=False, default="Authenticator app")
+  secret_ciphertext: Mapped[str] = mapped_column(Text, nullable=False)
+  confirmed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+  disabled_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+  last_used_step: Mapped[int | None] = mapped_column(Integer, nullable=True)
+  created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now())
+  updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now(), onupdate=func.now())
+
+  user: Mapped[User] = relationship("User")
+
+
+class MfaRecoveryCode(UUIDPrimaryKeyMixin, Base):
+  __tablename__ = "mfa_recovery_codes"
+  __table_args__ = (UniqueConstraint("factor_id", "code_hash", name="uq_mfa_recovery_factor_code"),)
+
+  user_id: Mapped[str] = mapped_column(String(36), ForeignKey("users.id"), nullable=False, index=True)
+  factor_id: Mapped[str] = mapped_column(String(36), ForeignKey("user_mfa_factors.id"), nullable=False, index=True)
+  code_hash: Mapped[str] = mapped_column(Text, nullable=False)
+  used_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+  created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now())
+
+  factor: Mapped[UserMfaFactor] = relationship("UserMfaFactor")
 
 
 class AdminImpersonationSession(UUIDPrimaryKeyMixin, Base):

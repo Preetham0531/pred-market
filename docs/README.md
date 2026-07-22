@@ -1,5 +1,12 @@
 # Pred-Market Documentation
 
+## Deployment
+
+For the active Railway production-style staging environment, start with:
+
+- `deployment/railway/production_staging_runbook.md`
+- `deployment/railway/railway_hosting_master_plan.md`
+
 This folder contains the planning and product documentation for Pred-Market V1.
 
 Pred-Market V1 now has a Next.js frontend with mock-preview and real-backend modes, plus a FastAPI backend foundation under `backend/`. Backend phases 1-8 cover auth/users, market reads, persisted watchlists, market suggestions/admin review, simulated wallets, double-entry ledger entries, orders, matching, positions, trades, admin-led settlement, analytics rollups, realtime event outbox, and WebSocket subscriptions. V1 implementation defaults to simulated funds only.
@@ -47,6 +54,8 @@ docs/
     pred_market_v1_implementation_plan.md
     pred_market_discussion_record.md
     pred_market_v1_tech_stack_and_database_plan.md
+  testing/
+    persistent_real_database_simulation.md
 ```
 
 ## Recommended Reading Order
@@ -80,6 +89,7 @@ docs/
 27. [User-to-User Binary Market Model](market-types/user_to_user_binary_market_model.md)
 28. [Multiple-Choice Market End-to-End Workflow](market-types/multiple_choice_market_end_to_end_workflow.md)
 29. [Pred-Market V1 Architecture SVG](architecture/pred_market_v1_architecture.svg)
+30. [Persistent Real-Database Trading Simulation](testing/persistent_real_database_simulation.md)
 
 ## Sections
 
@@ -143,6 +153,10 @@ Scalar markets are documented as a later specialized payoff model.
 
 The planning folder contains the original discussion record, the recommended V1 technology/database direction, and phase-specific implementation plans.
 It also includes the category, automation, and analytics plan for making markets easier to operate and easier for users to analyze.
+
+### Testing
+
+The testing folder records persistent local PostgreSQL simulations, exact data counts, verified workflows, and defects found during real-database execution.
 
 ## Build Status
 

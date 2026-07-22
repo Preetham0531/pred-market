@@ -112,7 +112,7 @@ def admin_start_impersonation_endpoint(
     max_age=settings.access_token_ttl_seconds,
     path="/",
   )
-  return auth_me_response(effective_user=target_user, actor_user=admin, impersonation=impersonation)
+  return auth_me_response(db=db, session=context.session, effective_user=target_user, actor_user=admin, impersonation=impersonation)
 
 
 @router.post("/impersonation/stop", response_model=ImpersonationAuthResponse)
@@ -135,7 +135,7 @@ def admin_stop_impersonation_endpoint(
     max_age=settings.access_token_ttl_seconds,
     path="/",
   )
-  return auth_me_response(effective_user=admin, actor_user=admin, impersonation=None)
+  return auth_me_response(db=db, session=context.session, effective_user=admin, actor_user=admin, impersonation=None)
 
 
 @router.get("/markets/review", response_model=AdminReviewList)

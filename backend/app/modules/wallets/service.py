@@ -240,10 +240,11 @@ def credit_available_cash(db: Session, *, user_id: str, market_id: str, amount_m
   wallet.available_balance_minor += amount_minor
   collateral = get_or_create_account(db, owner_type="MARKET", owner_id=market_id, account_type="MARKET_COLLATERAL", currency=wallet.currency)
   available = get_or_create_account(db, owner_type="USER", owner_id=user_id, account_type="USER_AVAILABLE_CASH", currency=wallet.currency)
+  idempotency_digest = sha256(f"{transaction_type}:{reference_id}:{user_id}:{amount_minor}".encode("utf-8")).hexdigest()
   create_balanced_transaction(
     db,
     transaction_type=transaction_type,
-    idempotency_key=f"{transaction_type}:{reference_id}:{user_id}:{amount_minor}",
+    idempotency_key=f"{transaction_type}:{idempotency_digest}",
     request_hash_value=request_hash({"market_id": market_id, "reference_id": reference_id, "user_id": user_id, "amount_minor": amount_minor}),
     reference_type="SETTLEMENT",
     reference_id=reference_id,

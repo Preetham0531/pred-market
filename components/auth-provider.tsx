@@ -3,7 +3,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import type { SessionUser } from "@/lib/auth-session";
 import { apiRequest, USE_MOCK_DATA } from "@/lib/api-client";
-import { mapAuthMe, mapUser, type BackendAuthMe, type BackendUser } from "@/lib/api-mappers";
+import { mapAuthMe, mapUser, type BackendAuthMe, type BackendMfaStatus, type BackendUser } from "@/lib/api-mappers";
 
 export type AdminSwitchUser = {
   id: string;
@@ -16,13 +16,19 @@ export type AdminSwitchUser = {
 type AuthContextValue = {
   user: SessionUser | null;
   loading: boolean;
-  signIn: (email: string, password: string) => Promise<void>;
+  signIn: (email: string, password: string) => Promise<SignInResult>;
+  verifyMfa: (code: string) => Promise<void>;
   signUp: (email: string, password: string, displayName: string) => Promise<void>;
   signOut: () => Promise<void>;
   refresh: () => Promise<void>;
   searchSwitchUsers: (query: string) => Promise<AdminSwitchUser[]>;
   startImpersonation: (targetUserId: string, reason: string) => Promise<void>;
   stopImpersonation: () => Promise<void>;
+};
+
+export type SignInResult = {
+  mfaRequired: boolean;
+  mfaSetupRequired: boolean;
 };
 
 const AuthContext = createContext<AuthContextValue | null>(null);
@@ -89,12 +95,26 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const signIn = useCallback(async (email: string, password: string) => {
     if (!USE_MOCK_DATA) {
-      const payload = await apiRequest<{ user: BackendUser }>("/api/v1/auth/sign-in", {
+      const payload = await apiRequest<
+        | { user: BackendUser; mfa_setup_required?: boolean }
+        | { mfa_required: true; expires_in_seconds: number }
+      >("/api/v1/auth/sign-in", {
         method: "POST",
         body: JSON.stringify({ email, password })
       });
-      setUser(mapUser(payload.user));
-      return;
+      if ("mfa_required" in payload) {
+        return { mfaRequired: true, mfaSetupRequired: false };
+      }
+      const setupRequired = Boolean(payload.mfa_setup_required);
+      const mfa: BackendMfaStatus = {
+        enrolled: false,
+        required: setupRequired,
+        verified_for_session: false,
+        factor_id: null,
+        recovery_codes_remaining: 0
+      };
+      setUser(mapUser(payload.user, 0, mfa));
+      return { mfaRequired: false, mfaSetupRequired: setupRequired };
     }
     const response = await fetch("/api/v1/auth/sign-in", {
       method: "POST",
@@ -106,7 +126,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     if (!response.ok) throw new Error(await readError(response));
     const payload = (await response.json()) as { user: SessionUser };
     setUser(payload.user);
+    return { mfaRequired: false, mfaSetupRequired: false };
   }, []);
+
+  const verifyMfa = useCallback(async (code: string) => {
+    if (USE_MOCK_DATA) return;
+    const payload = await apiRequest<{ user: BackendUser }>("/api/v1/auth/mfa/challenge/verify", {
+      method: "POST",
+      body: JSON.stringify({ code })
+    });
+    await refresh();
+    if (!payload.user) throw new Error("Authenticator verification did not complete.");
+  }, [refresh]);
 
   const signUp = useCallback(async (email: string, password: string, displayName: string) => {
     if (!USE_MOCK_DATA) {
@@ -175,8 +206,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const value = useMemo(
-    () => ({ user, loading, signIn, signUp, signOut, refresh, searchSwitchUsers, startImpersonation, stopImpersonation }),
-    [loading, refresh, searchSwitchUsers, signIn, signOut, signUp, startImpersonation, stopImpersonation, user]
+    () => ({ user, loading, signIn, verifyMfa, signUp, signOut, refresh, searchSwitchUsers, startImpersonation, stopImpersonation }),
+    [loading, refresh, searchSwitchUsers, signIn, signOut, signUp, startImpersonation, stopImpersonation, user, verifyMfa]
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

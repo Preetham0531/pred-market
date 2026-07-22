@@ -25,6 +25,15 @@ export type BackendAuthMe = {
   user: BackendUser;
   actor: BackendUser;
   impersonation: BackendImpersonation | null;
+  mfa: BackendMfaStatus;
+};
+
+export type BackendMfaStatus = {
+  enrolled: boolean;
+  required: boolean;
+  verified_for_session: boolean;
+  factor_id: string | null;
+  recovery_codes_remaining: number;
 };
 
 export type BackendCategory = {
@@ -382,22 +391,36 @@ export type BackendLedgerEntry = {
   created_at: string;
 };
 
-export function mapUser(user: BackendUser, walletBalance = 0): SessionUser {
+export function mapUser(user: BackendUser, walletBalance = 0, mfa?: BackendMfaStatus): SessionUser {
+  const resolvedMfa = mfa ?? {
+    enrolled: false,
+    required: false,
+    verified_for_session: false,
+    factor_id: null,
+    recovery_codes_remaining: 0
+  };
   return {
     id: user.id,
     email: user.email,
     displayName: user.display_name || user.email.split("@")[0],
     roles: user.roles as UserRole[],
     emailVerified: Boolean(user.email_verified_at),
-    mfaVerified: user.roles.includes("ADMIN"),
+    mfaVerified: resolvedMfa.verified_for_session,
+    mfa: {
+      enrolled: resolvedMfa.enrolled,
+      required: resolvedMfa.required,
+      verifiedForSession: resolvedMfa.verified_for_session,
+      factorId: resolvedMfa.factor_id,
+      recoveryCodesRemaining: resolvedMfa.recovery_codes_remaining
+    },
     walletBalance,
     expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString()
   };
 }
 
 export function mapAuthMe(payload: BackendAuthMe, walletBalance = 0): SessionUser {
-  const user = mapUser(payload.user, walletBalance);
-  const actor = mapUser(payload.actor, walletBalance);
+  const user = mapUser(payload.user, walletBalance, payload.mfa);
+  const actor = mapUser(payload.actor, walletBalance, payload.mfa);
   return {
     ...user,
     actor,

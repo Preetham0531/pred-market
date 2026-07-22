@@ -109,6 +109,43 @@ def test_draft_approval_requires_all_checks(client, db_session):
   assert approve.json()["error"]["code"] == "DRAFT_CHECKS_FAILED"
 
 
+def test_admin_can_fix_and_approve_existing_draft_without_self_duplicate(client, db_session):
+  sign_in_admin(client)
+  source = db_session.scalar(select(DataSource).where(DataSource.category_slug == "sports", DataSource.settlement_eligible.is_(True)))
+
+  created = client.post(
+    "/api/v1/admin/market-drafts",
+    json={
+      "origin": "ADMIN",
+      "category_slug": "sports",
+      "subcategory": "Cricket",
+      "market_type": "Binary",
+      "question": "Will the corrected simulation draft pass its final review?",
+      "outcomes": ["YES", "NO"],
+      "close_time": "Admin must set close time",
+      "source": source.name,
+      "resolution_rule": "YES resolves if the approved source confirms the result.",
+      "void_policy": "Void only if the approved source is unavailable.",
+      "settlement_source_id": source.id,
+      "discovery_source_id": source.id,
+    },
+  )
+  assert created.status_code == 201
+  assert created.json()["status"] == "NEEDS_CHANGES"
+
+  updated = client.patch(
+    f"/api/v1/admin/market-drafts/{created.json()['id']}",
+    json={"close_time": "Dec 31, 2027 23:59 UTC"},
+  )
+  assert updated.status_code == 200
+  assert updated.json()["status"] == "NEEDS_REVIEW"
+  assert updated.json()["checks"]["duplicate_title"]["passed"] is True
+
+  approved = client.post(f"/api/v1/admin/market-drafts/{created.json()['id']}/approve")
+  assert approved.status_code == 200
+  assert approved.json()["status"] == "APPROVED"
+
+
 def test_trader_suggestion_creates_market_draft_and_review(client, db_session):
   assert client.post("/api/v1/auth/sign-in", json={"email": "trader@predmarket.dev", "password": "StrongPass123"}).status_code == 200
 

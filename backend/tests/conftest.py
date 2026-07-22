@@ -11,7 +11,14 @@ from app.main import app
 from app.modules.admin.models import AdminReview
 from app.modules.analytics.models import CategoryAnalytics, MarketAnalytics, UserAnalytics
 from app.modules.audit.models import AuditLog
-from app.modules.auth.models import AdminImpersonationSession, AuthSession, EmailVerificationToken, PasswordResetToken
+from app.modules.auth.models import (
+  AdminImpersonationSession,
+  AuthSession,
+  EmailVerificationToken,
+  MfaRecoveryCode,
+  PasswordResetToken,
+  UserMfaFactor,
+)
 from app.modules.market_suggestions.models import MarketSuggestion
 from app.modules.markets.models import Category, Market, MarketRule, OracleEvidence, Outcome
 from app.modules.market_issuance.models import DataSource, MarketDraft, MarketDraftEvidence, SourceEvent

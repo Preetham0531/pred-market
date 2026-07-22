@@ -5,7 +5,7 @@ from pydantic import BaseModel, EmailStr, Field
 
 class SignUpRequest(BaseModel):
   email: EmailStr
-  password: str = Field(min_length=8, max_length=256)
+  password: str = Field(min_length=12, max_length=256)
   display_name: str | None = Field(default=None, max_length=160)
   terms_acceptance: bool = True
   jurisdiction_hint: str | None = Field(default=None, max_length=16)
@@ -26,7 +26,7 @@ class EmailRequest(BaseModel):
 
 class PasswordResetConfirmRequest(BaseModel):
   token: str
-  password: str = Field(min_length=8, max_length=256)
+  password: str = Field(min_length=12, max_length=256)
 
 
 class UserResponse(BaseModel):
@@ -49,15 +49,51 @@ class ImpersonationResponse(BaseModel):
   started_at: datetime
 
 
+class MfaStatusResponse(BaseModel):
+  enrolled: bool
+  required: bool
+  verified_for_session: bool
+  factor_id: str | None
+  recovery_codes_remaining: int
+
+
 class AuthMeResponse(BaseModel):
   user: UserResponse
   actor: UserResponse
   impersonation: ImpersonationResponse | None
+  mfa: MfaStatusResponse
 
 
 class AuthResponse(BaseModel):
   user: UserResponse
   csrf_token: str
+  mfa_setup_required: bool = False
+
+
+class MfaChallengeResponse(BaseModel):
+  mfa_required: bool = True
+  expires_in_seconds: int
+
+
+class TotpSetupResponse(BaseModel):
+  factor_id: str
+  secret: str
+  otpauth_uri: str
+  issuer: str
+  account_name: str
+
+
+class MfaCodeRequest(BaseModel):
+  code: str = Field(min_length=6, max_length=32)
+
+
+class MfaConfirmResponse(BaseModel):
+  status: str
+  recovery_codes: list[str]
+
+
+class MfaDisableRequest(BaseModel):
+  code: str = Field(min_length=6, max_length=8)
 
 
 class AcceptedResponse(BaseModel):

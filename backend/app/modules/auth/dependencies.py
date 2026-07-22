@@ -16,6 +16,7 @@ from app.modules.users.models import User
 
 @dataclass(frozen=True)
 class AuthContext:
+  db: Session
   session: AuthSession
   actor_user: User
   effective_user: User
@@ -53,7 +54,7 @@ def get_auth_context(request: Request, db: Session = Depends(get_db)) -> AuthCon
       raise AppError(403, "FORBIDDEN", "Impersonation actor is not authorized.")
     if effective_user.status != "ACTIVE":
       raise AppError(403, "ACCOUNT_UNAVAILABLE", "This account is not active.")
-  return AuthContext(session=session, actor_user=actor_user, effective_user=effective_user, impersonation=impersonation)
+  return AuthContext(db=db, session=session, actor_user=actor_user, effective_user=effective_user, impersonation=impersonation)
 
 
 def get_current_user(context: AuthContext = Depends(get_auth_context)) -> User:
@@ -65,6 +66,8 @@ def get_current_user_for_write(
   context: AuthContext = Depends(get_auth_context),
   db: Session = Depends(get_db),
 ) -> User:
+  if settings.email_verification_required and context.effective_user.email_verified_at is None:
+    raise AppError(403, "EMAIL_VERIFICATION_REQUIRED", "Verify your email before making account or trading changes.")
   if context.is_read_only_impersonation:
     write_audit_log(
       db,
@@ -89,6 +92,16 @@ def require_role(role: str) -> Callable[[User], User]:
       role_to_check = role
     if role_to_check not in roles:
       raise AppError(403, "FORBIDDEN", "You do not have permission to access this resource.")
+    if role_to_check == "ADMIN" and settings.admin_mfa_required and context.session.mfa_verified_at is None:
+      write_audit_log(
+        context.db,
+        event_type="ADMIN_MFA_REQUIRED",
+        actor_user_id=context.actor_user.id,
+        target_user_id=context.actor_user.id,
+        metadata={"session_id": context.session.id},
+      )
+      context.db.commit()
+      raise AppError(403, "MFA_REQUIRED", "Authenticator verification is required for admin access.")
     return context.actor_user if role_to_check == "ADMIN" else context.effective_user
 
   return dependency

@@ -34,7 +34,11 @@ const initialRealtimeState: RealtimeState = {
 };
 
 function websocketUrl(ticket?: string) {
-  const base = WS_BASE_URL || "ws://localhost:8010";
+  const browserOrigin =
+    typeof window === "undefined"
+      ? "ws://localhost:8010"
+      : `${window.location.protocol === "https:" ? "wss:" : "ws:"}//${window.location.host}`;
+  const base = WS_BASE_URL || browserOrigin;
   const url = new URL("/ws/v1", base);
   if (ticket) url.searchParams.set("ticket", ticket);
   return url.toString();

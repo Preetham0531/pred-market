@@ -11,6 +11,14 @@ export type ImpersonationContext = {
   startedAt: string;
 };
 
+export type MfaSessionStatus = {
+  enrolled: boolean;
+  required: boolean;
+  verifiedForSession: boolean;
+  factorId: string | null;
+  recoveryCodesRemaining: number;
+};
+
 export type SessionUser = {
   id: string;
   email: string;
@@ -18,6 +26,7 @@ export type SessionUser = {
   roles: UserRole[];
   emailVerified: boolean;
   mfaVerified: boolean;
+  mfa: MfaSessionStatus;
   walletBalance: number;
   expiresAt: string;
   actor?: Omit<SessionUser, "actor" | "impersonation">;
@@ -49,6 +58,13 @@ export function createSessionUser(email: string, displayName?: string): SessionU
     roles: isAdmin ? ["USER", "ADMIN", "CHECKER", "MARKET_CREATOR"] : ["USER"],
     emailVerified: true,
     mfaVerified: isAdmin,
+    mfa: {
+      enrolled: isAdmin,
+      required: isAdmin,
+      verifiedForSession: isAdmin,
+      factorId: isAdmin ? "mock-factor" : null,
+      recoveryCodesRemaining: isAdmin ? 10 : 0
+    },
     walletBalance: isAdmin ? 128440 : 84220,
     expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString()
   };

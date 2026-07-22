@@ -519,6 +519,7 @@ function RouteAccessGate({ children }: { children: React.ReactNode }) {
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const isLandingPage = pathname === "/";
   const isAuthSurface =
     pathname === "/sign-in" ||
     pathname === "/sign-up" ||
@@ -543,7 +544,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       >
         <RouteAccessGate>{children}</RouteAccessGate>
       </motion.main>
-      <MobileBottomNav />
+      {isLandingPage ? null : <MobileBottomNav />}
     </div>
   );
 }

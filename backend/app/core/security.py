@@ -31,6 +31,11 @@ def hash_password(password: str) -> str:
   return _password_hasher.hash(password)
 
 
+def validate_password_strength(password: str) -> None:
+  if len(password) < 12 or not any(char.islower() for char in password) or not any(char.isupper() for char in password) or not any(char.isdigit() for char in password):
+    raise AppError(422, "WEAK_PASSWORD", "Password must be at least 12 characters and include uppercase, lowercase, and a number.")
+
+
 def verify_password(password: str, password_hash: str) -> bool:
   try:
     return _password_hasher.verify(password_hash, password)

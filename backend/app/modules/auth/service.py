@@ -6,9 +6,22 @@ from sqlalchemy.orm import Session
 from app.core.config import settings
 from app.core.errors import AppError
 from app.core.public_ids import matches_public_id, public_id
-from app.core.security import as_utc, create_jwt, expires_in, hash_optional, hash_password, hash_token, new_token, utc_now, verify_password
+from app.core.security import (
+  as_utc,
+  create_jwt,
+  expires_in,
+  hash_optional,
+  hash_password,
+  hash_token,
+  new_token,
+  utc_now,
+  validate_password_strength,
+  verify_password,
+)
 from app.modules.audit.service import write_audit_log
+from app.modules.auth.email_delivery import send_password_reset_email, send_verification_email
 from app.modules.auth.models import AdminImpersonationSession, AuthSession, EmailVerificationToken, PasswordResetToken
+from app.modules.auth.mfa import mfa_status
 from app.modules.users.models import User, UserRole
 from app.modules.wallets.service import get_or_create_wallet
 
@@ -43,12 +56,15 @@ def auth_me_response(
   *,
   effective_user: User,
   actor_user: User,
+  db: Session,
+  session: AuthSession,
   impersonation: AdminImpersonationSession | None = None,
 ) -> dict:
   return {
     "user": user_to_response(effective_user),
     "actor": user_to_response(actor_user),
     "impersonation": impersonation_to_response(impersonation) if impersonation else None,
+    "mfa": mfa_status(db, actor_user, session_verified=session.mfa_verified_at is not None),
   }
 
 
@@ -84,6 +100,7 @@ def create_session(
   request_id: str | None,
   user_agent: str | None,
   ip: str | None,
+  mfa_method: str | None = None,
 ) -> tuple[str, str, AuthSession]:
   refresh_token = new_token()
   csrf_token = new_token(24)
@@ -94,6 +111,8 @@ def create_session(
     user_agent=user_agent,
     ip_hash=hash_optional(ip),
     expires_at=expires_in(settings.session_ttl_seconds),
+    mfa_verified_at=utc_now() if mfa_method else None,
+    mfa_method=mfa_method,
   )
   db.add(session)
   db.flush()
@@ -126,6 +145,8 @@ def create_access_token_for_session(db: Session, session: AuthSession) -> str:
     "sub": actor_user.id,
     "sid": session.id,
     "roles": roles_for_user(actor_user),
+    "mfa_verified": session.mfa_verified_at is not None,
+    "amr": ["pwd", session.mfa_method] if session.mfa_method else ["pwd"],
   }
   if impersonation:
     effective_user = impersonation.target_user
@@ -155,6 +176,7 @@ def sign_up(
   normalized_email = normalize_email(email)
   if get_user_by_email(db, normalized_email):
     raise AppError(409, "EMAIL_ALREADY_EXISTS", "An account with this email already exists.")
+  validate_password_strength(password)
 
   user = User(
     email=normalized_email,
@@ -183,14 +205,14 @@ def sign_up(
     request_id=request_id,
     ip_hash=hash_optional(ip),
     user_agent=user_agent,
-    metadata={"email_verification_token_dev": verification_token},
   )
+  send_verification_email(db, user, verification_token, request_id=request_id)
   refresh_token, csrf_token, session = create_session(db, user, request_id=request_id, user_agent=user_agent, ip=ip)
   access_token = create_access_token_for_session(db, session)
   return user, access_token, refresh_token, csrf_token
 
 
-def sign_in(
+def verify_sign_in_credentials(
   db: Session,
   *,
   email: str,
@@ -198,7 +220,7 @@ def sign_in(
   request_id: str | None,
   user_agent: str | None,
   ip: str | None,
-) -> tuple[User, str, str, str]:
+) -> User:
   user = get_user_by_email(db, email)
   if not user:
     raise AppError(401, "INVALID_CREDENTIALS", GENERIC_CREDENTIAL_ERROR)
@@ -228,7 +250,35 @@ def sign_in(
   user.failed_login_count = 0
   user.locked_until = None
   user.last_login_at = now
-  refresh_token, csrf_token, session = create_session(db, user, request_id=request_id, user_agent=user_agent, ip=ip)
+  write_audit_log(
+    db,
+    event_type="PASSWORD_VERIFIED",
+    actor_user_id=user.id,
+    target_user_id=user.id,
+    request_id=request_id,
+    ip_hash=hash_optional(ip),
+    user_agent=user_agent,
+  )
+  return user
+
+
+def complete_sign_in(
+  db: Session,
+  *,
+  user: User,
+  request_id: str | None,
+  user_agent: str | None,
+  ip: str | None,
+  mfa_method: str | None = None,
+) -> tuple[User, str, str, str]:
+  refresh_token, csrf_token, session = create_session(
+    db,
+    user,
+    request_id=request_id,
+    user_agent=user_agent,
+    ip=ip,
+    mfa_method=mfa_method,
+  )
   access_token = create_access_token_for_session(db, session)
   write_audit_log(
     db,
@@ -240,6 +290,26 @@ def sign_in(
     user_agent=user_agent,
   )
   return user, access_token, refresh_token, csrf_token
+
+
+def sign_in(
+  db: Session,
+  *,
+  email: str,
+  password: str,
+  request_id: str | None,
+  user_agent: str | None,
+  ip: str | None,
+) -> tuple[User, str, str, str]:
+  user = verify_sign_in_credentials(
+    db,
+    email=email,
+    password=password,
+    request_id=request_id,
+    user_agent=user_agent,
+    ip=ip,
+  )
+  return complete_sign_in(db, user=user, request_id=request_id, user_agent=user_agent, ip=ip)
 
 
 def get_session_by_token(db: Session, refresh_token: str | None) -> AuthSession | None:
@@ -269,7 +339,14 @@ def refresh_session(db: Session, session: AuthSession, *, request_id: str | None
   user = session.user
   active_impersonation = get_active_impersonation(db, session.id)
   revoke_session(db, session, reason="ROTATED", request_id=request_id)
-  refresh_token, csrf_token, new_session = create_session(db, user, request_id=request_id, user_agent=session.user_agent, ip=None)
+  refresh_token, csrf_token, new_session = create_session(
+    db,
+    user,
+    request_id=request_id,
+    user_agent=session.user_agent,
+    ip=None,
+    mfa_method=session.mfa_method if session.mfa_verified_at else None,
+  )
   if active_impersonation:
     active_impersonation.auth_session_id = new_session.id
   access_token = create_access_token_for_session(db, new_session)
@@ -385,8 +462,8 @@ def request_email_verification(db: Session, user: User, *, request_id: str | Non
     actor_user_id=user.id,
     target_user_id=user.id,
     request_id=request_id,
-    metadata={"email_verification_token_dev": token},
   )
+  send_verification_email(db, user, token, request_id=request_id)
   return token
 
 
@@ -415,8 +492,8 @@ def request_password_reset(db: Session, email: str, *, request_id: str | None) -
     actor_user_id=user.id,
     target_user_id=user.id,
     request_id=request_id,
-    metadata={"password_reset_token_dev": token},
   )
+  send_password_reset_email(db, user, token, request_id=request_id)
   return token
 
 
@@ -427,6 +504,7 @@ def confirm_password_reset(db: Session, token: str, password: str, *, request_id
   user = db.get(User, token_row.user_id)
   if not user:
     raise AppError(422, "INVALID_TOKEN", "Password reset token is invalid or expired.")
+  validate_password_strength(password)
   token_row.used_at = utc_now()
   user.password_hash = hash_password(password)
   db.query(AuthSession).filter(AuthSession.user_id == user.id, AuthSession.revoked_at.is_(None)).update(

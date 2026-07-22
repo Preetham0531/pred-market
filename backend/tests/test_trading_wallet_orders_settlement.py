@@ -144,6 +144,14 @@ def test_resolution_requires_maker_checker_and_settlement_pays_winner(client, db
   assert sorted(item["payout_minor"] for item in body["items"]) == [0, 1000]
   assert db_session.scalar(select(Settlement).where(Settlement.market_id == "ind-aus-final")) is not None
   assert db_session.get(Market, "ind-aus-final").status == "RESOLVED"
+  settlement_transaction = db_session.scalar(
+    select(LedgerTransaction).where(LedgerTransaction.transaction_type == "SETTLEMENT_CREDIT")
+  )
+  assert settlement_transaction is not None
+  assert settlement_transaction.idempotency_key is not None
+  assert len(settlement_transaction.idempotency_key) <= 160
+  assert settlement_transaction.reference_id is not None
+  assert len(settlement_transaction.reference_id) <= 120
 
   sign_in(client, "trader@predmarket.dev")
   wallet = client.get("/api/v1/wallet").json()

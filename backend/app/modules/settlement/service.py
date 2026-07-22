@@ -254,7 +254,7 @@ def settle_market(db: Session, *, market_id: str, admin: User, idempotency_key: 
         user_id=position.user_id,
         market_id=market.id,
         amount_minor=payout_minor,
-        reference_id=f"{market.id}:{settlement.id}:{position.id}",
+        reference_id=f"{settlement.id}:{position.id}",
         transaction_type="VOID_REFUND" if proposal.result == "VOID" else "SETTLEMENT_CREDIT",
       )
       write_user_event(

@@ -46,6 +46,16 @@ curl http://localhost:8010/api/v1/categories
 curl http://localhost:8010/api/v1/markets
 ```
 
+To persist the 20-user trading simulation in the local PostgreSQL database so it is visible in the frontend:
+
+```bash
+cd backend
+source .venv/bin/activate
+python -m app.seed.simulation
+```
+
+The simulation is development-only, uses fixed idempotency keys, and refuses to run against a non-PostgreSQL database or a non-development environment.
+
 Install frontend dependencies:
 
 ```bash

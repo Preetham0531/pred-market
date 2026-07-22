@@ -6,6 +6,8 @@ dist/
 .vercel/
 *.log
 .DS_Store
+qa-railway-*.png
+.playwright-cli/
 .env
 .env.local
 coverage/

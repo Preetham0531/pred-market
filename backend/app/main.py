@@ -3,6 +3,7 @@ from hmac import compare_digest
 
 from fastapi import FastAPI, HTTPException, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from sqlalchemy import text
 
 from app.api.router import api_router
@@ -79,6 +80,7 @@ CSRF_EXEMPT_PATHS = {
   f"{settings.api_v1_prefix}/auth/password-reset/request",
   f"{settings.api_v1_prefix}/auth/password-reset/confirm",
   f"{settings.api_v1_prefix}/auth/verify-email/confirm",
+  f"{settings.api_v1_prefix}/auth/mfa/challenge/verify",
 }
 
 
@@ -107,8 +109,12 @@ def root_health():
   return health_payload()
 
 
-@app.get(f"{settings.api_v1_prefix}/health")
-def api_health():
+@app.get("/health/live")
+def liveness():
+  return health_payload()
+
+
+def dependency_health() -> tuple[str, str]:
   db_status = "ok"
   redis_status = "ok"
   try:
@@ -116,12 +122,25 @@ def api_health():
       db.execute(text("select 1"))
   except Exception:
     db_status = "error"
-
   try:
     get_redis().ping()
   except Exception:
     redis_status = "error"
+  return db_status, redis_status
 
+
+@app.get("/health/ready")
+def readiness():
+  db_status, redis_status = dependency_health()
+  payload = {**health_payload(), "database": db_status, "redis": redis_status}
+  if db_status != "ok" or redis_status != "ok":
+    return JSONResponse(status_code=503, content=payload)
+  return payload
+
+
+@app.get(f"{settings.api_v1_prefix}/health")
+def api_health():
+  db_status, redis_status = dependency_health()
   return {**health_payload(), "database": db_status, "redis": redis_status}
 
 

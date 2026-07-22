@@ -1,0 +1,86 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+      args:
+        NEXT_PUBLIC_USE_MOCK_DATA: "false"
+        NEXT_PUBLIC_USE_DIRECT_API: "false"
+        INTERNAL_API_BASE_URL: http://backend:8080
+        NEXT_PUBLIC_WS_BASE_URL: ""
+    environment:
+      NODE_ENV: production
+      NEXT_PUBLIC_USE_MOCK_DATA: "false"
+      NEXT_PUBLIC_USE_DIRECT_API: "false"
+      INTERNAL_API_BASE_URL: http://backend:8080
+    depends_on:
+      backend:
+        condition: service_started
+    restart: unless-stopped
+    networks:
+      - pred_market
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      ENVIRONMENT: ${ENVIRONMENT:-staging}
+      DATABASE_URL: ${DATABASE_URL}
+      REDIS_URL: ${REDIS_URL}
+      CORS_ORIGINS: ${CORS_ORIGINS}
+      COOKIE_SECURE: ${COOKIE_SECURE:-true}
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY}
+      MFA_ENCRYPTION_KEY: ${MFA_ENCRYPTION_KEY}
+      DEMO_SEED_ENABLED: ${DEMO_SEED_ENABLED:-false}
+      PUBLIC_SIGNUP_ENABLED: ${PUBLIC_SIGNUP_ENABLED:-true}
+      EMAIL_VERIFICATION_REQUIRED: ${EMAIL_VERIFICATION_REQUIRED:-false}
+      ADMIN_MFA_REQUIRED: ${ADMIN_MFA_REQUIRED:-true}
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - pred_market
+
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - pred_market_redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+    networks:
+      - pred_market
+
+  caddy:
+    image: caddy:2-alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      APP_DOMAIN: ${APP_DOMAIN}
+    volumes:
+      - ./ops/Caddyfile:/etc/caddy/Caddyfile:ro
+      - pred_market_caddy_data:/data
+      - pred_market_caddy_config:/config
+    depends_on:
+      frontend:
+        condition: service_started
+      backend:
+        condition: service_started
+    restart: unless-stopped
+    networks:
+      - pred_market
+
+volumes:
+  pred_market_redis_data:
+  pred_market_caddy_data:
+  pred_market_caddy_config:
+
+networks:
+  pred_market:

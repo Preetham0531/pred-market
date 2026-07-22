@@ -377,6 +377,7 @@ def update_draft(db: Session, *, draft_id: str, payload, admin: User, request_id
     discovery_source_id=draft.discovery_source_id,
     ai_rationale=draft.ai_rationale,
     confidence_score=draft.confidence_score,
+    exclude_draft_id=draft.id,
   )
   draft.checks_json = checks
   draft.risk_flags_json = risk_flags
@@ -411,6 +412,7 @@ def approve_draft(db: Session, *, draft_id: str, admin: User, request_id: str | 
     discovery_source_id=draft.discovery_source_id,
     ai_rationale=draft.ai_rationale,
     confidence_score=draft.confidence_score,
+    exclude_draft_id=draft.id,
   )
   draft.checks_json = checks
   draft.risk_flags_json = risk_flags
@@ -600,10 +602,17 @@ def run_draft_checks(
   discovery_source_id: str | None,
   ai_rationale: str | None,
   confidence_score: int | None,
+  exclude_draft_id: str | None = None,
 ) -> tuple[dict[str, dict[str, bool | str]], list[str]]:
   category = db.get(Category, category_slug)
   duplicate_market = db.scalar(select(Market.id).where(func.lower(Market.title) == question.strip().lower()))
-  duplicate_draft = db.scalar(select(MarketDraft.id).where(func.lower(MarketDraft.question) == question.strip().lower(), MarketDraft.status.notin_(["REJECTED", "ARCHIVED"])))
+  duplicate_draft_query = select(MarketDraft.id).where(
+    func.lower(MarketDraft.question) == question.strip().lower(),
+    MarketDraft.status.notin_(["REJECTED", "ARCHIVED"]),
+  )
+  if exclude_draft_id:
+    duplicate_draft_query = duplicate_draft_query.where(MarketDraft.id != exclude_draft_id)
+  duplicate_draft = db.scalar(duplicate_draft_query)
   lower_text = f"{question} {resolution_rule}".lower()
   prohibited_hit = next((term for term in PROHIBITED_TERMS if term in lower_text), None)
   cleaned_outcomes = [item.strip() for item in outcomes if item.strip()]

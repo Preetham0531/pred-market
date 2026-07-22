@@ -28,7 +28,8 @@ const configuredApiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "";
 export const USE_MOCK_DATA = process.env.NEXT_PUBLIC_USE_MOCK_DATA !== "false";
 const USE_DIRECT_API = process.env.NEXT_PUBLIC_USE_DIRECT_API === "true";
 export const API_BASE_URL = USE_DIRECT_API ? configuredApiBaseUrl : "";
-export const WS_BASE_URL = API_BASE_URL.replace(/^http/, "ws");
+const configuredWsBaseUrl = process.env.NEXT_PUBLIC_WS_BASE_URL || "";
+export const WS_BASE_URL = configuredWsBaseUrl || API_BASE_URL.replace(/^http/, "ws");
 
 function readCookie(name: string) {
   if (typeof document === "undefined") return "";

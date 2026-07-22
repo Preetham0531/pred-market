@@ -1,5 +1,6 @@
 from fastapi import APIRouter, WebSocket, WebSocketDisconnect
 
+from app.core.config import settings
 from app.modules.realtime.manager import manager
 from app.modules.realtime.tickets import consume_ws_ticket
 
@@ -28,6 +29,13 @@ def concrete_channel(channel: str, auth: dict[str, object] | None) -> str:
 
 @router.websocket("/ws/v1")
 async def websocket_endpoint(websocket: WebSocket):
+  origin = websocket.headers.get("origin")
+  allowed_origins = set(settings.cors_origin_list)
+  if settings.environment == "development":
+    allowed_origins.update({"http://localhost:3000", "http://127.0.0.1:3000", "http://testserver"})
+  if origin and origin not in allowed_origins:
+    await websocket.close(code=1008, reason="Origin is not allowed.")
+    return
   ticket = websocket.query_params.get("ticket")
   auth = consume_ws_ticket(ticket)
   await websocket.accept()
