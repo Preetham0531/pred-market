@@ -285,9 +285,10 @@ export function useOrdersData() {
   });
 }
 
-export function useWalletData() {
+export function useWalletData(enabled = true) {
   return useQuery({
     queryKey: ["wallet"],
+    enabled,
     queryFn: async () => {
       if (USE_MOCK_DATA) {
         return {

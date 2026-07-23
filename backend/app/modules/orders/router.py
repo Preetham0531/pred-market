@@ -4,6 +4,8 @@ from sqlalchemy.orm import Session
 from app.core.rate_limit import check_rate_limit
 from app.db.session import get_db
 from app.modules.auth.dependencies import get_current_user, get_current_user_for_write
+from app.modules.market_maker.service import replenish_market_liquidity
+from app.modules.markets.service import get_market_or_404, write_order_book_snapshot_event
 from app.modules.orders.schemas import OrderCreate, OrderPage, OrderResponse
 from app.modules.orders.service import cancel_order, create_order, get_order_or_404, list_user_orders, order_to_response
 from app.modules.realtime.service import publish_pending_events
@@ -22,6 +24,8 @@ async def create_order_endpoint(
 ):
   check_rate_limit(key=f"orders:create:user:{user.id}", limit=60, window_seconds=60)
   order = create_order(db, payload=payload, user=user, idempotency_key=idempotency_key or "", request_id=getattr(request.state, "request_id", None))
+  replenish_market_liquidity(db, order.market_id)
+  write_order_book_snapshot_event(db, get_market_or_404(db, order.market_id))
   db.commit()
   await publish_pending_events(db)
   db.commit()
@@ -42,6 +46,8 @@ def get_order_endpoint(order_id: str, user: User = Depends(get_current_user), db
 async def cancel_order_endpoint(order_id: str, request: Request, user: User = Depends(get_current_user_for_write), db: Session = Depends(get_db)):
   check_rate_limit(key=f"orders:cancel:user:{user.id}", limit=90, window_seconds=60)
   order = cancel_order(db, order_id=order_id, user=user, request_id=getattr(request.state, "request_id", None))
+  replenish_market_liquidity(db, order.market_id)
+  write_order_book_snapshot_event(db, get_market_or_404(db, order.market_id))
   db.commit()
   await publish_pending_events(db)
   db.commit()

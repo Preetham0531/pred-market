@@ -71,7 +71,7 @@ export function useMarketRealtime(marketId?: string) {
       });
       staleTimer = setTimeout(() => {
         setState((current) => ({ ...current, stale: true }));
-      }, 45_000);
+      }, 35_000);
     }
 
     function connect() {
@@ -93,8 +93,10 @@ export function useMarketRealtime(marketId?: string) {
         const event = JSON.parse(message.data) as RealtimeEvent | { type?: string };
         if (!isRealtimeEvent(event)) return;
         markEvent(event);
-        void queryClient.invalidateQueries({ queryKey: ["market", marketId] });
-        void queryClient.invalidateQueries({ queryKey: ["markets"] });
+        if (event.event_type !== "heartbeat") {
+          void queryClient.invalidateQueries({ queryKey: ["market", marketId] });
+          void queryClient.invalidateQueries({ queryKey: ["markets"] });
+        }
       });
       nextSocket.addEventListener("close", () => {
         if (cancelled) return;

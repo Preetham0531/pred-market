@@ -90,8 +90,8 @@ Do not use viewport-scaled type. Do not use negative tracking.
 
 Pred-Market is an app shell, not a landing page.
 
-- Desktop: fixed left sidebar, sticky top bar, breadcrumbs, command search, wallet/profile controls.
-- Mobile: compressed breadcrumbs, bottom navigation, mobile category chips, trade ticket bottom sheet.
+- Desktop: sticky top navigation, search popover anchored below its field, wallet/profile controls.
+- Mobile: five-item bottom navigation, focused search sheet, horizontal category chips, trade ticket bottom sheet.
 - Main content: dense but readable, with 4px/8px spacing rhythm.
 - Radius: 6px for controls and 8px maximum for cards/modals.
 - Panels: one-level framed tools only; do not nest cards inside cards.
@@ -103,33 +103,22 @@ Use `.exchange-panel` for framed product surfaces and `.exchange-table-header` f
 
 ### Market Discovery
 
-Market discovery should behave like an exchange board:
-
-- Top metrics: 24h volume, open markets, average spread, biggest mover, deepest book, tightest spread.
-- Left filter rail on desktop; mobile category chips.
-- Category tape for sector scanning.
-- Highlight cards only for movers or special markets.
-- Full market table as the primary browsing surface.
+Market discovery is one compact list. Each row shows the question, executable YES/NO asks, 24-hour movement, real 24-hour volume, spread, and close time. Do not add featured duplicates, side rails, fake category volume, repeated status labels, or explanatory board copy.
 
 ### Market Detail
 
-Market detail is the trading cockpit:
-
-- Header: status, type, category, title, close time, source, rules/evidence, YES price, 24h movement.
-- Metrics: 24h volume, total volume, liquidity, spread.
-- Chart: deterministic probability chart with volume context and source-event markers.
-- Market depth: YES/NO order book with best YES, YES ask, spread, quantities, totals.
-- Lower workspace: recent trades, rules/evidence, risk notes, related markets.
+Market detail keeps the question, short close line, chance, chart, spread, volume, quick trade, and order book prominent. Status, type, category, source, full timestamp, rules, evidence, and risk notes belong in “How this market resolves.”
 
 ### Trade Ticket
 
 The trade ticket must feel careful and explicit:
 
 - Segmented YES/NO selector.
-- Limit price and quantity inputs.
-- Available balance, estimated cost, max payout, max loss, implied probability, fee.
-- Preview before submit.
-- States: unauthenticated, insufficient balance, submitting, accepted, partial fill, rejected.
+- Rupee budget by default; quantity is `floor(budget / executable ask)`.
+- Actual spend, contracts, possible payout, and available balance.
+- Limit price and quantity under “Advanced limit order.”
+- First-trade confirmation only, namespaced by user in browser storage.
+- States: sign in, add funds, waiting, partially filled, completed, and rejected with a specific next action.
 - Desktop sticky side panel; mobile bottom action bar and bottom sheet.
 
 ### Portfolio, Orders, Wallet, Admin

@@ -7,7 +7,7 @@ import { useAuth } from "@/components/auth-provider";
 import { useCategories, useMarkets, usePortfolioData, useUserAnalytics, useWalletData } from "@/lib/api-hooks";
 import { formatCurrency } from "@/lib/utils";
 
-export function ProfileWorkspace() {
+export function ProfileWorkspace({ title = "Profile" }: { title?: string }) {
   const { user } = useAuth();
   const { data: portfolio, isLoading, error } = usePortfolioData();
   const { data: wallet } = useWalletData();
@@ -28,8 +28,8 @@ export function ProfileWorkspace() {
     <div className="space-y-5">
       <div className="grid gap-3 xl:grid-cols-[1fr_360px]">
         <div>
-          <h1 className="text-2xl font-semibold">Profile</h1>
-          <p className="mt-1 text-sm text-[var(--muted)]">Account identity, positions, exposure, scenario payouts, and locked capital.</p>
+          <h1 className="text-2xl font-semibold">{title}</h1>
+          <p className="mt-1 text-sm text-[var(--muted)]">{title === "Portfolio" ? "Your positions, value, and possible payouts." : "Your account and trading activity."}</p>
         </div>
         <div className="exchange-panel rounded-md p-3">
           <div className="text-xs font-medium uppercase tracking-[0.08em] text-[var(--muted)]">Signed-in account</div>

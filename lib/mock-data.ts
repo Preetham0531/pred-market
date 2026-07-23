@@ -47,6 +47,14 @@ export type Market = {
   totalVolume: number;
   liquidity: number;
   spread: number;
+  quote?: {
+    yesBid: number | null;
+    yesAsk: number | null;
+    noBid: number | null;
+    noAsk: number | null;
+    lastTrade: number | null;
+    spread: number | null;
+  };
   traders: number;
   watchlisted: boolean;
   hasPosition: boolean;
@@ -82,7 +90,8 @@ export type UserOrder = {
   price: number;
   quantity: number;
   filled: number;
-  status: "Open" | "Filled" | "Cancelled";
+  remaining?: number;
+  status: "Open" | "Partially filled" | "Filled" | "Cancelled";
   createdAt: string;
 };
 

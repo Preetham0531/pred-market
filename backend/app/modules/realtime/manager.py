@@ -31,5 +31,15 @@ class ConnectionManager:
     for websocket in stale:
       await self.unsubscribe_all(websocket)
 
+  async def publish_all(self, payload: dict) -> None:
+    stale: set[WebSocket] = set()
+    for websocket in list(self._socket_channels):
+      try:
+        await websocket.send_json(payload)
+      except Exception:
+        stale.add(websocket)
+    for websocket in stale:
+      await self.unsubscribe_all(websocket)
+
 
 manager = ConnectionManager()

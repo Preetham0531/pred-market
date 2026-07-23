@@ -5,7 +5,9 @@ from sqlalchemy import select
 from app.db.session import SessionLocal
 from app.modules.audit.service import write_audit_log
 from app.modules.market_issuance.models import DataSource
+from app.modules.market_maker.service import replenish_all_open_markets
 from app.modules.markets.models import Category, Market, MarketRule, Outcome
+from app.modules.markets.service import write_order_book_snapshot_event
 from app.seed.dev import CATEGORIES, DATA_SOURCES, MARKETS
 
 EXTRA_MARKET = {
@@ -113,6 +115,9 @@ def seed_staging_database(db) -> dict[str, int]:
     "sources": _seed_sources(db),
     "markets": _seed_markets(db),
   }
+  result["liquidity_orders"] = replenish_all_open_markets(db)
+  for market in db.scalars(select(Market).where(Market.status == "OPEN")).all():
+    write_order_book_snapshot_event(db, market)
   write_audit_log(db, event_type="STAGING_REFERENCE_DATA_SEEDED", metadata=result)
   return result
 

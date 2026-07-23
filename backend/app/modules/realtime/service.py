@@ -8,6 +8,7 @@ from sqlalchemy.orm import Session
 from app.core.public_ids import public_id
 from app.core.security import utc_now
 from app.modules.realtime.manager import manager
+from app.modules.realtime.broker import broker
 from app.modules.realtime.models import RealtimeEvent
 
 
@@ -105,7 +106,9 @@ async def publish_pending_events(db: Session) -> None:
 
 
 async def publish_event(event: RealtimeEvent) -> None:
-  await manager.publish(event.channel, event_envelope(event))
+  envelope = event_envelope(event)
+  await manager.publish(event.channel, envelope)
+  await broker.publish(event.channel, envelope)
   event.publish_status = "PUBLISHED"
   event.published_at = utc_now()
 

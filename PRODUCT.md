@@ -10,15 +10,15 @@ web
 
 ## Users
 
-Pred-Market is for traders, analysts, market makers, and operators who need a serious event-contract workspace for scanning markets, reading rules, placing limit orders, and managing positions. Primary users are strategy-minded traders who want fast market discovery, clear probability movement, transparent settlement sources, and portfolio risk visibility. Secondary users are admins and reviewers who need a dense, auditable queue for market approval, evidence, automation checks, and risk exceptions.
+Pred-Market is for people learning to trade event contracts and for experienced traders who value a fast, legible market board. A new user must be able to find a market, understand YES/NO and spread, add simulated funds, place a trade, and recognize its status without reading documentation. Admins and reviewers retain a dense, auditable operational workspace.
 
 ## Product Purpose
 
-Pred-Market is a V1 prediction market exchange for buyable event contracts across sports, politics, economics, stocks and mutual funds, financials, weather and climate, culture, tech and science, mentions, and commodities. The product exists to make event trading understandable and analyzable: users should be able to read a contract, understand the resolution rules, compare price/liquidity/spread, place careful limit orders, and build strategies from market and portfolio data. V1 uses simulated funds while preserving the structure needed for real wallet, ledger, matching, settlement, and compliance workflows later.
+Pred-Market is a simulated-funds prediction exchange for buyable event contracts. The primary workflow is markets first: compare executable YES/NO prices, movement, real volume, spread, and close time; then trade from a simple rupee budget. Rules, sources, evidence, and risk notes remain available under “How this market resolves” without competing with the trade decision.
 
 ## Positioning
 
-Pred-Market is a calm, analysis-first prediction exchange where every market page should feel trustworthy enough to trade from and detailed enough to build a strategy around.
+Pred-Market is a calm, beginner-first prediction exchange that makes the first trade simple without hiding the order book or resolution rules.
 
 ## Brand Personality
 
@@ -30,11 +30,11 @@ Pred-Market must not look like a sportsbook, casino, crypto meme app, loud betti
 
 ## Design Principles
 
-1. Put analysis before excitement: every screen should help users compare, reason, and act carefully.
-2. Make market rules visible: users should always understand what resolves a contract and where evidence comes from.
-3. Treat trading as an exchange workflow: tables, order books, charts, balances, and tickets should be dense, stable, and predictable.
-4. Use calm color as signal, not decoration: green, slate, brass, and red should communicate state and risk.
-5. Preserve operational trust: admin, wallet, order, and settlement surfaces should feel auditable and precise.
+1. Put the next useful action first: discover, choose YES/NO, set a budget, trade.
+2. Teach in context: explain spread beside spread and first-trade payout inside confirmation.
+3. Keep truth visible: executable prices, real database depth, actual spend, and exact order status.
+4. Use calm color as signal, not decoration.
+5. Preserve operational trust: rules remain accessible and admin, wallet, order, and settlement actions remain auditable.
 
 ## Accessibility & Inclusion
 

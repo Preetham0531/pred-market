@@ -2,6 +2,36 @@
 
 This document defines the Pred-Market V1 REST and WebSocket API contract for frontend/backend integration. It covers `/markets`, `/orders`, `/trades`, `/positions`, `/wallet`, `/admin`, and realtime order book updates.
 
+## Beginner-First Trading Addendum
+
+Market list and detail responses include:
+
+```json
+{
+  "quote": {
+    "yes_bid": 63,
+    "yes_ask": 65,
+    "no_bid": 35,
+    "no_ask": 37,
+    "last_trade": 65,
+    "spread": 2
+  }
+}
+```
+
+`GET /markets/{market_id}/order-book` returns `market_id`, monotonic `sequence`, `updated_at`, `quote`, and anonymous aggregated `yes_bids`/`no_bids`. Seeded `order_book_json` and `recent_trades_json` are compatibility data only and are never served as live fallbacks.
+
+Quick trades remain `POST /orders` limit orders. Clients submit `outcome_id`, `side=BUY`, the current executable ask as `price_minor`, and `floor(budget / ask)` as `quantity`.
+
+Order status meaning is exact:
+
+- `OPEN`: waiting for another order.
+- `PARTIALLY_FILLED`: some quantity filled and the remainder is open.
+- `FILLED`: completed and reflected in positions.
+- `CANCELLED` or `PARTIALLY_CANCELLED`: remaining quantity was cancelled and locks were released.
+
+Public WebSocket events are `order_book.snapshot`, `trade.created`, `ticker.updated`, and `heartbeat`. An order-book subscription receives an immediate full snapshot. Full snapshots follow order creation, fill, cancellation, and simulated-liquidity replenishment. Redis pub/sub fans out the transactional outbox across backend instances.
+
 This is planning documentation only. It does not create backend code.
 
 ## 1. API Goals
@@ -981,4 +1011,3 @@ external market-making APIs
 third-party developer API keys
 GraphQL
 ```
-

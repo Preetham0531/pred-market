@@ -42,7 +42,7 @@ export function WalletWorkspace() {
     <div className="space-y-5">
       <div>
         <h1 className="text-2xl font-semibold">Wallet</h1>
-        <p className="mt-1 text-sm text-[var(--muted)]">Available cash, locked funds, and ledger activity.</p>
+        <p className="mt-1 text-sm text-[var(--muted)]">Add simulated funds and review your balance history.</p>
       </div>
       {error ? (
         <div className="rounded-md border border-[var(--red-border)] bg-[var(--red-soft)] px-3 py-2 text-sm text-[var(--red-text)]">
@@ -53,11 +53,11 @@ export function WalletWorkspace() {
         <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
             <div className="flex flex-wrap items-center gap-2">
-              <h2 className="text-sm font-semibold">Simulated deposit</h2>
-              <Badge tone="brass">V1 test funds</Badge>
+              <h2 className="text-sm font-semibold">Add funds</h2>
+              <Badge tone="brass">Simulated</Badge>
             </div>
             <p className="mt-1 text-xs leading-5 text-[var(--muted)]">
-              V1 uses simulated funds only. Real deposits and withdrawals stay disabled until KYC, AML, payment provider, and legal approval are complete.
+              Funds are for practice trading and have no cash value.
             </p>
           </div>
           <div className="flex gap-2">

@@ -19,9 +19,9 @@ export function OrdersWorkspace() {
   const orders = useMemo(() => (USE_MOCK_DATA ? mockOrders : ordersPayload?.items ?? []), [mockOrders, ordersPayload]);
   const visibleOrders = useMemo(() => (statusFilter === "All" ? orders : orders.filter((order) => order.status === statusFilter)), [orders, statusFilter]);
 
-  function cancelOrder(orderId: string) {
+  async function cancelOrder(orderId: string) {
     if (!USE_MOCK_DATA) {
-      cancelMutation.mutate(orderId);
+      await cancelMutation.mutateAsync(orderId);
       setLastCancelled(orderId);
       return;
     }
@@ -39,7 +39,7 @@ export function OrdersWorkspace() {
     <div className="space-y-5">
       <div>
         <h1 className="text-2xl font-semibold">Orders</h1>
-        <p className="mt-1 text-sm text-[var(--muted)]">Open, filled, and cancelled limit orders across markets.</p>
+        <p className="mt-1 text-sm text-[var(--muted)]">Track waiting, partial, completed, and cancelled orders.</p>
       </div>
       {error ? (
         <div className="rounded-md border border-[var(--red-border)] bg-[var(--red-soft)] px-3 py-2 text-sm text-[var(--red-text)]">
@@ -48,14 +48,14 @@ export function OrdersWorkspace() {
       ) : null}
       {lastCancelled ? (
         <div className="rounded-md border border-[var(--green-border)] bg-[var(--green-soft)] px-3 py-2 text-sm text-[var(--green-text)]" role="status">
-          Cancel request recorded for {lastCancelled}. Open order collateral will release after backend confirmation.
+          Order {lastCancelled} was cancelled and unused funds were released.
         </div>
       ) : null}
       <div className="exchange-panel overflow-hidden rounded-md">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--border)] px-3 py-2">
           <div className="text-sm font-semibold">Order blotter</div>
           <div className="inline-flex rounded-md border border-[var(--border)] bg-[var(--surface-muted)] p-1">
-            {(["All", "Open", "Filled", "Cancelled"] as const).map((item) => (
+            {(["All", "Open", "Partially filled", "Filled", "Cancelled"] as const).map((item) => (
               <button
                 key={item}
                 type="button"
@@ -97,14 +97,16 @@ export function OrdersWorkspace() {
                 <div>{order.outcome}</div>
                 <div className="numeric">{order.price}</div>
                 <div className="numeric">{order.filled}/{order.quantity}</div>
-                <Badge tone={order.status === "Open" ? "green" : order.status === "Cancelled" ? "red" : "blue"}>{order.status}</Badge>
-                {order.status === "Open" ? (
-                  <Button size="sm" variant="secondary" onClick={() => cancelOrder(order.id)} disabled={cancelMutation.isPending}>
+                <Badge tone={order.status === "Open" ? "brass" : order.status === "Cancelled" ? "red" : order.status === "Filled" ? "green" : "blue"}>
+                  {order.status === "Open" ? "Waiting" : order.status}
+                </Badge>
+                {order.status === "Open" || order.status === "Partially filled" ? (
+                  <Button size="sm" variant="secondary" onClick={() => void cancelOrder(order.id)} disabled={cancelMutation.isPending}>
                     <XCircle className="h-3.5 w-3.5" />
                     Cancel
                   </Button>
                 ) : (
-                  <span className="text-xs text-[var(--muted)]">No action</span>
+                  <Link className="text-xs font-medium text-[var(--primary-strong)]" href={`/markets/${order.marketId}`}>View</Link>
                 )}
               </div>
             );

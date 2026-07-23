@@ -225,6 +225,9 @@ def verify_sign_in_credentials(
   if not user:
     raise AppError(401, "INVALID_CREDENTIALS", GENERIC_CREDENTIAL_ERROR)
 
+  if user.is_system:
+    raise AppError(401, "INVALID_CREDENTIALS", GENERIC_CREDENTIAL_ERROR)
+
   if user.status in {"SUSPENDED", "CLOSED"}:
     raise AppError(403, "ACCOUNT_UNAVAILABLE", "This account cannot sign in.")
 

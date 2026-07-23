@@ -16,7 +16,7 @@ def list_watchlist_markets(db: Session, *, user_id: str) -> list[dict]:
       .order_by(WatchlistItem.created_at.desc())
     ).all()
   )
-  return [market_to_list_item(row.market) for row in rows if row.market]
+  return [market_to_list_item(db, row.market) for row in rows if row.market]
 
 
 def add_watchlist_item(db: Session, *, user_id: str, market_id: str) -> WatchlistItem:

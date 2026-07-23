@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { ProfileWorkspace } from "@/components/profile-workspace";
 
-export default function PortfolioRedirectPage() {
-  redirect("/profile");
+export default function PortfolioPage() {
+  return <ProfileWorkspace title="Portfolio" />;
 }

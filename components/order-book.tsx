@@ -50,36 +50,35 @@ function OrderRows({ label, rows, tone }: { label: string; rows: Market["orderBo
 }
 
 export function OrderBook({ market }: OrderBookProps) {
-  const yesBest = market.orderBook.yesBids[0]?.price ?? 0;
-  const noBest = market.orderBook.noBids[0]?.price ?? 0;
-  const yesAsk = 100 - noBest;
-  const spread = Math.max(0, yesAsk - yesBest);
+  const yesBest = market.quote?.yesBid ?? market.orderBook.yesBids[0]?.price ?? null;
+  const yesAsk = market.quote?.yesAsk ?? (market.orderBook.noBids[0] ? 100 - market.orderBook.noBids[0].price : null);
+  const spread = market.quote?.spread ?? (yesBest != null && yesAsk != null ? Math.max(0, yesAsk - yesBest) : null);
 
   return (
-    <section className="rounded-md bg-[var(--surface)]/38 p-3" aria-label="Market depth">
+    <section className="rounded-md bg-[var(--surface)]/38 p-3" aria-label="Order book">
       <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h2 className="text-sm font-semibold">Market depth</h2>
-          <p className="text-xs text-[var(--muted)]">Binary YES/NO book with complementary pricing.</p>
+          <h2 className="text-sm font-semibold">Order book</h2>
+          <p className="text-xs text-[var(--muted)]">Available orders at each price.</p>
         </div>
         <div className="grid grid-cols-3 overflow-hidden rounded-md bg-[var(--surface-raised)]/42 text-center text-xs">
           <div className="px-3 py-2">
             <div className="text-[var(--muted)]">Best YES</div>
-            <div className="numeric mt-0.5 font-semibold text-[var(--green-text)]">{yesBest}</div>
+            <div className="numeric mt-0.5 font-semibold text-[var(--green-text)]">{yesBest ?? "-"}</div>
           </div>
           <div className="border-x border-[color-mix(in_srgb,var(--border)_55%,transparent)] px-3 py-2">
             <div className="text-[var(--muted)]">Spread</div>
-            <div className="numeric mt-0.5 font-semibold">{spread} pts</div>
+            <div className="numeric mt-0.5 font-semibold">{spread ?? "-"} pts</div>
           </div>
           <div className="px-3 py-2">
             <div className="text-[var(--muted)]">YES ask</div>
-            <div className="numeric mt-0.5 font-semibold text-[var(--red-text)]">{yesAsk}</div>
+            <div className="numeric mt-0.5 font-semibold text-[var(--red-text)]">{yesAsk ?? "-"}</div>
           </div>
         </div>
       </div>
       {!market.orderBook.yesBids.length && !market.orderBook.noBids.length ? (
         <div className="mb-3 rounded-md border border-[var(--brass-border)] bg-[var(--brass-soft)] px-3 py-2 text-xs text-[var(--brass-text)]">
-          No live limit orders yet. Static seeded levels will appear once liquidity is available.
+          No orders are available yet. You can place a limit order and cancel it any time before it fills.
         </div>
       ) : null}
       <div className="grid gap-4 md:grid-cols-2">

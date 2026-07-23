@@ -28,6 +28,15 @@ class OutcomeResponse(BaseModel):
   probability: int
 
 
+class MarketQuote(BaseModel):
+  yes_bid: int | None
+  yes_ask: int | None
+  no_bid: int | None
+  no_ask: int | None
+  last_trade: int | None
+  spread: int | None
+
+
 class MarketListItem(BaseModel):
   id: str
   title: str
@@ -47,6 +56,7 @@ class MarketListItem(BaseModel):
   traders: int
   outcomes: list[OutcomeResponse]
   risk_notes: list[str]
+  quote: MarketQuote
 
 
 class MarketDetail(MarketListItem):
@@ -62,6 +72,9 @@ class PaginatedMarkets(BaseModel):
 
 class OrderBookResponse(BaseModel):
   market_id: str
+  sequence: int
+  updated_at: str
+  quote: MarketQuote
   order_book: dict[str, Any]
 
 

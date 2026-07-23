@@ -75,6 +75,9 @@ EMAIL_VERIFICATION_REQUIRED=false
 ADMIN_MFA_REQUIRED=true
 EMAIL_DELIVERY_ENABLED=false
 ADMIN_BOOTSTRAP_EMAIL=bindelapreetham2004@gmail.com
+SIMULATED_MARKET_MAKER_ENABLED=true
+SIMULATED_MARKET_MAKER_CASH_MINOR=10000000
+SIMULATED_MARKET_MAKER_DEPTH=200,160,120,80,40
 JWT_SECRET_KEY=<sealed random value>
 MFA_ENCRYPTION_KEY=<sealed Fernet key>
 ```
@@ -96,6 +99,7 @@ NEXT_PUBLIC_USE_MOCK_DATA=false
 NEXT_PUBLIC_USE_DIRECT_API=false
 INTERNAL_API_BASE_URL=http://${{pred-market-backend.RAILWAY_PRIVATE_DOMAIN}}:8080
 NEXT_PUBLIC_WS_BASE_URL=wss://${{pred-market-backend.RAILWAY_PUBLIC_DOMAIN}}
+NEXT_PUBLIC_ENABLE_MARKET_SUGGESTIONS=false
 ```
 
 `NEXT_PUBLIC_*` values are compiled into the Next.js build, so changing them requires a frontend redeploy.
@@ -142,14 +146,15 @@ curl -fsS https://FRONTEND_DOMAIN/api/v1/markets
 
 Browser checks:
 
-- `/` is public and shows the product landing page.
-- `/markets` shows six clearly labeled simulation markets.
+- `/` is public and shows the compact markets-first feed.
+- `/markets` shows the same market feed without a duplicated featured market or side rails.
+- each open market exposes executable typed quotes and five anonymous depth levels per side.
 - signup creates a `USER`, never an `ADMIN`.
 - admin password login requires setup or a TOTP challenge.
 - replaying a TOTP code fails.
 - admin actions fail without an MFA-verified session.
-- simulated deposit, order creation, cancellation, wallet, portfolio, and order book work.
-- public/private WebSocket channels connect without CORS or origin failures.
+- simulated deposit, immediate quick trade, open limit order, cancellation, wallet, portfolio, and order book work.
+- public/private WebSocket channels connect without CORS or origin failures; a second browser receives depth changes and disconnected clients poll every five seconds.
 
 ## Everyday Commands
 
@@ -180,7 +185,7 @@ Apply migrations manually only when diagnosing a failed pre-deploy:
 railway ssh --service pred-market-backend --environment production --identity-file ~/.ssh/id_ed25519_railway_pred_market alembic upgrade head
 ```
 
-The staging seed is idempotent. It creates ten categories, the approved-source registry, and six simulated markets. It does not create shared-password traders or import the local twenty-user simulation.
+The staging seed is idempotent. It creates ten categories, the approved-source registry, six simulated markets, the inaccessible system-liquidity user, its audited ₹10,000,000 simulated deposit, and five executable levels per side. It does not create shared-password traders or import the local twenty-user simulation.
 
 ## Backup And Restore
 

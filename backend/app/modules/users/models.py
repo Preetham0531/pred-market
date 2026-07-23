@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from sqlalchemy import DateTime, ForeignKey, Integer, String, Text, UniqueConstraint
+from sqlalchemy import Boolean, DateTime, ForeignKey, Integer, String, Text, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.core.security import utc_now
@@ -20,6 +20,7 @@ class User(UUIDPrimaryKeyMixin, TimestampMixin, Base):
   failed_login_count: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
   locked_until: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
   last_login_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+  is_system: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False, server_default="false", index=True)
 
   roles: Mapped[list["UserRole"]] = relationship("UserRole", back_populates="user", cascade="all, delete-orphan")
 

@@ -75,6 +75,14 @@ export type BackendMarket = {
   traders: number;
   outcomes: BackendOutcome[];
   risk_notes: string[];
+  quote?: {
+    yes_bid: number | null;
+    yes_ask: number | null;
+    no_bid: number | null;
+    no_ask: number | null;
+    last_trade: number | null;
+    spread: number | null;
+  };
   price_history?: ChartPoint[];
   order_book?: {
     yes_bids?: OrderLevel[];
@@ -453,6 +461,8 @@ export function mapCategory(category: BackendCategory): Category {
 }
 
 export function mapMarket(market: BackendMarket): Market {
+  const yesBid = market.quote?.yes_bid ?? market.order_book?.yes_bids?.[0]?.price ?? null;
+  const noBid = market.quote?.no_bid ?? market.order_book?.no_bids?.[0]?.price ?? null;
   return {
     id: market.id,
     title: market.title,
@@ -469,6 +479,14 @@ export function mapMarket(market: BackendMarket): Market {
     totalVolume: market.total_volume,
     liquidity: market.liquidity,
     spread: market.spread,
+    quote: {
+      yesBid,
+      yesAsk: market.quote?.yes_ask ?? (noBid === null ? null : 100 - noBid),
+      noBid,
+      noAsk: market.quote?.no_ask ?? (yesBid === null ? null : 100 - yesBid),
+      lastTrade: market.quote?.last_trade ?? null,
+      spread: market.quote?.spread ?? market.spread
+    },
     traders: market.traders,
     watchlisted: Boolean(market.watchlisted),
     hasPosition: Boolean(market.has_position),
@@ -492,7 +510,15 @@ export function mapOrder(order: BackendOrder): UserOrder {
     price: order.price_minor,
     quantity: order.quantity,
     filled: order.filled_quantity,
-    status: order.status === "CANCELLED" || order.status === "PARTIALLY_CANCELLED" ? "Cancelled" : order.status === "FILLED" ? "Filled" : "Open",
+    remaining: order.remaining_quantity,
+    status:
+      order.status === "CANCELLED" || order.status === "PARTIALLY_CANCELLED"
+        ? "Cancelled"
+        : order.status === "FILLED"
+          ? "Filled"
+          : order.status === "PARTIALLY_FILLED"
+            ? "Partially filled"
+            : "Open",
     createdAt: order.created_at
   };
 }

@@ -1,6 +1,8 @@
 from fastapi import APIRouter, WebSocket, WebSocketDisconnect
 
 from app.core.config import settings
+from app.db.session import SessionLocal
+from app.modules.markets.service import get_market_or_404, order_book_snapshot
 from app.modules.realtime.manager import manager
 from app.modules.realtime.tickets import consume_ws_ticket
 
@@ -54,7 +56,24 @@ async def websocket_endpoint(websocket: WebSocket):
         continue
       resolved = concrete_channel(channel, auth)
       await manager.subscribe(websocket, resolved)
-      await websocket.send_json({"type": "subscribed", "channel": channel, "resolved_channel": resolved, "snapshot_sequence": None})
+      snapshot_sequence = None
+      if resolved.startswith("market.order_book."):
+        resolved_market_id = resolved.removeprefix("market.order_book.")
+        with SessionLocal() as db:
+          snapshot = order_book_snapshot(db, get_market_or_404(db, resolved_market_id))
+        snapshot_sequence = snapshot["sequence"]
+        await websocket.send_json({"type": "subscribed", "channel": channel, "resolved_channel": resolved, "snapshot_sequence": snapshot_sequence})
+        await websocket.send_json(
+          {
+            "event_type": "order_book.snapshot",
+            "sequence": snapshot["sequence"],
+            "market_id": resolved_market_id,
+            "created_at": snapshot["updated_at"],
+            "payload": {"quote": snapshot["quote"], "order_book": snapshot["order_book"]},
+          }
+        )
+      else:
+        await websocket.send_json({"type": "subscribed", "channel": channel, "resolved_channel": resolved, "snapshot_sequence": snapshot_sequence})
   except WebSocketDisconnect:
     await manager.unsubscribe_all(websocket)
   except Exception:

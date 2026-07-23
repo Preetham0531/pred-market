@@ -1,5 +1,6 @@
 from uuid import uuid4
 from hmac import compare_digest
+from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, HTTPException, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
@@ -13,10 +14,20 @@ from app.core.logging import configure_logging
 from app.db.redis import get_redis
 from app.db.session import SessionLocal
 from app.modules.realtime.router import router as realtime_router
+from app.modules.realtime.broker import broker
 
 configure_logging()
 
-app = FastAPI(title=settings.app_name, version=settings.version)
+@asynccontextmanager
+async def lifespan(_: FastAPI):
+  await broker.start()
+  try:
+    yield
+  finally:
+    await broker.stop()
+
+
+app = FastAPI(title=settings.app_name, version=settings.version, lifespan=lifespan)
 
 app.add_middleware(
   CORSMiddleware,

@@ -20,6 +20,7 @@ from app.modules.markets.service import (
   list_markets,
   market_to_detail,
   market_to_list_item,
+  order_book_snapshot,
 )
 
 router = APIRouter()
@@ -39,22 +40,19 @@ def markets_endpoint(
   db: Session = Depends(get_db),
 ):
   markets = list_markets(db, category=category, status=status, q=q, limit=limit)
-  return {"items": [market_to_list_item(market) for market in markets], "next_cursor": None}
+  return {"items": [market_to_list_item(db, market) for market in markets], "next_cursor": None}
 
 
 @router.get("/markets/{market_id}", response_model=MarketDetail)
 def market_detail_endpoint(market_id: str, db: Session = Depends(get_db)):
   market = get_market_or_404(db, market_id)
-  payload = market_to_detail(market)
-  payload["order_book"] = computed_order_book(db, market)
-  payload["recent_trades"] = computed_recent_trades(db, market)
-  return payload
+  return market_to_detail(db, market)
 
 
 @router.get("/markets/{market_id}/order-book", response_model=OrderBookResponse)
 def market_order_book_endpoint(market_id: str, db: Session = Depends(get_db)):
   market = get_market_or_404(db, market_id)
-  return {"market_id": market.id, "order_book": computed_order_book(db, market)}
+  return order_book_snapshot(db, market)
 
 
 @router.get("/markets/{market_id}/price-history", response_model=PriceHistoryResponse)

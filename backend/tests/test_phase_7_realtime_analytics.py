@@ -69,6 +69,9 @@ def test_websocket_public_and_private_subscriptions(client):
   with client.websocket_connect("/ws/v1") as websocket:
     websocket.send_json({"type": "subscribe", "channel": "market.order_book", "market_id": "ind-aus-final"})
     assert websocket.receive_json()["type"] == "subscribed"
+    snapshot = websocket.receive_json()
+    assert snapshot["event_type"] == "order_book.snapshot"
+    assert snapshot["market_id"] == "ind-aus-final"
     websocket.send_json({"type": "subscribe", "channel": "user.wallet"})
     assert websocket.receive_json()["code"] == "FORBIDDEN"
 

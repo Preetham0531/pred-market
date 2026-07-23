@@ -8,6 +8,8 @@ dist/
 .DS_Store
 qa-railway-*.png
 .playwright-cli/
+test-results/
+playwright-report/
 .env
 .env.local
 coverage/

@@ -1,38 +1,28 @@
 "use client";
 
-import { useParams } from "next/navigation";
 import Link from "next/link";
-import { ArrowDownRight, ArrowUpRight, Clock, ExternalLink, ShieldCheck } from "lucide-react";
+import { useParams } from "next/navigation";
+import { useEffect } from "react";
+import { ArrowDownRight, ArrowUpRight, ChevronDown, Clock } from "lucide-react";
 import { OrderBook } from "@/components/order-book";
 import { ProbabilityChart } from "@/components/probability-chart";
-import { StatusBadge } from "@/components/status-badge";
 import { TradeTicket } from "@/components/trade-ticket";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
-import { ApiModeHint, DataState } from "@/components/ui/data-state";
-import { MarketCard } from "@/components/market-card";
-import { useCategories, useMarket, useMarketAnalytics, useMarkets } from "@/lib/api-hooks";
+import { DataState } from "@/components/ui/data-state";
+import { useCategories, useMarket } from "@/lib/api-hooks";
 import { useMarketRealtime } from "@/lib/realtime";
 import { formatCompact, signedPercent } from "@/lib/utils";
 
 function MarketDetailSkeleton() {
   return (
     <div className="grid gap-5 pb-24 xl:grid-cols-[minmax(0,1fr)_360px] xl:pb-0" aria-busy="true">
-      <div className="min-w-0 space-y-4">
-        <section className="exchange-panel rounded-md p-4">
-          <div className="animate-pulse space-y-4">
-            <div className="flex gap-2">
-              <div className="exchange-skeleton h-6 w-16 rounded" />
-              <div className="exchange-skeleton h-6 w-24 rounded" />
-            </div>
-            <div className="exchange-skeleton h-8 max-w-3xl rounded" />
-            <div className="exchange-skeleton h-4 max-w-xl rounded" />
-          </div>
-        </section>
-        <div className="exchange-skeleton h-[360px] rounded-md" />
-        <div className="exchange-skeleton h-[230px] rounded-md" />
+      <div className="space-y-4">
+        <div className="exchange-skeleton h-24 rounded-md" />
+        <div className="exchange-skeleton h-[340px] rounded-md" />
+        <div className="exchange-skeleton h-[260px] rounded-md" />
       </div>
-      <aside className="exchange-skeleton hidden h-[520px] rounded-md xl:block" />
+      <div className="exchange-skeleton hidden h-[520px] rounded-md xl:block" />
     </div>
   );
 }
@@ -40,170 +30,125 @@ function MarketDetailSkeleton() {
 export default function MarketDetailPage() {
   const params = useParams<{ marketId: string }>();
   const marketId = params.marketId;
-  const { data: market, isLoading, error } = useMarket(marketId);
-  const { data: analytics } = useMarketAnalytics(marketId);
+  const marketQuery = useMarket(marketId);
+  const refetchMarket = marketQuery.refetch;
   const { data: categories = [] } = useCategories();
-  const { data: markets = [] } = useMarkets();
   const realtime = useMarketRealtime(marketId);
 
-  if (isLoading) {
-    return <MarketDetailSkeleton />;
-  }
+  useEffect(() => {
+    if (realtime.connected || !marketId) return;
+    const timer = window.setInterval(() => void refetchMarket(), 5000);
+    return () => window.clearInterval(timer);
+  }, [marketId, realtime.connected, refetchMarket]);
 
-  if (error || !market) {
+  if (marketQuery.isLoading) return <MarketDetailSkeleton />;
+
+  const market = marketQuery.data;
+  if (marketQuery.error || !market) {
     return (
       <div className="mx-auto max-w-3xl space-y-3">
         <DataState
           title="Market could not be loaded"
-          message="The contract may have moved, the market API may be unavailable, or the local backend may not be seeded."
-          actionLabel="Retry market"
+          message="The market service is temporarily unavailable."
+          actionLabel="Try again"
           onAction={() => window.location.reload()}
           tone="error"
-          badge="Unavailable"
         />
-        <div className="flex flex-wrap gap-2">
-          <Link href="/markets" className={buttonVariants({ variant: "secondary" })}>
-            Back to markets
-          </Link>
-        </div>
-        <ApiModeHint />
+        <Link href="/" className={buttonVariants({ variant: "secondary" })}>Back to markets</Link>
       </div>
     );
   }
 
   const category = categories.find((item) => item.slug === market.categorySlug);
-  const relatedMarkets = markets
-    .filter((item) => item.categorySlug === market.categorySlug && item.id !== market.id)
-    .slice(0, 2);
-  const tradingState =
-    market.status === "Open"
-      ? "Trading open"
-      : market.status === "Closing soon"
-        ? "Close-time risk active"
-        : market.status;
+  const displayTitle = market.title.replace(/^Simulation:\s*/i, "");
+  const spread = market.quote?.spread ?? market.spread;
 
   return (
     <div className="grid gap-5 pb-24 xl:grid-cols-[minmax(0,1fr)_360px] xl:pb-0">
-      <div className="flex min-w-0 flex-col gap-4">
-        <section className="order-1 pb-3">
+      <div className="min-w-0 space-y-4">
+        <header className="border-b border-[var(--border)] pb-4">
           <div className="flex flex-wrap items-start justify-between gap-4">
-            <div className="min-w-0">
-              <div className="mb-2 flex flex-wrap items-center gap-2">
-                <StatusBadge status={market.status} />
-                <Badge>{market.marketType}</Badge>
-                {category ? <Badge tone="blue">{category.name}</Badge> : null}
-                <Badge tone={market.status === "Open" ? "neutral" : "brass"}>{tradingState}</Badge>
-                <Badge tone={realtime.stale || analytics?.isStale ? "brass" : realtime.connected ? "green" : realtime.reconnecting ? "brass" : "blue"}>
-                  {realtime.stale || analytics?.isStale ? "Stale" : realtime.connected ? "Live" : realtime.reconnecting ? "Reconnecting" : "Realtime ready"}
-                </Badge>
-              </div>
-              <h1 className="max-w-4xl text-2xl font-semibold leading-tight text-balance">{market.title}</h1>
-              <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm text-[var(--muted)]">
-                <span className="flex items-center gap-1.5">
-                  <Clock className="h-4 w-4" />
-                  Closes {market.closeTime}
+            <div className="min-w-0 max-w-4xl">
+              <h1 className="text-2xl font-semibold leading-tight text-balance">{displayTitle}</h1>
+              <div className="mt-2 flex items-center gap-2 text-sm text-[var(--muted)]">
+                <Clock className="h-4 w-4 shrink-0" />
+                <span>Closes {market.closeTime}</span>
+                <span aria-hidden="true">·</span>
+                <span className={realtime.stale ? "text-[var(--brass-text)]" : realtime.connected ? "text-[var(--green-text)]" : ""}>
+                  {realtime.stale ? "Updating delayed" : realtime.connected ? "Connected" : "Connecting"}
                 </span>
-                <span className="flex items-center gap-1.5">
-                  <ShieldCheck className="h-4 w-4" />
-                  Source: {market.source}
-                </span>
-                <a className="flex items-center gap-1.5 font-medium text-[var(--primary-strong)] hover:underline" href="#rules-evidence">
-                  <ExternalLink className="h-4 w-4" />
-                  Rules and evidence
-                </a>
-              </div>
-              <div className="mt-4 hidden gap-0 overflow-hidden rounded-md bg-[var(--surface-raised)]/42 text-xs sm:grid sm:grid-cols-4">
-                <div className="px-3 py-2">
-                  <div className="text-[var(--muted)]">Close</div>
-                  <div className="mt-0.5 font-medium text-[var(--foreground)]">{market.closeTime}</div>
-                </div>
-                <div className="border-l border-[color-mix(in_srgb,var(--border)_42%,transparent)] px-3 py-2">
-                  <div className="text-[var(--muted)]">Spread</div>
-                  <div className="numeric mt-0.5 font-medium text-[var(--foreground)]">{(analytics?.spread ?? market.spread) || 0} pts</div>
-                </div>
-                <div className="border-l border-[color-mix(in_srgb,var(--border)_42%,transparent)] px-3 py-2">
-                  <div className="text-[var(--muted)]">Liquidity</div>
-                  <div className="numeric mt-0.5 font-medium text-[var(--foreground)]">{formatCompact(analytics?.liquidityDepth ?? market.liquidity)}</div>
-                </div>
-                <div className="border-l border-[color-mix(in_srgb,var(--border)_42%,transparent)] px-3 py-2">
-                  <div className="text-[var(--muted)]">24h move</div>
-                  <div className={market.change24h >= 0 ? "numeric mt-0.5 font-medium text-[var(--green-text)]" : "numeric mt-0.5 font-medium text-[var(--red-text)]"}>
-                    {signedPercent(market.change24h)}
-                  </div>
-                </div>
-              </div>
-              <div className="mt-3 hidden text-xs leading-5 text-[var(--blue-text)] sm:block">
-                Confirm the source and resolution rule before placing a limit order. V1 uses simulated funds only.
               </div>
             </div>
-            <div className="min-w-[150px] px-1 py-1 text-right">
-              <div className="numeric text-3xl font-semibold">{market.probability}</div>
-              <div className="text-xs text-[var(--muted)]">YES price</div>
-              <div className={market.change24h >= 0 ? "mt-1 inline-flex items-center gap-1 text-sm font-medium text-[var(--green-text)]" : "mt-1 inline-flex items-center gap-1 text-sm font-medium text-[var(--red-text)]"}>
-                {market.change24h >= 0 ? <ArrowUpRight className="h-4 w-4" /> : <ArrowDownRight className="h-4 w-4" />}
-                {signedPercent(market.change24h)} 24h
+            <div className="text-right">
+              <div className="numeric text-3xl font-semibold">{market.probability}%</div>
+              <div className="text-xs text-[var(--muted)]">YES chance</div>
+              <div className={market.change24h >= 0 ? "mt-1 flex items-center justify-end text-xs font-medium text-[var(--green-text)]" : "mt-1 flex items-center justify-end text-xs font-medium text-[var(--red-text)]"}>
+                {market.change24h >= 0 ? <ArrowUpRight className="h-3.5 w-3.5" /> : <ArrowDownRight className="h-3.5 w-3.5" />}
+                {signedPercent(market.change24h)} today
               </div>
             </div>
+          </div>
+        </header>
+
+        <ProbabilityChart data={market.priceHistory} />
+
+        <section className="grid border-y border-[var(--border)] sm:grid-cols-2">
+          <div className="p-4 sm:border-r sm:border-[var(--border)]">
+            <div className="text-xs text-[var(--muted)]">Spread</div>
+            <div className="numeric mt-1 text-lg font-semibold">{spread ?? "-"} pts</div>
+            <p className="mt-2 max-w-md text-xs leading-5 text-[var(--muted)]">
+              The gap between the best buy and sell prices. A smaller spread usually means easier trading.
+            </p>
+          </div>
+          <div className="border-t border-[var(--border)] p-4 sm:border-t-0">
+            <div className="text-xs text-[var(--muted)]">24-hour volume</div>
+            <div className="numeric mt-1 text-lg font-semibold">{formatCompact(market.volume24h)}</div>
+            <p className="mt-2 text-xs leading-5 text-[var(--muted)]">Total value traded during the last 24 hours.</p>
           </div>
         </section>
 
-        <div className="order-2 md:order-2">
-          <ProbabilityChart data={market.priceHistory} sourceLabel={`Source: ${market.source}`} closeTime={market.closeTime} status={market.status} />
-        </div>
-        <div className="order-4">
-          <OrderBook market={market} />
-        </div>
+        <OrderBook market={market} />
 
-        <section className="order-5 grid gap-4 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
-          <div id="rules-evidence" className="scroll-mt-24 rounded-md bg-[var(--surface)]/38 p-3">
-            <div className="flex items-center justify-between">
-              <h2 className="text-sm font-semibold">Recent trades</h2>
-              <Badge tone="blue">Live tape</Badge>
-            </div>
-            <div className="exchange-table-header mt-3 grid grid-cols-4 px-2 py-2">
-              <span>Time</span>
-              <span>Outcome</span>
-              <span className="text-right">Price</span>
-              <span className="text-right">Qty</span>
-            </div>
-            <div className="space-y-1">
-              {market.recentTrades.length ? market.recentTrades.map((trade) => (
-                <div key={`${trade.time}-${trade.price}-${trade.quantity}`} className="grid min-h-9 grid-cols-4 items-center rounded-md px-2 text-sm hover:bg-[var(--surface-muted)]/60">
-                  <span className="text-[var(--muted)]">{trade.time}</span>
-                  <span>{trade.outcome}</span>
-                  <span className="numeric text-right">{trade.price}</span>
-                  <span className="numeric text-right">{trade.quantity}</span>
+        <details className="group border-y border-[var(--border)]">
+          <summary className="flex cursor-pointer list-none items-center justify-between py-4 text-sm font-semibold">
+            How this market resolves
+            <ChevronDown className="h-4 w-4 text-[var(--muted)] transition group-open:rotate-180" />
+          </summary>
+          <div className="space-y-4 pb-5 text-sm">
+            <p className="leading-6 text-[var(--muted)]">{market.ruleSummary}</p>
+            <dl className="grid gap-3 text-xs sm:grid-cols-2">
+              <div><dt className="text-[var(--muted)]">Status</dt><dd className="mt-1 font-medium">{market.status}</dd></div>
+              <div><dt className="text-[var(--muted)]">Market type</dt><dd className="mt-1 font-medium">{market.marketType}</dd></div>
+              <div><dt className="text-[var(--muted)]">Category</dt><dd className="mt-1 font-medium">{category?.name ?? market.categorySlug}</dd></div>
+              <div><dt className="text-[var(--muted)]">Close time</dt><dd className="mt-1 font-medium">{market.closeTime}</dd></div>
+              <div className="sm:col-span-2"><dt className="text-[var(--muted)]">Resolution source</dt><dd className="mt-1 font-medium">{market.source}</dd></div>
+            </dl>
+            {market.riskNotes.length ? (
+              <div>
+                <div className="mb-2 text-xs font-medium text-[var(--muted)]">Important notes</div>
+                <div className="flex flex-wrap gap-2">
+                  {market.riskNotes.map((note) => <Badge key={note} tone="brass">{note}</Badge>)}
                 </div>
-              )) : <div className="py-4 text-sm text-[var(--muted)]">No trades yet.</div>}
-            </div>
+              </div>
+            ) : null}
           </div>
+        </details>
 
-          <div className="rounded-md bg-[var(--surface)]/38 p-3">
-            <div className="flex items-center justify-between">
-              <h2 className="text-sm font-semibold">Rules and evidence</h2>
-              <Badge tone="brass">Resolution source</Badge>
-            </div>
-            <p className="mt-3 text-sm leading-6 text-[var(--muted)]">{market.ruleSummary}</p>
-            <div className="mt-3 space-y-2">
-              {market.riskNotes.map((note) => (
-                <div key={note} className="rounded-md bg-[var(--surface-muted)]/42 px-3 py-2 text-sm text-[var(--foreground)]">
-                  {note}
-                </div>
-              ))}
-            </div>
+        <details className="group border-b border-[var(--border)]">
+          <summary className="flex cursor-pointer list-none items-center justify-between py-4 text-sm font-semibold">
+            Recent trades
+            <ChevronDown className="h-4 w-4 text-[var(--muted)] transition group-open:rotate-180" />
+          </summary>
+          <div className="pb-4">
+            {market.recentTrades.length ? market.recentTrades.map((trade) => (
+              <div key={`${trade.time}-${trade.price}-${trade.quantity}`} className="grid grid-cols-[1fr_70px_70px] border-t border-[var(--border)] py-2 text-xs">
+                <span className="text-[var(--muted)]">{trade.outcome} · {trade.time}</span>
+                <span className="numeric text-right">{trade.price}</span>
+                <span className="numeric text-right">{trade.quantity}</span>
+              </div>
+            )) : <p className="text-sm text-[var(--muted)]">No completed trades yet.</p>}
           </div>
-        </section>
-
-        {relatedMarkets.length > 0 ? (
-          <section className="order-6">
-            <h2 className="mb-3 text-sm font-semibold">Related markets</h2>
-            <div className="grid gap-3 lg:grid-cols-2">
-              {relatedMarkets.map((item) => (
-                <MarketCard key={item.id} market={item} categories={categories} compact />
-              ))}
-            </div>
-          </section>
-        ) : null}
+        </details>
       </div>
 
       <TradeTicket market={market} />

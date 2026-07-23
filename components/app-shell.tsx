@@ -4,9 +4,9 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import * as Dialog from "@radix-ui/react-dialog";
 import {
-  Activity,
   AlertTriangle,
   Bell,
+  BriefcaseBusiness,
   ChevronRight,
   ClipboardList,
   LogOut,
@@ -15,29 +15,26 @@ import {
   Search,
   SearchX,
   ShieldCheck,
-  Sparkles,
   Star,
   UserRound,
   Wallet
 } from "lucide-react";
 import { motion } from "motion/react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useAuth } from "@/components/auth-provider";
 import { Badge } from "@/components/ui/badge";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { getInitials } from "@/lib/auth-session";
-import { useCategories, useMarkets, useWalletData } from "@/lib/api-hooks";
-import { cn, formatCompact, formatCurrency } from "@/lib/utils";
+import { useMarkets, useWalletData } from "@/lib/api-hooks";
+import { cn, formatCurrency } from "@/lib/utils";
 
 const navItems = [
-  { label: "Markets", href: "/markets", icon: LineChart },
-  { label: "Live", href: "/markets", icon: Activity },
+  { label: "Markets", href: "/", icon: LineChart },
   { label: "Watchlist", href: "/watchlist", icon: Star },
+  { label: "Portfolio", href: "/portfolio", icon: BriefcaseBusiness },
   { label: "Orders", href: "/orders", icon: ClipboardList },
-  { label: "Wallet", href: "/wallet", icon: Wallet },
-  { label: "Suggest", href: "/markets/suggest", icon: Sparkles },
-  { label: "Admin", href: "/admin", icon: ShieldCheck }
+  { label: "Wallet", href: "/wallet", icon: Wallet }
 ];
 
 const protectedPrefixes = ["/watchlist", "/profile", "/portfolio", "/orders", "/wallet", "/markets/suggest", "/admin", "/account/security"];
@@ -45,13 +42,13 @@ const adminPrefixes = ["/admin"];
 
 function isActive(pathname: string, href: string) {
   const cleanHref = href.split("?")[0];
-  if (cleanHref === "/markets") return pathname === "/markets" || pathname.startsWith("/markets/");
+  if (cleanHref === "/") return pathname === "/" || pathname === "/markets" || pathname.startsWith("/markets/");
   return pathname === cleanHref || pathname.startsWith(`${cleanHref}/`);
 }
 
 function MobileBottomNav() {
   const pathname = usePathname();
-  const mobileItems = navItems.filter((item) => item.label !== "Live" && item.label !== "Admin").slice(0, 5);
+  const mobileItems = navItems;
 
   return (
     <nav className="fixed inset-x-0 bottom-0 z-[var(--z-bottom-nav)] border-t border-[var(--border)] bg-[var(--surface)] px-2 pb-[calc(0.5rem+env(safe-area-inset-bottom))] pt-1 shadow-[0_-8px_20px_rgba(15,23,42,0.06)] lg:hidden">
@@ -79,10 +76,11 @@ function MobileBottomNav() {
   );
 }
 
-function CommandDialog() {
+function MarketSearch() {
   const [query, setQuery] = useState("");
+  const [open, setOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
   const { data: markets = [], isLoading: marketsLoading, error: marketsError } = useMarkets();
-  const { data: categories = [], isLoading: categoriesLoading, error: categoriesError } = useCategories();
   const normalizedQuery = query.trim().toLowerCase();
   const marketResults = useMemo(
     () =>
@@ -98,43 +96,56 @@ function CommandDialog() {
         .slice(0, 5),
     [markets, normalizedQuery]
   );
-  const categoryResults = useMemo(
-    () =>
-      categories
-        .filter((category) => {
-          if (!normalizedQuery) return true;
-          return category.name.toLowerCase().includes(normalizedQuery) || category.focus.join(" ").toLowerCase().includes(normalizedQuery);
-        })
-        .slice(0, 3),
-    [categories, normalizedQuery]
-  );
+  const loading = marketsLoading;
+  const hasError = Boolean(marketsError);
+  const noResults = !loading && !hasError && normalizedQuery.length > 0 && marketResults.length === 0;
 
-  const loading = marketsLoading || categoriesLoading;
-  const hasError = Boolean(marketsError || categoriesError);
-  const noResults = !loading && !hasError && normalizedQuery.length > 0 && marketResults.length === 0 && categoryResults.length === 0;
+  useEffect(() => {
+    function closeOnOutsideClick(event: MouseEvent) {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) setOpen(false);
+    }
+    function closeOnEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") setOpen(false);
+    }
+    document.addEventListener("mousedown", closeOnOutsideClick);
+    document.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.removeEventListener("mousedown", closeOnOutsideClick);
+      document.removeEventListener("keydown", closeOnEscape);
+    };
+  }, []);
 
   return (
-    <Dialog.Root>
-      <Dialog.Trigger asChild>
-        <Button variant="ghost" className="inline-flex w-9 justify-center bg-transparent px-0 text-[var(--muted)] hover:bg-[var(--surface-muted)]/60 md:w-[260px] md:justify-start md:px-3">
+    <div className="relative" ref={containerRef}>
+      <Button
+        variant="ghost"
+        aria-label="Search markets"
+        aria-expanded={open}
+        aria-haspopup="dialog"
+        className="inline-flex w-9 justify-center bg-transparent px-0 text-[var(--muted)] hover:bg-[var(--surface-muted)]/60 md:w-[260px] md:justify-start md:px-3"
+        onClick={() => setOpen((current) => !current)}
+      >
           <Search className="h-4 w-4" />
           <span className="hidden md:inline">Search markets</span>
-          <span className="ml-auto hidden rounded bg-[var(--surface-muted)] px-1.5 py-0.5 text-[10px] md:inline">Ctrl K</span>
-        </Button>
-      </Dialog.Trigger>
-      <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 z-50 bg-black/20" />
-        <Dialog.Content className="fixed left-1/2 top-20 z-50 w-[min(560px,calc(100vw-32px))] -translate-x-1/2 rounded-lg border border-[var(--border)] bg-[var(--surface)] p-3 shadow-2xl">
-          <Dialog.Title className="sr-only">Search command menu</Dialog.Title>
+      </Button>
+      {open ? (
+        <div
+          role="dialog"
+          aria-label="Search markets"
+          className="fixed inset-x-0 top-0 z-50 min-h-dvh bg-[var(--surface)] p-4 shadow-2xl md:absolute md:inset-auto md:right-0 md:top-full md:mt-2 md:min-h-0 md:w-[480px] md:rounded-md md:border md:border-[var(--border)] md:p-3"
+        >
           <div className="flex items-center gap-2 border-b border-[color-mix(in_srgb,var(--border)_70%,transparent)] px-1">
             <Search className="h-4 w-4 text-[var(--muted)]" />
             <Input
               className="border-0 px-0 shadow-none focus:ring-0"
-              placeholder="Search markets, categories, orders"
+              placeholder="Search markets"
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               autoFocus
             />
+            <Button variant="ghost" size="icon" aria-label="Close search" onClick={() => setOpen(false)}>
+              <SearchX className="h-4 w-4" />
+            </Button>
           </div>
           <div className="mt-3 max-h-[420px] overflow-y-auto">
             {hasError ? (
@@ -143,7 +154,7 @@ function CommandDialog() {
                   <AlertTriangle className="h-4 w-4" aria-hidden="true" />
                   Search data unavailable
                 </div>
-                <p className="mt-1 text-xs leading-5">Start the backend or switch to mock mode for populated local search.</p>
+                <p className="mt-1 text-xs leading-5">Try again in a moment.</p>
               </div>
             ) : loading ? (
               <div className="space-y-2 p-2" aria-busy="true">
@@ -157,65 +168,33 @@ function CommandDialog() {
                   <SearchX className="h-4 w-4" aria-hidden="true" />
                   No matches
                 </div>
-                <p className="mt-1 text-xs leading-5">Try a category, source, team, or shorter market phrase.</p>
+                <p className="mt-1 text-xs leading-5">Try a shorter market phrase.</p>
               </div>
             ) : (
               <>
-                <div className="mb-2 px-2 text-xs font-medium uppercase tracking-[0.08em] text-[var(--muted)]">Markets</div>
+                <div className="mb-2 px-2 text-xs font-medium text-[var(--muted)]">Markets</div>
                 <div className="space-y-1">
                   {marketResults.map((market) => (
-                <Dialog.Close key={market.id} asChild>
                   <Link
+                    key={market.id}
                     href={`/markets/${market.id}`}
                     className="flex items-center justify-between gap-3 rounded-md px-3 py-2 text-sm hover:bg-[var(--surface-muted)]"
+                    onClick={() => setOpen(false)}
                   >
                     <span className="min-w-0">
-                      <span className="block truncate font-medium">{market.title}</span>
-                      <span className="mt-0.5 block text-xs text-[var(--muted)]">{market.subcategory} / {market.marketType}</span>
+                      <span className="block truncate font-medium">{market.title.replace(/^Simulation:\s*/i, "")}</span>
+                      <span className="mt-0.5 block text-xs text-[var(--muted)]">{market.subcategory}</span>
                     </span>
                     <ChevronRight className="h-4 w-4 shrink-0 text-[var(--muted)]" />
                   </Link>
-                </Dialog.Close>
                   ))}
-                </div>
-                <div className="mb-2 mt-4 px-2 text-xs font-medium uppercase tracking-[0.08em] text-[var(--muted)]">Categories</div>
-                <div className="space-y-1">
-                  {categoryResults.map((category) => (
-                <Dialog.Close key={category.slug} asChild>
-                  <Link
-                    href={`/categories/${category.slug}`}
-                    className="flex items-center justify-between gap-3 rounded-md px-3 py-2 text-sm hover:bg-[var(--surface-muted)]"
-                  >
-                    <span>
-                      <span className="font-medium">{category.name}</span>
-                      <span className="ml-2 text-xs text-[var(--muted)]">{formatCompact(category.volume24h)}</span>
-                    </span>
-                    <ChevronRight className="h-4 w-4 text-[var(--muted)]" />
-                  </Link>
-                </Dialog.Close>
-                  ))}
-                </div>
-                <div className="mb-2 mt-4 px-2 text-xs font-medium uppercase tracking-[0.08em] text-[var(--muted)]">Actions</div>
-                <div className="space-y-1">
-                  {[
-                { label: "Profile", href: "/profile" },
-                { label: "Suggest a market", href: "/markets/suggest" },
-                { label: "Admin review", href: "/admin" }
-              ].map((item) => (
-                <Dialog.Close key={item.href} asChild>
-                  <Link className="flex items-center justify-between rounded-md px-3 py-2 text-sm hover:bg-[var(--surface-muted)]" href={item.href}>
-                    {item.label}
-                    <ChevronRight className="h-4 w-4 text-[var(--muted)]" />
-                  </Link>
-                </Dialog.Close>
-              ))}
                 </div>
               </>
             )}
           </div>
-        </Dialog.Content>
-      </Dialog.Portal>
-    </Dialog.Root>
+        </div>
+      ) : null}
+    </div>
   );
 }
 
@@ -320,6 +299,14 @@ function ProfileDialog() {
                 Profile
               </Link>
             </Dialog.Close>
+            {isAdminActor ? (
+              <Dialog.Close asChild>
+                <Link className="flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-[var(--surface-muted)]" href="/admin">
+                  <ShieldCheck className="h-4 w-4" />
+                  Admin
+                </Link>
+              </Dialog.Close>
+            ) : null}
             {isImpersonating ? (
               <Button className="w-full justify-start" variant="secondary" onClick={() => void stopImpersonation()}>
                 <ShieldCheck className="h-4 w-4" />
@@ -413,25 +400,25 @@ function ImpersonationBanner() {
 function TopNavigation() {
   const { user, loading } = useAuth();
   const pathname = usePathname();
-  const visibleItems = navItems.filter((item) => item.label !== "Admin" || user?.roles.includes("ADMIN"));
+  const visibleItems = navItems;
 
   return (
     <header className="sticky top-0 z-30 border-b border-[color-mix(in_srgb,var(--border)_55%,transparent)] bg-[var(--surface)] px-4 py-3 lg:px-8">
       <div className="mx-auto flex max-w-[1680px] items-center gap-4">
-        <Link href="/markets" className="flex shrink-0 items-center gap-3">
+        <Link href="/" className="flex shrink-0 items-center gap-3">
           <div className="grid h-9 w-9 place-items-center rounded-md bg-[var(--primary)] text-sm font-semibold text-white shadow-sm">
             PM
           </div>
           <div className="hidden sm:block">
             <div className="text-sm font-semibold text-[var(--foreground)]">Pred-Market</div>
-            <div className="text-xs text-[var(--muted)]">Exchange terminal</div>
+            <div className="text-xs text-[var(--green-text)]">Simulated funds</div>
           </div>
         </Link>
 
         <nav className="hidden min-w-0 flex-1 items-center gap-1 lg:flex" aria-label="Primary navigation">
           {visibleItems.map((item) => {
             const Icon = item.icon;
-            const active = item.label === "Live" ? false : isActive(pathname, item.href);
+            const active = isActive(pathname, item.href);
             return (
               <Link
                 key={item.label}
@@ -449,7 +436,7 @@ function TopNavigation() {
         </nav>
 
         <div className="min-w-0 flex-1 lg:hidden" />
-        <CommandDialog />
+        <MarketSearch />
         {user ? <NotificationDialog /> : null}
         {user ? (
           <>
@@ -519,7 +506,6 @@ function RouteAccessGate({ children }: { children: React.ReactNode }) {
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const isLandingPage = pathname === "/";
   const isAuthSurface =
     pathname === "/sign-in" ||
     pathname === "/sign-up" ||
@@ -544,7 +530,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       >
         <RouteAccessGate>{children}</RouteAccessGate>
       </motion.main>
-      {isLandingPage ? null : <MobileBottomNav />}
+      <MobileBottomNav />
     </div>
   );
 }

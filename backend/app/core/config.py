@@ -37,6 +37,9 @@ class Settings(BaseSettings):
   resend_from: str = "Pred-Market <onboarding@resend.dev>"
   admin_bootstrap_email: str = ""
   admin_bootstrap_password: str = ""
+  simulated_market_maker_enabled: bool = False
+  simulated_market_maker_cash_minor: int = 10_000_000
+  simulated_market_maker_depth: str = "200,160,120,80,40"
 
   @field_validator("database_url", mode="before")
   @classmethod
@@ -50,6 +53,15 @@ class Settings(BaseSettings):
   @property
   def cors_origin_list(self) -> list[str]:
     return [item.strip() for item in self.cors_origins.split(",") if item.strip()]
+
+  @property
+  def simulated_market_maker_active(self) -> bool:
+    return self.simulated_market_maker_enabled and self.environment.lower() in {"development", "test", "staging"}
+
+  @property
+  def simulated_market_maker_depth_levels(self) -> list[int]:
+    values = [int(item.strip()) for item in self.simulated_market_maker_depth.split(",") if item.strip()]
+    return values[:5] or [200, 160, 120, 80, 40]
 
 
 @lru_cache

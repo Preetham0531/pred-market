@@ -165,19 +165,19 @@ JWT_SECRET_KEY=strong_random_secret
 DEMO_SEED_ENABLED=false
 ```
 
-### 2. Landing Page
+### 2. Markets-First Home
 
-Create a minimalistic public landing page at `/`.
+Render the simplified market feed at `/`.
 
 Requirements:
 
 ```text
 Calm graphite design
-No casino styling
-No loud gradients
-Clear product identity
-Clear Sign in / Create account / Explore markets actions
-Signed-in users can continue to market dashboard
+No casino styling or loud gradients
+Compact executable YES/NO prices
+Real volume, spread, movement, and close time
+Desktop search anchored below its trigger
+Focused mobile search sheet
 Responsive mobile layout
 ```
 
@@ -185,13 +185,13 @@ Important behavior:
 
 ```text
 Signed out user opens /
-  -> sees landing page
+  -> can browse markets and signs in only when trading
 
 Signed in user opens /
-  -> can go to /markets quickly
+  -> sees the same market feed with wallet/profile controls
 ```
 
-Do not break existing `/markets`.
+Keep `/markets` as a compatible route to the same feed. Keep Live and Suggest hidden; suggestions remain behind `NEXT_PUBLIC_ENABLE_MARKET_SUGGESTIONS=false`.
 
 ### 3. Production-Safe Admin Bootstrap
 

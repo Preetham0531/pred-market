@@ -6,6 +6,7 @@ from app.core.public_ids import matches_public_id, public_id
 from app.core.security import utc_now
 from app.modules.audit.service import write_audit_log
 from app.modules.markets.models import Market, Outcome
+from app.modules.markets.service import update_market_after_trade
 from app.modules.orders.models import Order
 from app.modules.positions.service import add_position, lock_position_shares, transfer_position, unlock_position_shares
 from app.modules.realtime.service import write_market_event, write_user_event
@@ -176,11 +177,11 @@ def match_binary_order(db: Session, incoming: Order, outcome: Outcome) -> None:
         Order.market_id == incoming.market_id,
         Order.outcome_id == complement.id,
         Order.side == "BUY",
-        Order.price_minor == required_price,
+        Order.price_minor >= required_price,
         Order.status.in_(["OPEN", "PARTIALLY_FILLED"]),
         Order.user_id != incoming.user_id,
       )
-      .order_by(Order.created_at.asc(), Order.id.asc())
+      .order_by(Order.price_minor.desc(), Order.created_at.asc(), Order.id.asc())
       .options(selectinload(Order.outcome))
     ).all()
   )
@@ -192,16 +193,26 @@ def match_binary_order(db: Session, incoming: Order, outcome: Outcome) -> None:
 
 
 def execute_binary_fill(db: Session, *, incoming: Order, resting: Order, quantity: int, incoming_outcome: Outcome, resting_outcome: Outcome) -> None:
-  incoming_amount = incoming.price_minor * quantity
+  incoming_fill_price = 100 - resting.price_minor
+  incoming_amount = incoming_fill_price * quantity
   resting_amount = resting.price_minor * quantity
   incoming.filled_quantity += quantity
   resting.filled_quantity += quantity
   incoming.locked_cash_minor -= incoming_amount
   resting.locked_cash_minor -= resting_amount
+  price_improvement = (incoming.price_minor - incoming_fill_price) * quantity
+  if price_improvement > 0:
+    release_locked_cash(
+      db,
+      user_id=incoming.user_id,
+      amount_minor=price_improvement,
+      reference_id=f"{incoming.id}:{resting.id}:{incoming.filled_quantity}",
+    )
+    incoming.locked_cash_minor -= price_improvement
   trade = Trade(
     market_id=incoming.market_id,
     outcome_id=incoming.outcome_id,
-    price_minor=incoming.price_minor,
+    price_minor=incoming_fill_price,
     quantity=quantity,
     buyer_user_id=incoming.user_id,
     seller_user_id=resting.user_id,
@@ -212,10 +223,25 @@ def execute_binary_fill(db: Session, *, incoming: Order, resting: Order, quantit
   db.flush()
   move_locked_cash_to_market_collateral(db, user_id=incoming.user_id, market_id=incoming.market_id, amount_minor=incoming_amount, reference_id=trade.id)
   move_locked_cash_to_market_collateral(db, user_id=resting.user_id, market_id=resting.market_id, amount_minor=resting_amount, reference_id=trade.id)
-  add_position(db, user_id=incoming.user_id, market_id=incoming.market_id, outcome_id=incoming.outcome_id, quantity=quantity, price_minor=incoming.price_minor)
+  add_position(db, user_id=incoming.user_id, market_id=incoming.market_id, outcome_id=incoming.outcome_id, quantity=quantity, price_minor=incoming_fill_price)
   add_position(db, user_id=resting.user_id, market_id=resting.market_id, outcome_id=resting.outcome_id, quantity=quantity, price_minor=resting.price_minor)
   update_order_status(resting)
+  update_market_after_trade(
+    db,
+    incoming.market,
+    incoming_outcome,
+    price_minor=incoming_fill_price,
+    quantity=quantity,
+    traded_at=trade.created_at or utc_now(),
+  )
   write_market_event(db, event_type="trade.created", market_id=incoming.market_id, suffix="trades", payload={"trade_id": trade.id, "price_minor": trade.price_minor, "quantity": trade.quantity})
+  write_market_event(
+    db,
+    event_type="ticker.updated",
+    market_id=incoming.market_id,
+    suffix="ticker",
+    payload={"probability": incoming.market.probability, "volume_24h": incoming.market.volume_24h, "spread": incoming.market.spread},
+  )
   write_user_event(db, event_type="position.updated", user_id=incoming.user_id, suffix="positions", market_id=incoming.market_id, payload={"market_id": incoming.market_id, "outcome_id": incoming.outcome_id})
   write_user_event(db, event_type="position.updated", user_id=resting.user_id, suffix="positions", market_id=resting.market_id, payload={"market_id": resting.market_id, "outcome_id": resting.outcome_id})
 
@@ -274,7 +300,12 @@ def execute_outcome_fill(db: Session, *, incoming: Order, resting: Order, quanti
   buy_order.locked_cash_minor -= cash_to_seller
   sell_order.locked_shares -= quantity
   if incoming.side == "BUY" and incoming.price_minor > fill_price:
-    release_locked_cash(db, user_id=incoming.user_id, amount_minor=(incoming.price_minor - fill_price) * quantity, reference_id=incoming.id)
+    release_locked_cash(
+      db,
+      user_id=incoming.user_id,
+      amount_minor=(incoming.price_minor - fill_price) * quantity,
+      reference_id=f"{incoming.id}:{resting.id}:{incoming.filled_quantity}",
+    )
     incoming.locked_cash_minor -= (incoming.price_minor - fill_price) * quantity
   trade = Trade(
     market_id=incoming.market_id,
@@ -291,7 +322,22 @@ def execute_outcome_fill(db: Session, *, incoming: Order, resting: Order, quanti
   transfer_locked_cash_to_user_available(db, from_user_id=buyer_id, to_user_id=seller_id, amount_minor=cash_to_seller, reference_id=trade.id)
   transfer_position(db, seller_user_id=seller_id, buyer_user_id=buyer_id, market_id=incoming.market_id, outcome_id=incoming.outcome_id, quantity=quantity, price_minor=fill_price)
   update_order_status(resting)
+  update_market_after_trade(
+    db,
+    incoming.market,
+    incoming.outcome,
+    price_minor=fill_price,
+    quantity=quantity,
+    traded_at=trade.created_at or utc_now(),
+  )
   write_market_event(db, event_type="trade.created", market_id=incoming.market_id, suffix="trades", payload={"trade_id": trade.id, "price_minor": trade.price_minor, "quantity": trade.quantity})
+  write_market_event(
+    db,
+    event_type="ticker.updated",
+    market_id=incoming.market_id,
+    suffix="ticker",
+    payload={"probability": incoming.market.probability, "volume_24h": incoming.market.volume_24h, "spread": incoming.market.spread},
+  )
   write_user_event(db, event_type="position.updated", user_id=buyer_id, suffix="positions", market_id=incoming.market_id, payload={"market_id": incoming.market_id, "outcome_id": incoming.outcome_id})
   write_user_event(db, event_type="position.updated", user_id=seller_id, suffix="positions", market_id=incoming.market_id, payload={"market_id": incoming.market_id, "outcome_id": incoming.outcome_id})
 
